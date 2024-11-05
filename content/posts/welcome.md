@@ -1,6 +1,6 @@
 ---
 title: 欢迎来到我的博客
-layout: home
+layout: about
 date: 2023-12-14T17:30:22+08:00
 ---
 
@@ -17,8 +17,8 @@ date: 2023-12-14T17:30:22+08:00
 
 ## 联系方式
 
-- 邮箱：[admin@yu-chu.tech](mailto:admin@yu-chu.tech)
-- GitHub：[github.com/mazhijia](https://github.com/mazhijia)
+- 邮箱：[syuchua@proton.me](mailto:syuchua@proton.me)
+- GitHub：[github.com/syuchua](https://github.com/syuchua)
 
 感谢您的访问，希望您喜欢我的博客！
 

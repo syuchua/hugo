@@ -1,66 +1,100 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GKD on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/gkd/</link><description>Recent content in GKD on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 29 Apr 2024 21:09:03 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/gkd/index.xml" rel="self" type="application/rss+xml"/><item><title>shizuku:安卓玩机入门指南</title><link>https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 29 Apr 2024 21:09:03 +0800</pubDate><guid>https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="shizuku是什么">&lt;a href="#shizuku%e6%98%af%e4%bb%80%e4%b9%88" class="header-anchor">&lt;/a>shizuku是什么？
-&lt;/h1>&lt;p>&lt;code>Shizuku&lt;/code> 是一款开源的 ADB（Android Debug Briage）权限管理器。由于现阶段大部分安卓手机都无法解锁获取 ROOT 高级权限，但是用户又需要高级权限对系统进行一些操作，恰好这些功能可以通过 ADB 权限进行解决，比如冻结应用、卸载不想要的系统应用（只有少部分能通过adb卸载，更多的还是建议root）。这种情况下，&lt;code>Shizuku&lt;/code> 就是一个非常好的解决方案。&lt;/p>
-&lt;p>具体关于shizuku是什么，官网已经给出了很明确的解释：&lt;code>Shizuku&lt;/code> 可以帮助普通应用借助一个由 app_process 启动的 Java 进程直接以 adb 或 root 特权使用系统 API。简单来说，root权限&amp;gt;&lt;code>shizuku&lt;/code>的权限&amp;gt;普通用户，利用这一聊胜于无的权限，我们就已经可以做很多事了。&lt;/p>
-&lt;h1 id="安装shizuku">&lt;a href="#%e5%ae%89%e8%a3%85shizuku" class="header-anchor">&lt;/a>安装shizuku
-&lt;/h1>&lt;p>酷安的&lt;code>shizuku&lt;/code>下载地址似乎已经被ban了，那就只能用&lt;a class="link" href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api&amp;amp;pli=1" target="_blank" rel="noopener"
->Google play&lt;/a>或者&lt;a class="link" href="https://github.com/RikkaApps/Shizuku/releases/download/v13.5.4/shizuku-v13.5.4.r1049.0e53409-release.apk" target="_blank" rel="noopener"
->github&lt;/a>下载了，国内用户访问这两个地址不方便的，也可以使用我的&lt;a class="link" href="https://cloud.yuchu.me/s/mOsK" target="_blank" rel="noopener"
->cloudreve&lt;/a>&lt;/p>
-&lt;h1 id="激活shizuku">&lt;a href="#%e6%bf%80%e6%b4%bbshizuku" class="header-anchor">&lt;/a>激活shizuku
-&lt;/h1>&lt;ul>
-&lt;li>
-&lt;p>&lt;code>shizuku&lt;/code>官方提供了三种激活方式，root激活，连接电脑通过adb激活和无线调试激活。root激活就不提了，我都root了还折腾&lt;code>shizuku&lt;/code>干嘛（笑），adb激活需要手边有电脑，总归是不太方便，而且后面我们还会介绍一种更好的方法。现在我们先演示用无线调试激活。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>打开手机设置-我的设备（也可能是我的手机或其他类似的选项），找到版本号，连续点击至少5次，直到弹出“您已处于开发者模式”的提示。
-返回设置-更多设置-开发者选项，启用无线调试。在 &lt;code>Shizuku&lt;/code> 软件内开始配对- 点按“无线调试”中的“使用配对码配对设备”- 在下来菜单的&lt;code>Shizuku&lt;/code>的通知中填入配对码&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://pic2.zhimg.com/80/v2-939e9ad3fc44143e564d816506713e7d_720w.webp"
-loading="lazy"
->&lt;/p>
-&lt;p>&lt;img src="https://pic4.zhimg.com/80/v2-22abc729f625f8298928f79dc53ccbf3_720w.webp"
-loading="lazy"
->&lt;/p>
-&lt;ul>
-&lt;li>无效调试激活方案注意事项: 如果无法输入配对码，请在系统-通知样式选项中，将默认通知样式改为 原生样式- 启用无线调试的过程中，部分系统会提示「某个应用遮挡了权限请求界面」，可以尝试关闭系统的侧边栏功能或者关闭掉所有允获取了悬浮窗权限的应用&lt;/li>
-&lt;/ul>
-&lt;h2 id="通过黑阈激活">&lt;a href="#%e9%80%9a%e8%bf%87%e9%bb%91%e9%98%88%e6%bf%80%e6%b4%bb" class="header-anchor">&lt;/a>通过黑阈激活
-&lt;/h2>&lt;p>黑阈是一款不需要root就能待机或强行停止应用的工具，它可以配合shizuku实现对一些流氓应用的限制。但这里我们要用到的是它的另一个功能&amp;mdash;指令。&lt;/p>
-&lt;h3 id="下载安装黑阈">&lt;a href="#%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85%e9%bb%91%e9%98%88" class="header-anchor">&lt;/a>下载安装黑阈
-&lt;/h3>&lt;p>酷安可以直接下载：https://www.coolapk.com/apk/me.piebridge.brevent&lt;/p>
-&lt;p>安装完成后照着上面无线调试激活shizuku的步骤，无线激活黑阈就好了&lt;/p>
-&lt;p>激活后点击左上角-执行指令
-&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/1000077394_origin_IMG_20240429_220943.jpg"
-loading="lazy"
->&lt;/p>
-&lt;p>输入&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>即可激活&lt;code>shizuku&lt;/code>这一步的原理其实与adb激活shizuku类似，不过不需要电脑，好处是适配性更好，也比较方便，仅此更推荐用这种方式激活shizuku。&lt;/p>
-&lt;h1 id="shizuku常见用法">&lt;a href="#shizuku%e5%b8%b8%e8%a7%81%e7%94%a8%e6%b3%95" class="header-anchor">&lt;/a>shizuku常见用法
-&lt;/h1>&lt;ol>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.coolapk.com/apk/com.catchingnow.icebox" target="_blank" rel="noopener"
->使用冰箱冻结应用&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://www.coolapk.com/apk/bin.mt.plus" target="_blank" rel="noopener"
->给mt管理器提权，使之能访问Android/data目录&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://cloud.yuchu.me/s/nRtq" target="_blank" rel="noopener"
->给scene提权，查看CPU运行状态和检测游戏帧率&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://cloud.yuchu.me/s/ojuL" target="_blank" rel="noopener"
->给APP Ops提权，更好地监控和管理app权限，对抗摇一摇广告的神！&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://cloud.yuchu.me/s/p2CN" target="_blank" rel="noopener"
->给GKD提权，反开屏广告地神！&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a class="link" href="https://cloud.yuchu.me/s/q2FP" target="_blank" rel="noopener"
->给termux提权，在termux里也能访问Android/data目录&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GKD on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/gkd/</link>
+        <description>Recent content in GKD on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Mon, 29 Apr 2024 21:09:03 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/gkd/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>shizuku:安卓玩机入门指南</title>
+        <link>http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link>
+        <pubDate>Mon, 29 Apr 2024 21:09:03 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid>
+        <description>&lt;h1 id=&#34;shizuku是什么&#34;&gt;&lt;a href=&#34;#shizuku%e6%98%af%e4%bb%80%e4%b9%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;shizuku是什么？
+&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Shizuku&lt;/code&gt; 是一款开源的 ADB（Android Debug Briage）权限管理器。由于现阶段大部分安卓手机都无法解锁获取 ROOT 高级权限，但是用户又需要高级权限对系统进行一些操作，恰好这些功能可以通过 ADB 权限进行解决，比如冻结应用、卸载不想要的系统应用（只有少部分能通过adb卸载，更多的还是建议root）。这种情况下，&lt;code&gt;Shizuku&lt;/code&gt; 就是一个非常好的解决方案。&lt;/p&gt;
+&lt;p&gt;具体关于shizuku是什么，官网已经给出了很明确的解释：&lt;code&gt;Shizuku&lt;/code&gt; 可以帮助普通应用借助一个由 app_process 启动的 Java 进程直接以 adb 或 root 特权使用系统 API。简单来说，root权限&amp;gt;&lt;code&gt;shizuku&lt;/code&gt;的权限&amp;gt;普通用户，利用这一聊胜于无的权限，我们就已经可以做很多事了。&lt;/p&gt;
+&lt;h1 id=&#34;安装shizuku&#34;&gt;&lt;a href=&#34;#%e5%ae%89%e8%a3%85shizuku&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;安装shizuku
+&lt;/h1&gt;&lt;p&gt;酷安的&lt;code&gt;shizuku&lt;/code&gt;下载地址似乎已经被ban了，那就只能用&lt;a class=&#34;link&#34; href=&#34;https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api&amp;amp;pli=1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google play&lt;/a&gt;或者&lt;a class=&#34;link&#34; href=&#34;https://github.com/RikkaApps/Shizuku/releases/download/v13.5.4/shizuku-v13.5.4.r1049.0e53409-release.apk&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github&lt;/a&gt;下载了，国内用户访问这两个地址不方便的，也可以使用我的&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/mOsK&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;cloudreve&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;激活shizuku&#34;&gt;&lt;a href=&#34;#%e6%bf%80%e6%b4%bbshizuku&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;激活shizuku
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;shizuku&lt;/code&gt;官方提供了三种激活方式，root激活，连接电脑通过adb激活和无线调试激活。root激活就不提了，我都root了还折腾&lt;code&gt;shizuku&lt;/code&gt;干嘛（笑），adb激活需要手边有电脑，总归是不太方便，而且后面我们还会介绍一种更好的方法。现在我们先演示用无线调试激活。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开手机设置-我的设备（也可能是我的手机或其他类似的选项），找到版本号，连续点击至少5次，直到弹出“您已处于开发者模式”的提示。
+返回设置-更多设置-开发者选项，启用无线调试。在 &lt;code&gt;Shizuku&lt;/code&gt; 软件内开始配对- 点按“无线调试”中的“使用配对码配对设备”- 在下来菜单的&lt;code&gt;Shizuku&lt;/code&gt;的通知中填入配对码&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/80/v2-939e9ad3fc44143e564d816506713e7d_720w.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/80/v2-22abc729f625f8298928f79dc53ccbf3_720w.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无效调试激活方案注意事项: 如果无法输入配对码，请在系统-通知样式选项中，将默认通知样式改为 原生样式- 启用无线调试的过程中，部分系统会提示「某个应用遮挡了权限请求界面」，可以尝试关闭系统的侧边栏功能或者关闭掉所有允获取了悬浮窗权限的应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;通过黑阈激活&#34;&gt;&lt;a href=&#34;#%e9%80%9a%e8%bf%87%e9%bb%91%e9%98%88%e6%bf%80%e6%b4%bb&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;通过黑阈激活
+&lt;/h2&gt;&lt;p&gt;黑阈是一款不需要root就能待机或强行停止应用的工具，它可以配合shizuku实现对一些流氓应用的限制。但这里我们要用到的是它的另一个功能&amp;mdash;指令。&lt;/p&gt;
+&lt;h3 id=&#34;下载安装黑阈&#34;&gt;&lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85%e9%bb%91%e9%98%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;下载安装黑阈
+&lt;/h3&gt;&lt;p&gt;酷安可以直接下载：https://www.coolapk.com/apk/me.piebridge.brevent&lt;/p&gt;
+&lt;p&gt;安装完成后照着上面无线调试激活shizuku的步骤，无线激活黑阈就好了&lt;/p&gt;
+&lt;p&gt;激活后点击左上角-执行指令
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/1000077394_origin_IMG_20240429_220943.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可激活&lt;code&gt;shizuku&lt;/code&gt;这一步的原理其实与adb激活shizuku类似，不过不需要电脑，好处是适配性更好，也比较方便，仅此更推荐用这种方式激活shizuku。&lt;/p&gt;
+&lt;h1 id=&#34;shizuku常见用法&#34;&gt;&lt;a href=&#34;#shizuku%e5%b8%b8%e8%a7%81%e7%94%a8%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;shizuku常见用法
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.coolapk.com/apk/com.catchingnow.icebox&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;使用冰箱冻结应用&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.coolapk.com/apk/bin.mt.plus&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;给mt管理器提权，使之能访问Android/data目录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/nRtq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;给scene提权，查看CPU运行状态和检测游戏帧率&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/ojuL&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;给APP Ops提权，更好地监控和管理app权限，对抗摇一摇广告的神！&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/p2CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;给GKD提权，反开屏广告地神！&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/q2FP&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;给termux提权，在termux里也能访问Android/data目录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

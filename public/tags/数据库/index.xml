@@ -1,194 +1,213 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据库 on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link><description>Recent content in 数据库 on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Sep 2024 23:03:02 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml"/><item><title>运维岗需要掌握的数据库基础和调优技巧</title><link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</link><pubDate>Wed, 25 Sep 2024 23:03:02 +0800</pubDate><guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</guid><description>&lt;h1 id="数据库运维笔记">&lt;a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0" class="header-anchor">&lt;/a>数据库运维笔记
-&lt;/h1>&lt;h2 id="目录">&lt;a href="#%e7%9b%ae%e5%bd%95" class="header-anchor">&lt;/a>目录
-&lt;/h2>&lt;ol>
-&lt;li>&lt;a class="link" href="#1-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" >数据库基本概念&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#2-mysql-%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c" >MySQL 基本操作&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#3-%e9%ab%98%e5%8f%af%e7%94%a8%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" >高可用解决方案&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#4-%e5%b8%b8%e8%a7%81-sql-%e8%af%ad%e5%8f%a5" >常见 SQL 语句&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#5-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%a4%87%e4%bb%bd%e4%b8%8e%e6%81%a2%e5%a4%8d" >数据库备份与恢复&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#6-%e6%95%b0%e6%8d%ae%e5%ba%93%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" >数据库性能优化&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;hr>
-&lt;h2 id="1-数据库基本概念">&lt;a href="#1-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" class="header-anchor">&lt;/a>1. 数据库基本概念
-&lt;/h2>&lt;h3 id="acid-特性">&lt;a href="#acid-%e7%89%b9%e6%80%a7" class="header-anchor">&lt;/a>&lt;strong>ACID 特性&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>Atomicity（原子性）&lt;/strong>: 事务的所有操作要么全部完成，要么全部不完成。&lt;/li>
-&lt;li>&lt;strong>Consistency（一致性）&lt;/strong>: 事务执行前后，数据库处于一致状态。&lt;/li>
-&lt;li>&lt;strong>Isolation（隔离性）&lt;/strong>: 并发事务互不干扰。&lt;/li>
-&lt;li>&lt;strong>Durability（持久性）&lt;/strong>: 事务一旦提交，修改将永久保存。&lt;/li>
-&lt;/ul>
-&lt;h3 id="数据库引擎">&lt;a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%bc%95%e6%93%8e" class="header-anchor">&lt;/a>&lt;strong>数据库引擎&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>InnoDB&lt;/strong>: 支持事务，支持外键，提供崩溃恢复功能。&lt;/li>
-&lt;li>&lt;strong>MyISAM&lt;/strong>: 不支持事务，速度快，适用于读多写少的应用。&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="2-mysql-基本操作">&lt;a href="#2-mysql-%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c" class="header-anchor">&lt;/a>2. MySQL 基本操作
-&lt;/h2>&lt;h3 id="启动与停止-mysql-服务">&lt;a href="#%e5%90%af%e5%8a%a8%e4%b8%8e%e5%81%9c%e6%ad%a2-mysql-%e6%9c%8d%e5%8a%a1" class="header-anchor">&lt;/a>&lt;strong>启动与停止 MySQL 服务&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>启动服务&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>systemctl start mysqld
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>停止服务&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>systemctl stop mysqld
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="登录-mysql">&lt;a href="#%e7%99%bb%e5%bd%95-mysql" class="header-anchor">&lt;/a>&lt;strong>登录 MySQL&lt;/strong>
-&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>mysql -u root -p
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="数据库管理">&lt;a href="#%e6%95%b0%e6%8d%ae%e5%ba%93%e7%ae%a1%e7%90%86" class="header-anchor">&lt;/a>&lt;strong>数据库管理&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>创建数据库&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">CREATE&lt;/span> &lt;span style="color:#ff79c6">DATABASE&lt;/span> db_name;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>删除数据库&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">DROP&lt;/span> &lt;span style="color:#ff79c6">DATABASE&lt;/span> db_name;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="用户管理">&lt;a href="#%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86" class="header-anchor">&lt;/a>&lt;strong>用户管理&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>创建用户&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">CREATE&lt;/span> &lt;span style="color:#ff79c6">USER&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;username&amp;#39;&lt;/span>&lt;span style="color:#ff79c6">@&lt;/span>&lt;span style="color:#f1fa8c">&amp;#39;host&amp;#39;&lt;/span> IDENTIFIED &lt;span style="color:#ff79c6">BY&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;password&amp;#39;&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>删除用户&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">DROP&lt;/span> &lt;span style="color:#ff79c6">USER&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;username&amp;#39;&lt;/span>&lt;span style="color:#ff79c6">@&lt;/span>&lt;span style="color:#f1fa8c">&amp;#39;host&amp;#39;&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="3-高可用解决方案">&lt;a href="#3-%e9%ab%98%e5%8f%af%e7%94%a8%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" class="header-anchor">&lt;/a>3. 高可用解决方案
-&lt;/h2>&lt;h3 id="主从复制-master-slave-replication">&lt;a href="#%e4%b8%bb%e4%bb%8e%e5%a4%8d%e5%88%b6-master-slave-replication" class="header-anchor">&lt;/a>&lt;strong>主从复制 (Master-Slave Replication)&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>主服务器 (Master)&lt;/strong>: 负责处理写操作，数据变化会传递给从服务器。&lt;/li>
-&lt;li>&lt;strong>从服务器 (Slave)&lt;/strong>: 负责处理读操作，并同步主服务器的数据。&lt;/li>
-&lt;/ul>
-&lt;h3 id="双主复制-master-master-replication">&lt;a href="#%e5%8f%8c%e4%b8%bb%e5%a4%8d%e5%88%b6-master-master-replication" class="header-anchor">&lt;/a>&lt;strong>双主复制 (Master-Master Replication)&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>两个服务器互为主服务器，支持双向数据同步。&lt;/li>
-&lt;/ul>
-&lt;h3 id="pxc-percona-xtradb-cluster-或-galera-cluster">&lt;a href="#pxc-percona-xtradb-cluster-%e6%88%96-galera-cluster" class="header-anchor">&lt;/a>&lt;strong>PXC (Percona XtraDB Cluster)&lt;/strong> 或 &lt;strong>Galera Cluster&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>提供多主复制，所有节点都能读写，实现真正的高可用。&lt;/li>
-&lt;/ul>
-&lt;h3 id="keepalived--mysql-通过虚拟-ip-实现-mysql-的高可用性保证数据库服务不间断">&lt;a href="#keepalived--mysql-%e9%80%9a%e8%bf%87%e8%99%9a%e6%8b%9f-ip-%e5%ae%9e%e7%8e%b0-mysql-%e7%9a%84%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7%e4%bf%9d%e8%af%81%e6%95%b0%e6%8d%ae%e5%ba%93%e6%9c%8d%e5%8a%a1%e4%b8%8d%e9%97%b4%e6%96%ad" class="header-anchor">&lt;/a>&lt;strong>Keepalived + MySQL&lt;/strong>: 通过虚拟 IP 实现 MySQL 的高可用性，保证数据库服务不间断。
-&lt;/h3>&lt;hr>
-&lt;h2 id="4-常见-sql-语句">&lt;a href="#4-%e5%b8%b8%e8%a7%81-sql-%e8%af%ad%e5%8f%a5" class="header-anchor">&lt;/a>4. 常见 SQL 语句
-&lt;/h2>&lt;h3 id="数据查询">&lt;a href="#%e6%95%b0%e6%8d%ae%e6%9f%a5%e8%af%a2" class="header-anchor">&lt;/a>&lt;strong>数据查询&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>查询所有数据&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">SELECT&lt;/span> &lt;span style="color:#ff79c6">*&lt;/span> &lt;span style="color:#ff79c6">FROM&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>查询指定条件的数据&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">SELECT&lt;/span> &lt;span style="color:#ff79c6">*&lt;/span> &lt;span style="color:#ff79c6">FROM&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> &lt;span style="color:#ff79c6">WHERE&lt;/span> condition;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="数据插入">&lt;a href="#%e6%95%b0%e6%8d%ae%e6%8f%92%e5%85%a5" class="header-anchor">&lt;/a>&lt;strong>数据插入&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>插入数据到表中
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">INSERT&lt;/span> &lt;span style="color:#ff79c6">INTO&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> (column1, column2) &lt;span style="color:#ff79c6">VALUES&lt;/span> (value1, value2);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="数据更新">&lt;a href="#%e6%95%b0%e6%8d%ae%e6%9b%b4%e6%96%b0" class="header-anchor">&lt;/a>&lt;strong>数据更新&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>更新表中的数据
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">UPDATE&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> &lt;span style="color:#ff79c6">SET&lt;/span> column1 &lt;span style="color:#ff79c6">=&lt;/span> value1 &lt;span style="color:#ff79c6">WHERE&lt;/span> condition;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="数据删除">&lt;a href="#%e6%95%b0%e6%8d%ae%e5%88%a0%e9%99%a4" class="header-anchor">&lt;/a>&lt;strong>数据删除&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>删除表中的数据
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">DELETE&lt;/span> &lt;span style="color:#ff79c6">FROM&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> &lt;span style="color:#ff79c6">WHERE&lt;/span> condition;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="表结构管理">&lt;a href="#%e8%a1%a8%e7%bb%93%e6%9e%84%e7%ae%a1%e7%90%86" class="header-anchor">&lt;/a>&lt;strong>表结构管理&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>创建表&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">CREATE&lt;/span> &lt;span style="color:#ff79c6">TABLE&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> (
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span> column1 datatype,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> column2 datatype,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span> ...
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>删除表&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">DROP&lt;/span> &lt;span style="color:#ff79c6">TABLE&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>修改表结构&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">ALTER&lt;/span> &lt;span style="color:#ff79c6">TABLE&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> &lt;span style="color:#ff79c6">ADD&lt;/span> &lt;span style="color:#ff79c6">column_name&lt;/span> datatype;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="5-数据库备份与恢复">&lt;a href="#5-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%a4%87%e4%bb%bd%e4%b8%8e%e6%81%a2%e5%a4%8d" class="header-anchor">&lt;/a>5. 数据库备份与恢复
-&lt;/h2>&lt;h3 id="备份">&lt;a href="#%e5%a4%87%e4%bb%bd" class="header-anchor">&lt;/a>&lt;strong>备份&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>使用 &lt;code>mysqldump&lt;/code> 进行数据库备份
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>mysqldump -u root -p database_name &amp;gt; backup.sql
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="恢复">&lt;a href="#%e6%81%a2%e5%a4%8d" class="header-anchor">&lt;/a>&lt;strong>恢复&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>从备份文件恢复数据库&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>mysql -u root -p database_name &amp;lt; backup.sql
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>恢复所有数据库&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>mysql -u root -p &amp;lt; alldatabases_backup.sql
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="增量备份">&lt;a href="#%e5%a2%9e%e9%87%8f%e5%a4%87%e4%bb%bd" class="header-anchor">&lt;/a>&lt;strong>增量备份&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>使用 binlog 进行增量备份
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>mysqlbinlog binlog.000001 &amp;gt; incremental_backup.sql
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="6-数据库性能优化">&lt;a href="#6-%e6%95%b0%e6%8d%ae%e5%ba%93%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" class="header-anchor">&lt;/a>6. 数据库性能优化
-&lt;/h2>&lt;h3 id="索引优化">&lt;a href="#%e7%b4%a2%e5%bc%95%e4%bc%98%e5%8c%96" class="header-anchor">&lt;/a>&lt;strong>索引优化&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>使用索引加速查询&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">CREATE&lt;/span> &lt;span style="color:#ff79c6">INDEX&lt;/span> idx_name &lt;span style="color:#ff79c6">ON&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> (&lt;span style="color:#ff79c6">column_name&lt;/span>);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>查看表的索引&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">SHOW&lt;/span> &lt;span style="color:#ff79c6">INDEX&lt;/span> &lt;span style="color:#ff79c6">FROM&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>删除索引&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">DROP&lt;/span> &lt;span style="color:#ff79c6">INDEX&lt;/span> idx_name &lt;span style="color:#ff79c6">ON&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="查询优化">&lt;a href="#%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96" class="header-anchor">&lt;/a>&lt;strong>查询优化&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>避免使用 &lt;code>SELECT *&lt;/code>，只查询需要的字段。&lt;/li>
-&lt;li>使用 &lt;code>EXPLAIN&lt;/code> 语句分析查询语句的执行计划。
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#ff79c6">EXPLAIN&lt;/span> &lt;span style="color:#ff79c6">SELECT&lt;/span> &lt;span style="color:#ff79c6">*&lt;/span> &lt;span style="color:#ff79c6">FROM&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span> &lt;span style="color:#ff79c6">WHERE&lt;/span> condition;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="表优化">&lt;a href="#%e8%a1%a8%e4%bc%98%e5%8c%96" class="header-anchor">&lt;/a>&lt;strong>表优化&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>对表进行碎片整理，提升性能
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>OPTIMIZE &lt;span style="color:#ff79c6">TABLE&lt;/span> &lt;span style="color:#ff79c6">table_name&lt;/span>;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="缓存优化">&lt;a href="#%e7%bc%93%e5%ad%98%e4%bc%98%e5%8c%96" class="header-anchor">&lt;/a>&lt;strong>缓存优化&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>使用查询缓存减少重复查询，提升性能。
-&lt;ul>
-&lt;li>启用查询缓存：
-在 MySQL 配置文件 &lt;code>my.cnf&lt;/code> 中添加
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-ini" data-lang="ini">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#50fa7b">query_cache_type&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#f1fa8c">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#50fa7b">query_cache_size&lt;/span> &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#f1fa8c">64M&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>数据库 on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <description>Recent content in 数据库 on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 25 Sep 2024 23:03:02 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>运维岗需要掌握的数据库基础和调优技巧</title>
+        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</link>
+        <pubDate>Wed, 25 Sep 2024 23:03:02 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</guid>
+        <description>&lt;h1 id=&#34;数据库运维笔记&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;数据库运维笔记
+&lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#1-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5&#34; &gt;数据库基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#2-mysql-%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c&#34; &gt;MySQL 基本操作&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#3-%e9%ab%98%e5%8f%af%e7%94%a8%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&#34; &gt;高可用解决方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#4-%e5%b8%b8%e8%a7%81-sql-%e8%af%ad%e5%8f%a5&#34; &gt;常见 SQL 语句&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#5-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%a4%87%e4%bb%bd%e4%b8%8e%e6%81%a2%e5%a4%8d&#34; &gt;数据库备份与恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#6-%e6%95%b0%e6%8d%ae%e5%ba%93%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96&#34; &gt;数据库性能优化&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-数据库基本概念&#34;&gt;&lt;a href=&#34;#1-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1. 数据库基本概念
+&lt;/h2&gt;&lt;h3 id=&#34;acid-特性&#34;&gt;&lt;a href=&#34;#acid-%e7%89%b9%e6%80%a7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;ACID 特性&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Atomicity（原子性）&lt;/strong&gt;: 事务的所有操作要么全部完成，要么全部不完成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consistency（一致性）&lt;/strong&gt;: 事务执行前后，数据库处于一致状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Isolation（隔离性）&lt;/strong&gt;: 并发事务互不干扰。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Durability（持久性）&lt;/strong&gt;: 事务一旦提交，修改将永久保存。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据库引擎&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e5%bc%95%e6%93%8e&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;数据库引擎&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;InnoDB&lt;/strong&gt;: 支持事务，支持外键，提供崩溃恢复功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MyISAM&lt;/strong&gt;: 不支持事务，速度快，适用于读多写少的应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-mysql-基本操作&#34;&gt;&lt;a href=&#34;#2-mysql-%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;2. MySQL 基本操作
+&lt;/h2&gt;&lt;h3 id=&#34;启动与停止-mysql-服务&#34;&gt;&lt;a href=&#34;#%e5%90%af%e5%8a%a8%e4%b8%8e%e5%81%9c%e6%ad%a2-mysql-%e6%9c%8d%e5%8a%a1&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;启动与停止 MySQL 服务&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;启动服务&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;systemctl start mysqld
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;停止服务&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;systemctl stop mysqld
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;登录-mysql&#34;&gt;&lt;a href=&#34;#%e7%99%bb%e5%bd%95-mysql&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;登录 MySQL&lt;/strong&gt;
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;mysql -u root -p
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;数据库管理&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e7%ae%a1%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;数据库管理&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;创建数据库&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;DATABASE&lt;/span&gt; db_name;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除数据库&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;DATABASE&lt;/span&gt; db_name;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;用户管理&#34;&gt;&lt;a href=&#34;#%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;用户管理&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;创建用户&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;host&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#ff79c6&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除用户&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;username&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;host&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-高可用解决方案&#34;&gt;&lt;a href=&#34;#3-%e9%ab%98%e5%8f%af%e7%94%a8%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;3. 高可用解决方案
+&lt;/h2&gt;&lt;h3 id=&#34;主从复制-master-slave-replication&#34;&gt;&lt;a href=&#34;#%e4%b8%bb%e4%bb%8e%e5%a4%8d%e5%88%b6-master-slave-replication&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;主从复制 (Master-Slave Replication)&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;主服务器 (Master)&lt;/strong&gt;: 负责处理写操作，数据变化会传递给从服务器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;从服务器 (Slave)&lt;/strong&gt;: 负责处理读操作，并同步主服务器的数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;双主复制-master-master-replication&#34;&gt;&lt;a href=&#34;#%e5%8f%8c%e4%b8%bb%e5%a4%8d%e5%88%b6-master-master-replication&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;双主复制 (Master-Master Replication)&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;两个服务器互为主服务器，支持双向数据同步。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pxc-percona-xtradb-cluster-或-galera-cluster&#34;&gt;&lt;a href=&#34;#pxc-percona-xtradb-cluster-%e6%88%96-galera-cluster&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;PXC (Percona XtraDB Cluster)&lt;/strong&gt; 或 &lt;strong&gt;Galera Cluster&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供多主复制，所有节点都能读写，实现真正的高可用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;keepalived--mysql-通过虚拟-ip-实现-mysql-的高可用性保证数据库服务不间断&#34;&gt;&lt;a href=&#34;#keepalived--mysql-%e9%80%9a%e8%bf%87%e8%99%9a%e6%8b%9f-ip-%e5%ae%9e%e7%8e%b0-mysql-%e7%9a%84%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7%e4%bf%9d%e8%af%81%e6%95%b0%e6%8d%ae%e5%ba%93%e6%9c%8d%e5%8a%a1%e4%b8%8d%e9%97%b4%e6%96%ad&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;Keepalived + MySQL&lt;/strong&gt;: 通过虚拟 IP 实现 MySQL 的高可用性，保证数据库服务不间断。
+&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id=&#34;4-常见-sql-语句&#34;&gt;&lt;a href=&#34;#4-%e5%b8%b8%e8%a7%81-sql-%e8%af%ad%e5%8f%a5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;4. 常见 SQL 语句
+&lt;/h2&gt;&lt;h3 id=&#34;数据查询&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e6%9f%a5%e8%af%a2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;数据查询&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查询所有数据&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查询指定条件的数据&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;WHERE&lt;/span&gt; condition;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据插入&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e6%8f%92%e5%85%a5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;数据插入&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;插入数据到表中
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;INSERT&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;INTO&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; (column1, column2) &lt;span style=&#34;color:#ff79c6&#34;&gt;VALUES&lt;/span&gt; (value1, value2);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据更新&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e6%9b%b4%e6%96%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;数据更新&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;更新表中的数据
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;UPDATE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;SET&lt;/span&gt; column1 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; value1 &lt;span style=&#34;color:#ff79c6&#34;&gt;WHERE&lt;/span&gt; condition;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据删除&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e5%88%a0%e9%99%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;数据删除&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除表中的数据
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DELETE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;WHERE&lt;/span&gt; condition;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;表结构管理&#34;&gt;&lt;a href=&#34;#%e8%a1%a8%e7%bb%93%e6%9e%84%e7%ae%a1%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;表结构管理&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;创建表&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  column1 datatype,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  column2 datatype,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除表&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改表结构&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;ALTER&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;ADD&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;column_name&lt;/span&gt; datatype;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;5-数据库备份与恢复&#34;&gt;&lt;a href=&#34;#5-%e6%95%b0%e6%8d%ae%e5%ba%93%e5%a4%87%e4%bb%bd%e4%b8%8e%e6%81%a2%e5%a4%8d&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;5. 数据库备份与恢复
+&lt;/h2&gt;&lt;h3 id=&#34;备份&#34;&gt;&lt;a href=&#34;#%e5%a4%87%e4%bb%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;备份&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用 &lt;code&gt;mysqldump&lt;/code&gt; 进行数据库备份
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;mysqldump -u root -p database_name &amp;gt; backup.sql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;恢复&#34;&gt;&lt;a href=&#34;#%e6%81%a2%e5%a4%8d&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;恢复&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;从备份文件恢复数据库&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;mysql -u root -p database_name &amp;lt; backup.sql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;恢复所有数据库&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;mysql -u root -p &amp;lt; alldatabases_backup.sql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;增量备份&#34;&gt;&lt;a href=&#34;#%e5%a2%9e%e9%87%8f%e5%a4%87%e4%bb%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;增量备份&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用 binlog 进行增量备份
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;mysqlbinlog binlog.000001 &amp;gt; incremental_backup.sql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;6-数据库性能优化&#34;&gt;&lt;a href=&#34;#6-%e6%95%b0%e6%8d%ae%e5%ba%93%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;6. 数据库性能优化
+&lt;/h2&gt;&lt;h3 id=&#34;索引优化&#34;&gt;&lt;a href=&#34;#%e7%b4%a2%e5%bc%95%e4%bc%98%e5%8c%96&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;索引优化&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用索引加速查询&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;INDEX&lt;/span&gt; idx_name &lt;span style=&#34;color:#ff79c6&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; (&lt;span style=&#34;color:#ff79c6&#34;&gt;column_name&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看表的索引&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;SHOW&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;INDEX&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除索引&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;DROP&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;INDEX&lt;/span&gt; idx_name &lt;span style=&#34;color:#ff79c6&#34;&gt;ON&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;查询优化&#34;&gt;&lt;a href=&#34;#%e6%9f%a5%e8%af%a2%e4%bc%98%e5%8c%96&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;查询优化&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;避免使用 &lt;code&gt;SELECT *&lt;/code&gt;，只查询需要的字段。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;EXPLAIN&lt;/code&gt; 语句分析查询语句的执行计划。
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;EXPLAIN&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;WHERE&lt;/span&gt; condition;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;表优化&#34;&gt;&lt;a href=&#34;#%e8%a1%a8%e4%bc%98%e5%8c%96&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;表优化&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;对表进行碎片整理，提升性能
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;OPTIMIZE &lt;span style=&#34;color:#ff79c6&#34;&gt;TABLE&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;table_name&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;缓存优化&#34;&gt;&lt;a href=&#34;#%e7%bc%93%e5%ad%98%e4%bc%98%e5%8c%96&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;缓存优化&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用查询缓存减少重复查询，提升性能。
+&lt;ul&gt;
+&lt;li&gt;启用查询缓存：
+在 MySQL 配置文件 &lt;code&gt;my.cnf&lt;/code&gt; 中添加
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;query_cache_type&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;query_cache_size&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;64M&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

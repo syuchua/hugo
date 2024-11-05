@@ -1,61 +1,109 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub图床 on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/github%E5%9B%BE%E5%BA%8A/</link><description>Recent content in GitHub图床 on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 20 Apr 2024 16:16:35 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/github%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss+xml"/><item><title>基于github+jsdelivr实现免费图床</title><link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</link><pubDate>Sat, 20 Apr 2024 16:16:35 +0800</pubDate><guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</guid><description>&lt;p>图床想必大家都不陌生了，无论是个人搭建博客或是其他站点、APP、小程序，还是企业级的应用，想要加速网站的访问，都离不开图床，但一款稳定好用的图床又往往要么是收费的，要么需要实名注册等各种流程，那有没有什么免费且方便的代替方案呢？&lt;/p>
-&lt;p>答案是显而易见的，使用GitHub的仓库作为图床，再经由jsdelivr的免费cdn加速，一款稳定方便的图床就诞生了，下面开始本期教程。&lt;/p>
-&lt;h1 id="新建github仓库">&lt;a href="#%e6%96%b0%e5%bb%bagithub%e4%bb%93%e5%ba%93" class="header-anchor">&lt;/a>新建GitHub仓库
-&lt;/h1>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.jpg"
-loading="lazy"
->&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/%E4%BB%93%E5%BA%93.jpg"
-loading="lazy"
->&lt;/p>
-&lt;h1 id="生成一个token">&lt;a href="#%e7%94%9f%e6%88%90%e4%b8%80%e4%b8%aatoken" class="header-anchor">&lt;/a>生成一个token
-&lt;/h1>&lt;ul>
-&lt;li>
-&lt;p>点击右上角用户头像-&amp;gt; 设置
-&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/token.jpg"
-loading="lazy"
->&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>点击开发者设置
-&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/develop.jpg"
-loading="lazy"
->&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>点击Personal acess tokens -&amp;gt; Generate new token
-&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/newtoken.jpg"
-loading="lazy"
->
-填写token描述，勾选repo即可，过期时间可以选择永不&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>获取token秘钥
-注意，该秘钥仅显示一次，建议保存到一个找得到的地方，或者云盘，后面还会用到。&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;h1 id="配置picgo并使用jsdelivr的免费cdn加速">&lt;a href="#%e9%85%8d%e7%bd%aepicgo%e5%b9%b6%e4%bd%bf%e7%94%a8jsdelivr%e7%9a%84%e5%85%8d%e8%b4%b9cdn%e5%8a%a0%e9%80%9f" class="header-anchor">&lt;/a>配置PicGo并使用jsdelivr的免费cdn加速
-&lt;/h1>&lt;p>&lt;a class="link" href="https://picgo-release.molunerfinn.com/2.4.0-beta.6/PicGo-Setup-2.4.0-beta.6-x64.exe" target="_blank" rel="noopener"
->下载PicGo&lt;/a>，安装好后开始对接图床&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>设定仓库名：username/repositoies(username为github用户名，repositoies为仓库名，比方说用户名zhangsan，仓库名为jsdelivr，就填写zhangsan/jsdelivr)&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>设定分支名：main&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>设定token：刚刚复制的token&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>指定存储路径：填写打算存放图片的位置，比方说img/，代表在该仓库下创建一个铭文img的文件夹，图片将保存在这个文件夹中。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支 #默认是main&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/picgo.jpg"
-loading="lazy"
->&lt;/p>
-&lt;p>接下来就可以愉快的使用免费图床啦！&lt;/p>
-&lt;h1 id="end">&lt;a href="#end" class="header-anchor">&lt;/a>END
-&lt;/h1></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GitHub图床 on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/github%E5%9B%BE%E5%BA%8A/</link>
+        <description>Recent content in GitHub图床 on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 20 Apr 2024 16:16:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/github%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>基于github&#43;jsdelivr实现免费图床</title>
+        <link>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</link>
+        <pubDate>Sat, 20 Apr 2024 16:16:35 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</guid>
+        <description>&lt;p&gt;图床想必大家都不陌生了，无论是个人搭建博客或是其他站点、APP、小程序，还是企业级的应用，想要加速网站的访问，都离不开图床，但一款稳定好用的图床又往往要么是收费的，要么需要实名注册等各种流程，那有没有什么免费且方便的代替方案呢？&lt;/p&gt;
+&lt;p&gt;答案是显而易见的，使用GitHub的仓库作为图床，再经由jsdelivr的免费cdn加速，一款稳定方便的图床就诞生了，下面开始本期教程。&lt;/p&gt;
+&lt;h1 id=&#34;新建github仓库&#34;&gt;&lt;a href=&#34;#%e6%96%b0%e5%bb%bagithub%e4%bb%93%e5%ba%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;新建GitHub仓库
+&lt;/h1&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/%E4%BB%93%E5%BA%93.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;生成一个token&#34;&gt;&lt;a href=&#34;#%e7%94%9f%e6%88%90%e4%b8%80%e4%b8%aatoken&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;生成一个token
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;点击右上角用户头像-&amp;gt; 设置
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/token.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击开发者设置
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/develop.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;点击Personal acess tokens -&amp;gt; Generate new token
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/newtoken.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+填写token描述，勾选repo即可，过期时间可以选择永不&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取token秘钥
+注意，该秘钥仅显示一次，建议保存到一个找得到的地方，或者云盘，后面还会用到。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;配置picgo并使用jsdelivr的免费cdn加速&#34;&gt;&lt;a href=&#34;#%e9%85%8d%e7%bd%aepicgo%e5%b9%b6%e4%bd%bf%e7%94%a8jsdelivr%e7%9a%84%e5%85%8d%e8%b4%b9cdn%e5%8a%a0%e9%80%9f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;配置PicGo并使用jsdelivr的免费cdn加速
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://picgo-release.molunerfinn.com/2.4.0-beta.6/PicGo-Setup-2.4.0-beta.6-x64.exe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;下载PicGo&lt;/a&gt;，安装好后开始对接图床&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;设定仓库名：username/repositoies(username为github用户名，repositoies为仓库名，比方说用户名zhangsan，仓库名为jsdelivr，就填写zhangsan/jsdelivr)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设定分支名：main&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设定token：刚刚复制的token&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指定存储路径：填写打算存放图片的位置，比方说img/，代表在该仓库下创建一个铭文img的文件夹，图片将保存在这个文件夹中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支 #默认是main&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/picgo.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;接下来就可以愉快的使用免费图床啦！&lt;/p&gt;
+&lt;h1 id=&#34;end&#34;&gt;&lt;a href=&#34;#end&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;END
+&lt;/h1&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

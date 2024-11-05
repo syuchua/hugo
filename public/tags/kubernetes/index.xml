@@ -1,207 +1,226 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/kubernetes/</link><description>Recent content in Kubernetes on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Sep 2024 23:02:34 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>运维岗需要掌握的K8s基础</title><link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</link><pubDate>Wed, 25 Sep 2024 23:02:34 +0800</pubDate><guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</guid><description>&lt;hr>
-&lt;h1 id="kubernetes-k8s-运维笔记">&lt;a href="#kubernetes-k8s-%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0" class="header-anchor">&lt;/a>Kubernetes (K8s) 运维笔记
-&lt;/h1>&lt;h2 id="目录">&lt;a href="#%e7%9b%ae%e5%bd%95" class="header-anchor">&lt;/a>目录
-&lt;/h2>&lt;ol>
-&lt;li>&lt;a class="link" href="#1-kubernetes-%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5" >Kubernetes 基础概念&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#2-pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%ae%a1%e7%90%86" >Pod 生命周期管理&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#3-kubernetes-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" >Kubernetes 常用命令&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#4-k8s-%e8%b5%84%e6%ba%90%e7%ae%a1%e7%90%86" >K8s 资源管理&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#5-%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6" >网络插件&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#6-%e8%b0%83%e5%ba%a6%e4%b8%8e%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1" >调度与负载均衡&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="#7-kubernetes-%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7" >Kubernetes 高可用性&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;hr>
-&lt;h2 id="1-kubernetes-基础概念">&lt;a href="#1-kubernetes-%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5" class="header-anchor">&lt;/a>1. Kubernetes 基础概念
-&lt;/h2>&lt;h3 id="k8s-核心组件">&lt;a href="#k8s-%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6" class="header-anchor">&lt;/a>&lt;strong>K8s 核心组件&lt;/strong>
-&lt;/h3>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>组件&lt;/th>
-&lt;th>描述&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;strong>Pod&lt;/strong>&lt;/td>
-&lt;td>最小的部署单元，封装一个或多个容器&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Node&lt;/strong>&lt;/td>
-&lt;td>集群中的单个计算节点，运行 Pod 和代理服务&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Cluster&lt;/strong>&lt;/td>
-&lt;td>一组 Node，协调资源的调度和管理&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Kube-apiserver&lt;/strong>&lt;/td>
-&lt;td>集群的入口点，处理 REST 请求&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>etcd&lt;/strong>&lt;/td>
-&lt;td>用于存储集群的状态数据&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Kube-scheduler&lt;/strong>&lt;/td>
-&lt;td>负责 Pod 的调度到 Node&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Kube-controller-manager&lt;/strong>&lt;/td>
-&lt;td>负责管理控制器，实现自动化控制&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Kubelet&lt;/strong>&lt;/td>
-&lt;td>运行在每个 Node 上，管理 Pod 和容器&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Kube-proxy&lt;/strong>&lt;/td>
-&lt;td>处理网络规则，负载均衡 Pod 请求&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;hr>
-&lt;h2 id="2-pod-生命周期管理">&lt;a href="#2-pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%ae%a1%e7%90%86" class="header-anchor">&lt;/a>2. Pod 生命周期管理
-&lt;/h2>&lt;h3 id="pod-生命周期阶段">&lt;a href="#pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e9%98%b6%e6%ae%b5" class="header-anchor">&lt;/a>&lt;strong>Pod 生命周期阶段&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>Pending&lt;/strong>: Pod 被创建，但未绑定到 Node。&lt;/li>
-&lt;li>&lt;strong>Running&lt;/strong>: Pod 已绑定到 Node 并启动了容器。&lt;/li>
-&lt;li>&lt;strong>Succeeded&lt;/strong>: 所有容器成功完成并退出。&lt;/li>
-&lt;li>&lt;strong>Failed&lt;/strong>: 某些容器异常终止并退出。&lt;/li>
-&lt;li>&lt;strong>Unknown&lt;/strong>: 无法与 Node 通信。&lt;/li>
-&lt;/ul>
-&lt;h3 id="pod-生命周期管理组件">&lt;a href="#pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%ae%a1%e7%90%86%e7%bb%84%e4%bb%b6" class="header-anchor">&lt;/a>&lt;strong>Pod 生命周期管理组件&lt;/strong>
-&lt;/h3>&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>组件&lt;/th>
-&lt;th>描述&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;strong>Init Containers&lt;/strong>&lt;/td>
-&lt;td>初始化容器，确保主容器启动前某些任务完成&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Liveness Probe&lt;/strong>&lt;/td>
-&lt;td>健康检查，确保容器存活&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Readiness Probe&lt;/strong>&lt;/td>
-&lt;td>就绪检查，确保容器可接受流量&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>Startup Probe&lt;/strong>&lt;/td>
-&lt;td>启动检查，确保容器启动后运行稳定&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;hr>
-&lt;h2 id="3-kubernetes-常用命令">&lt;a href="#3-kubernetes-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" class="header-anchor">&lt;/a>3. Kubernetes 常用命令
-&lt;/h2>&lt;h3 id="集群管理命令">&lt;a href="#%e9%9b%86%e7%be%a4%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-anchor">&lt;/a>&lt;strong>集群管理命令&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>查看集群状态&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl cluster-info
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>查看所有 Node&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl get nodes
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>获取 Pod 详情&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl describe pod &amp;lt;pod_name&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="pod-操作命令">&lt;a href="#pod-%e6%93%8d%e4%bd%9c%e5%91%bd%e4%bb%a4" class="header-anchor">&lt;/a>&lt;strong>Pod 操作命令&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>查看所有 Pod&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl get pods
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>创建 Pod&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl run &amp;lt;pod_name&amp;gt; --image&lt;span style="color:#ff79c6">=&lt;/span>&amp;lt;image_name&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>删除 Pod&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl delete pod &amp;lt;pod_name&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;h3 id="其他常用命令">&lt;a href="#%e5%85%b6%e4%bb%96%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" class="header-anchor">&lt;/a>&lt;strong>其他常用命令&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>获取 Service 列表&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl get svc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>获取 Deployment 列表&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl get deployment
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="4-k8s-资源管理">&lt;a href="#4-k8s-%e8%b5%84%e6%ba%90%e7%ae%a1%e7%90%86" class="header-anchor">&lt;/a>4. K8s 资源管理
-&lt;/h2>&lt;h3 id="资源种类">&lt;a href="#%e8%b5%84%e6%ba%90%e7%a7%8d%e7%b1%bb" class="header-anchor">&lt;/a>&lt;strong>资源种类&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>Pod&lt;/strong>: Kubernetes 中最小的部署单元。&lt;/li>
-&lt;li>&lt;strong>Service&lt;/strong>: 用于暴露 Pod 服务，支持负载均衡。&lt;/li>
-&lt;li>&lt;strong>ConfigMap&lt;/strong>: 存储配置信息，用于 Pod 内配置文件。&lt;/li>
-&lt;li>&lt;strong>Secret&lt;/strong>: 安全存储敏感信息，例如密码和 API 密钥。&lt;/li>
-&lt;li>&lt;strong>Volume&lt;/strong>: 用于持久化存储，Pod 重启后数据不会丢失。&lt;/li>
-&lt;/ul>
-&lt;h3 id="命令示例">&lt;a href="#%e5%91%bd%e4%bb%a4%e7%a4%ba%e4%be%8b" class="header-anchor">&lt;/a>&lt;strong>命令示例&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>创建 Deployment&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl create deployment &amp;lt;name&amp;gt; --image&lt;span style="color:#ff79c6">=&lt;/span>&amp;lt;image&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>删除资源&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl delete &amp;lt;resource_type&amp;gt; &amp;lt;resource_name&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="5-网络插件">&lt;a href="#5-%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6" class="header-anchor">&lt;/a>5. 网络插件
-&lt;/h2>&lt;h3 id="常见网络插件">&lt;a href="#%e5%b8%b8%e8%a7%81%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6" class="header-anchor">&lt;/a>&lt;strong>常见网络插件&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>Flannel&lt;/strong>: 最基础的网络插件，简单易用。&lt;/li>
-&lt;li>&lt;strong>Calico&lt;/strong>: 支持网络策略，灵活且性能好。&lt;/li>
-&lt;li>&lt;strong>Weave&lt;/strong>: 支持自动网络发现和加密。&lt;/li>
-&lt;li>&lt;strong>Cilium&lt;/strong>: 基于 eBPF，支持细粒度的安全控制。&lt;/li>
-&lt;/ul>
-&lt;h3 id="插件管理">&lt;a href="#%e6%8f%92%e4%bb%b6%e7%ae%a1%e7%90%86" class="header-anchor">&lt;/a>&lt;strong>插件管理&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>
-&lt;p>安装 Flannel&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>
-&lt;p>查看网络状态&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>kubectl get pods -n kube-system
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="6-调度与负载均衡">&lt;a href="#6-%e8%b0%83%e5%ba%a6%e4%b8%8e%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1" class="header-anchor">&lt;/a>6. 调度与负载均衡
-&lt;/h2>&lt;h3 id="k8s-调度算法">&lt;a href="#k8s-%e8%b0%83%e5%ba%a6%e7%ae%97%e6%b3%95" class="header-anchor">&lt;/a>&lt;strong>K8s 调度算法&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>RR (Round Robin)&lt;/strong>: 按顺序将请求调度到不同节点。&lt;/li>
-&lt;li>&lt;strong>Least Connections&lt;/strong>: 将请求调度到连接数最少的节点。&lt;/li>
-&lt;li>&lt;strong>Resource-Based&lt;/strong>: 根据节点资源使用情况进行调度。&lt;/li>
-&lt;/ul>
-&lt;h3 id="负载均衡">&lt;a href="#%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1" class="header-anchor">&lt;/a>&lt;strong>负载均衡&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>Kubernetes 内置 &lt;strong>Service&lt;/strong> 对 Pod 进行负载均衡。&lt;/li>
-&lt;li>使用 &lt;strong>Ingress&lt;/strong> 管理外部 HTTP 和 HTTPS 访问。&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;h2 id="7-kubernetes-高可用性">&lt;a href="#7-kubernetes-%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7" class="header-anchor">&lt;/a>7. Kubernetes 高可用性
-&lt;/h2>&lt;h3 id="高可用架构">&lt;a href="#%e9%ab%98%e5%8f%af%e7%94%a8%e6%9e%b6%e6%9e%84" class="header-anchor">&lt;/a>&lt;strong>高可用架构&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>&lt;strong>Master 高可用&lt;/strong>: 通过多 Master 节点保证控制平面高可用。&lt;/li>
-&lt;li>&lt;strong>etcd 高可用&lt;/strong>: 使用 etcd 集群存储数据，保证高可用。&lt;/li>
-&lt;li>&lt;strong>Node 高可用&lt;/strong>: 通过节点间冗余，Pod 可以在不同节点上运行，避免单点故障。&lt;/li>
-&lt;/ul>
-&lt;h3 id="水平扩展">&lt;a href="#%e6%b0%b4%e5%b9%b3%e6%89%a9%e5%b1%95" class="header-anchor">&lt;/a>&lt;strong>水平扩展&lt;/strong>
-&lt;/h3>&lt;ul>
-&lt;li>使用 Horizontal Pod Autoscaler (HPA) 根据负载自动扩展 Pod。&lt;/li>
-&lt;/ul></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Kubernetes on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/kubernetes/</link>
+        <description>Recent content in Kubernetes on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 25 Sep 2024 23:02:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>运维岗需要掌握的K8s基础</title>
+        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</link>
+        <pubDate>Wed, 25 Sep 2024 23:02:34 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</guid>
+        <description>&lt;hr&gt;
+&lt;h1 id=&#34;kubernetes-k8s-运维笔记&#34;&gt;&lt;a href=&#34;#kubernetes-k8s-%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;Kubernetes (K8s) 运维笔记
+&lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#1-kubernetes-%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5&#34; &gt;Kubernetes 基础概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#2-pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%ae%a1%e7%90%86&#34; &gt;Pod 生命周期管理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#3-kubernetes-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&#34; &gt;Kubernetes 常用命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#4-k8s-%e8%b5%84%e6%ba%90%e7%ae%a1%e7%90%86&#34; &gt;K8s 资源管理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#5-%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6&#34; &gt;网络插件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#6-%e8%b0%83%e5%ba%a6%e4%b8%8e%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1&#34; &gt;调度与负载均衡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#7-kubernetes-%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7&#34; &gt;Kubernetes 高可用性&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-kubernetes-基础概念&#34;&gt;&lt;a href=&#34;#1-kubernetes-%e5%9f%ba%e7%a1%80%e6%a6%82%e5%bf%b5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1. Kubernetes 基础概念
+&lt;/h2&gt;&lt;h3 id=&#34;k8s-核心组件&#34;&gt;&lt;a href=&#34;#k8s-%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;K8s 核心组件&lt;/strong&gt;
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;组件&lt;/th&gt;
+          &lt;th&gt;描述&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Pod&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;最小的部署单元，封装一个或多个容器&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Node&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;集群中的单个计算节点，运行 Pod 和代理服务&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Cluster&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;一组 Node，协调资源的调度和管理&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Kube-apiserver&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;集群的入口点，处理 REST 请求&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;etcd&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;用于存储集群的状态数据&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Kube-scheduler&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;负责 Pod 的调度到 Node&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Kube-controller-manager&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;负责管理控制器，实现自动化控制&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Kubelet&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;运行在每个 Node 上，管理 Pod 和容器&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Kube-proxy&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;处理网络规则，负载均衡 Pod 请求&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-pod-生命周期管理&#34;&gt;&lt;a href=&#34;#2-pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%ae%a1%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;2. Pod 生命周期管理
+&lt;/h2&gt;&lt;h3 id=&#34;pod-生命周期阶段&#34;&gt;&lt;a href=&#34;#pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e9%98%b6%e6%ae%b5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;Pod 生命周期阶段&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pending&lt;/strong&gt;: Pod 被创建，但未绑定到 Node。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Running&lt;/strong&gt;: Pod 已绑定到 Node 并启动了容器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Succeeded&lt;/strong&gt;: 所有容器成功完成并退出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Failed&lt;/strong&gt;: 某些容器异常终止并退出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unknown&lt;/strong&gt;: 无法与 Node 通信。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pod-生命周期管理组件&#34;&gt;&lt;a href=&#34;#pod-%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%ae%a1%e7%90%86%e7%bb%84%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;Pod 生命周期管理组件&lt;/strong&gt;
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;组件&lt;/th&gt;
+          &lt;th&gt;描述&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Init Containers&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;初始化容器，确保主容器启动前某些任务完成&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Liveness Probe&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;健康检查，确保容器存活&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Readiness Probe&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;就绪检查，确保容器可接受流量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Startup Probe&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;启动检查，确保容器启动后运行稳定&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-kubernetes-常用命令&#34;&gt;&lt;a href=&#34;#3-kubernetes-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;3. Kubernetes 常用命令
+&lt;/h2&gt;&lt;h3 id=&#34;集群管理命令&#34;&gt;&lt;a href=&#34;#%e9%9b%86%e7%be%a4%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;集群管理命令&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看集群状态&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl cluster-info
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看所有 Node&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl get nodes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取 Pod 详情&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl describe pod &amp;lt;pod_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pod-操作命令&#34;&gt;&lt;a href=&#34;#pod-%e6%93%8d%e4%bd%9c%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;Pod 操作命令&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看所有 Pod&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl get pods
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建 Pod&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl run &amp;lt;pod_name&amp;gt; --image&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&amp;lt;image_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除 Pod&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl delete pod &amp;lt;pod_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;其他常用命令&#34;&gt;&lt;a href=&#34;#%e5%85%b6%e4%bb%96%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;其他常用命令&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;获取 Service 列表&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl get svc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取 Deployment 列表&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl get deployment
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-k8s-资源管理&#34;&gt;&lt;a href=&#34;#4-k8s-%e8%b5%84%e6%ba%90%e7%ae%a1%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;4. K8s 资源管理
+&lt;/h2&gt;&lt;h3 id=&#34;资源种类&#34;&gt;&lt;a href=&#34;#%e8%b5%84%e6%ba%90%e7%a7%8d%e7%b1%bb&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;资源种类&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pod&lt;/strong&gt;: Kubernetes 中最小的部署单元。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Service&lt;/strong&gt;: 用于暴露 Pod 服务，支持负载均衡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ConfigMap&lt;/strong&gt;: 存储配置信息，用于 Pod 内配置文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secret&lt;/strong&gt;: 安全存储敏感信息，例如密码和 API 密钥。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Volume&lt;/strong&gt;: 用于持久化存储，Pod 重启后数据不会丢失。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;命令示例&#34;&gt;&lt;a href=&#34;#%e5%91%bd%e4%bb%a4%e7%a4%ba%e4%be%8b&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;命令示例&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;创建 Deployment&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl create deployment &amp;lt;name&amp;gt; --image&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&amp;lt;image&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除资源&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl delete &amp;lt;resource_type&amp;gt; &amp;lt;resource_name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;5-网络插件&#34;&gt;&lt;a href=&#34;#5-%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;5. 网络插件
+&lt;/h2&gt;&lt;h3 id=&#34;常见网络插件&#34;&gt;&lt;a href=&#34;#%e5%b8%b8%e8%a7%81%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;常见网络插件&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Flannel&lt;/strong&gt;: 最基础的网络插件，简单易用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Calico&lt;/strong&gt;: 支持网络策略，灵活且性能好。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Weave&lt;/strong&gt;: 支持自动网络发现和加密。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cilium&lt;/strong&gt;: 基于 eBPF，支持细粒度的安全控制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;插件管理&#34;&gt;&lt;a href=&#34;#%e6%8f%92%e4%bb%b6%e7%ae%a1%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;插件管理&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;安装 Flannel&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看网络状态&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;kubectl get pods -n kube-system
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;6-调度与负载均衡&#34;&gt;&lt;a href=&#34;#6-%e8%b0%83%e5%ba%a6%e4%b8%8e%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;6. 调度与负载均衡
+&lt;/h2&gt;&lt;h3 id=&#34;k8s-调度算法&#34;&gt;&lt;a href=&#34;#k8s-%e8%b0%83%e5%ba%a6%e7%ae%97%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;K8s 调度算法&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RR (Round Robin)&lt;/strong&gt;: 按顺序将请求调度到不同节点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Least Connections&lt;/strong&gt;: 将请求调度到连接数最少的节点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resource-Based&lt;/strong&gt;: 根据节点资源使用情况进行调度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;负载均衡&#34;&gt;&lt;a href=&#34;#%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;负载均衡&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Kubernetes 内置 &lt;strong&gt;Service&lt;/strong&gt; 对 Pod 进行负载均衡。&lt;/li&gt;
+&lt;li&gt;使用 &lt;strong&gt;Ingress&lt;/strong&gt; 管理外部 HTTP 和 HTTPS 访问。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;7-kubernetes-高可用性&#34;&gt;&lt;a href=&#34;#7-kubernetes-%e9%ab%98%e5%8f%af%e7%94%a8%e6%80%a7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;7. Kubernetes 高可用性
+&lt;/h2&gt;&lt;h3 id=&#34;高可用架构&#34;&gt;&lt;a href=&#34;#%e9%ab%98%e5%8f%af%e7%94%a8%e6%9e%b6%e6%9e%84&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;高可用架构&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Master 高可用&lt;/strong&gt;: 通过多 Master 节点保证控制平面高可用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;etcd 高可用&lt;/strong&gt;: 使用 etcd 集群存储数据，保证高可用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Node 高可用&lt;/strong&gt;: 通过节点间冗余，Pod 可以在不同节点上运行，避免单点故障。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;水平扩展&#34;&gt;&lt;a href=&#34;#%e6%b0%b4%e5%b9%b3%e6%89%a9%e5%b1%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;水平扩展&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用 Horizontal Pod Autoscaler (HPA) 根据负载自动扩展 Pod。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

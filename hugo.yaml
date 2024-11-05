@@ -58,10 +58,6 @@ params:
       enabled: true # 是否启用版权信息
       default: 'Licensed under CC BY-NC-SA 4.0' # 默认的版权信息
 
-  google_site_verification: "XXX"
-  bing_site_verification: "XXX"
-  baidu_site_verification: "XXX"
-
   widgets: # 网页中右边的小部件
     homepage: # 首页的小部件
       - type: search # 搜索框
@@ -133,13 +129,27 @@ menu:
               newTab: false
               icon: tag
 
-        - identifier: rss
-          name: RSS Feed
-          url: /index.xml
-          weight: -10
+        - identifier: about
+          name: About
+          url: /about/
+          weight: -5
           params:
-              newTab: true
-              icon: rss
+              newTab: false
+              icon: user
+        - identifier: search
+          name: Search
+          url: /search/
+          weight: -1
+          params:
+              newTab: false
+              icon: search
+        - identifier: archives
+          name: Archives
+          url: /archives/
+          weight: -1
+          params:
+              newTab: false
+              icon: archives
 
     social:
         - identifiter: email
@@ -154,6 +164,12 @@ menu:
           params:
               newTab: true
               icon: brand-github
+        - identifier: rss
+          name: RSS Feed
+          url: /index.xml
+          params:
+              newTab: true
+              icon: rss
 
 related:
     includeNewer: true
