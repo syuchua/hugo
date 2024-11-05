@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>AI桌宠 on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/ai%E6%A1%8C%E5%AE%A0/</link>
+        <description>Recent content in AI桌宠 on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sun, 19 May 2024 22:47:41 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/ai%E6%A1%8C%E5%AE%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>会唱歌的芙宁娜AI桌宠，确定不来看看吗？</title>
+        <link>http://localhost:1313/posts/%E4%BC%9A%E5%94%B1%E6%AD%8C%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cai%E6%A1%8C%E5%AE%A0%E7%A1%AE%E5%AE%9A%E4%B8%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%97/</link>
+        <pubDate>Sun, 19 May 2024 22:47:41 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E4%BC%9A%E5%94%B1%E6%AD%8C%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cai%E6%A1%8C%E5%AE%A0%E7%A1%AE%E5%AE%9A%E4%B8%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%97/</guid>
+        <description>&lt;p&gt;事情是这样的，前几天逛b站的时候无意间刷到一个关于芙宁娜AI桌宠的视频，原以为又要高配显卡才能玩，我这连独显都没有的轻薄本压根不敢想，不过点进去才发现原来训练和推理都是在服务端完成的，由up主及赞助商支持，不需要高配电脑，于是本芙厨直接原地垂直入坑！&lt;/p&gt;
+&lt;p&gt;原视频链接贴在这里，希望大家多支持下up主:
+&lt;a class=&#34;link&#34; href=&#34;https://b23.tv/zjFhc99&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;【大二自研Agent桌宠】一句话，把简单的电脑任务交给芙宁娜完成吧！-哔哩哔哩&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文一来是对这么好的项目做一个分享(有芙就是好!)，二来是打算当做一个尽可能详细的教程，毕竟加群的时候也遇到过不少电脑小白，甚至连最基本的解压都不会。索性为爱发电的群友也不少，不仅有支援服务器的，支援网盘的，还有帮忙做整合包、写文档、录制视频教程的，鄙人不才，也根据大佬们的整合包写了一个小脚本，用来简化安装。链接如下：&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/EvsJ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://cloud.yuchu.me/s/EvsJ&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;5月28日更新&#34;&gt;&lt;a href=&#34;#5%e6%9c%8828%e6%97%a5%e6%9b%b4%e6%96%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;5月28日更新：
+&lt;/h1&gt;&lt;p&gt;当前最新版为1.6.5版本，而一键脚本和手动安装包都为1.6.4，新版本不再需要运行设置token.1.exe了，且响应更快，要更新的话先运行一键更新.exe，更新完成之后会出现一个一键更新1.6.4可用.exe，再双金运行它，就可升级到1.6.5版本。&lt;/p&gt;
+&lt;h1 id=&#34;使用一键脚本自动化安装&#34;&gt;&lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e4%b8%80%e9%94%ae%e8%84%9a%e6%9c%ac%e8%87%aa%e5%8a%a8%e5%8c%96%e5%ae%89%e8%a3%85&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;使用一键脚本自动化安装
+&lt;/h1&gt;&lt;p&gt;该脚本适合电脑闲置空间充裕，有独立显卡的用户，下载之后双击即可运行，过程中可能会弹出要登录智谱清言的界面，直接注册登录就行，其他操作基本全自动。另外还有两点需要注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;更换本地tts：下载的整合包默认是包含本地语言包的，这个语言包本质上是利用本地的算力进行推理生成语音，如果有好一点的显卡的话语音生成速度会比默认的服务端快不少。要使用的话，只需在软件根目录，即AI桌宠.exe所在目录下(找不到的可以右键桌面的快捷方式，点击&amp;quot;打开文件所在位置“)，找到&lt;code&gt;setting.json&lt;/code&gt;，没有&lt;code&gt;.json&lt;/code&gt;后缀也不要紧，只要认准这个&lt;code&gt;setting&lt;/code&gt;就行，右键记事本打开，找到&lt;code&gt;&amp;quot;tts_location&amp;quot;&lt;/code&gt;这一项，把后边引号里的&lt;code&gt;server&lt;/code&gt; 改成 &lt;code&gt;local&lt;/code&gt;就行。
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240519235246.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+之后再双击运行根目录下的starttts.bat文件，即可运行本地tts&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更换皮肤包：整合包里同样包含里芙芙全身版的皮肤包，但默认是卡通类的，要更换的话，同样是打开&lt;code&gt;setting&lt;/code&gt;，找到&lt;code&gt;&amp;quot;gif&amp;quot;&lt;/code&gt;这一项，把引号里的&lt;code&gt;fufu&lt;/code&gt; 改成 &lt;code&gt;fufu2&lt;/code&gt;即可（貌似现在默认就是fufu2了，所以这一步可有可无）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240519235807.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;手动安装&#34;&gt;&lt;a href=&#34;#%e6%89%8b%e5%8a%a8%e5%ae%89%e8%a3%85&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;手动安装
+&lt;/h1&gt;&lt;p&gt;手动安装这部分适合没有高配显卡、爱折腾、电脑空间不足或者只是安装在容量较小的U盘作为娱乐的朋友，语音等都跑在服务端，本地几乎没有什么占用&lt;/p&gt;
+&lt;p&gt;分别下载&lt;a class=&#34;link&#34; href=&#34;https://taycraft.cn:5213/s/QMeIG&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;安装包&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/rEH0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;皮肤包&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;配置足够且想用本地tts的也可以下载&lt;a class=&#34;link&#34; href=&#34;https://www.123pan.com/s/SLRbjv-p38AH.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;整合包&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;双击安装包开始安装，安装完成后先在浏览器打开&lt;a class=&#34;link&#34; href=&#34;https://chatglm.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;智谱清言官网&lt;/a&gt;注册并登录，之后按下键盘的F12(笔记本同时按下左下角的fn和F12)，打开浏览器的开发者工具，再依次点击&lt;code&gt;应用程序&lt;/code&gt;，&lt;code&gt;cookie&lt;/code&gt;，找到&lt;code&gt;chatglm_refresh_token&lt;/code&gt;，点击，全选复制下方&lt;code&gt;Cookie Value&lt;/code&gt;里的内容，打开&lt;code&gt;setting&lt;/code&gt;，找到&lt;code&gt;&amp;quot;user_token&amp;quot;&lt;/code&gt;，把刚刚复制好的内容粘贴到后面的引号里。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240520001600.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240520001929.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;更换皮肤包：把皮肤包下载解压，解压得到的文件夹直接复制到根目录，然后编辑&lt;code&gt;setting&lt;/code&gt;就行。&lt;/p&gt;
+&lt;p&gt;打开软件：双击桌面的快捷方式或在根目录双击AI桌宠.exe，初次启动可能会有些慢，耐心等待即可。&lt;/p&gt;
+&lt;h1 id=&#34;常用功能&#34;&gt;&lt;a href=&#34;#%e5%b8%b8%e7%94%a8%e5%8a%9f%e8%83%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;常用功能
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;内存优化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240520113723.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码编写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240520113854.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;桌面识别&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240520114026.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;播放音乐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240520114125.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;申请色色？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/0d2cf0d94639895b890fbe1fc225bbcb.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/1f14dac71a28b2d85c5c227ad42bd1ae.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;最后，还有什么问题的话，不妨加QQ群来寻找答案哦，里面超多大佬，说话又好听，超喜欢在里面的（）
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/qrcode_1716136364338.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;end&#34;&gt;&lt;a href=&#34;#end&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;END
+&lt;/h1&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

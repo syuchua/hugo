@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>#Vscode on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/%23vscode/</link>
+        <description>Recent content in #Vscode on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 26 Mar 2024 17:12:02 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%23vscode/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>VSCode常用快捷键及插件</title>
+        <link>http://localhost:1313/posts/vscode%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E6%8F%92%E4%BB%B6/</link>
+        <pubDate>Tue, 26 Mar 2024 17:12:02 +0000</pubDate>
+        
+        <guid>http://localhost:1313/posts/vscode%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E6%8F%92%E4%BB%B6/</guid>
+        <description>&lt;h1 id=&#34;常用快捷键&#34;&gt;&lt;a href=&#34;#%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%94%ae&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt; 常用快捷键
+&lt;/h1&gt;&lt;h2 id=&#34;注释&#34;&gt;&lt;a href=&#34;#%e6%b3%a8%e9%87%8a&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;注释
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;单行注释：&lt;code&gt;[ctrl+k,ctrl+c] 或 ctrl+/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt; 取消单行注释：&lt;code&gt;[ctrl+k,ctrl+u] (按下ctrl不放，再按k + u)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多行注释：&lt;code&gt;[alt+shift+A]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt; 多行注释：&lt;code&gt;/**&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;移动行&#34;&gt;&lt;a href=&#34;#%e7%a7%bb%e5%8a%a8%e8%a1%8c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;移动行
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;alt+up/down&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;显示隐藏左侧目录栏&#34;&gt;&lt;a href=&#34;#%e6%98%be%e7%a4%ba%e9%9a%90%e8%97%8f%e5%b7%a6%e4%be%a7%e7%9b%ae%e5%bd%95%e6%a0%8f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;显示/隐藏左侧目录栏
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl+b&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;复制当前行&#34;&gt;&lt;a href=&#34;#%e5%a4%8d%e5%88%b6%e5%bd%93%e5%89%8d%e8%a1%8c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;复制当前行
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;shift + alt +up/down&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;删除当前行&#34;&gt;&lt;a href=&#34;#%e5%88%a0%e9%99%a4%e5%bd%93%e5%89%8d%e8%a1%8c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;删除当前行
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;shift + ctrl + k&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;控制台终端显示与隐藏&#34;&gt;&lt;a href=&#34;#%e6%8e%a7%e5%88%b6%e5%8f%b0%e7%bb%88%e7%ab%af%e6%98%be%e7%a4%ba%e4%b8%8e%e9%9a%90%e8%97%8f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;控制台终端显示与隐藏
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + ~&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;查找文件安装vs-code-插件地址&#34;&gt;&lt;a href=&#34;#%e6%9f%a5%e6%89%be%e6%96%87%e4%bb%b6%e5%ae%89%e8%a3%85vs-code-%e6%8f%92%e4%bb%b6%e5%9c%b0%e5%9d%80&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;查找文件/安装vs code 插件地址
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + p&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;代码格式化&#34;&gt;&lt;a href=&#34;#%e4%bb%a3%e7%a0%81%e6%a0%bc%e5%bc%8f%e5%8c%96&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;代码格式化
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;shift + alt + f&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;新建窗口&#34;&gt;&lt;a href=&#34;#%e6%96%b0%e5%bb%ba%e7%aa%97%e5%8f%a3&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;新建窗口
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ctrl + shift + n&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;行增加缩进&#34;&gt;&lt;a href=&#34;#%e8%a1%8c%e5%a2%9e%e5%8a%a0%e7%bc%a9%e8%bf%9b&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;行增加缩进
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + [&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;行减少缩进&#34;&gt;&lt;a href=&#34;#%e8%a1%8c%e5%87%8f%e5%b0%91%e7%bc%a9%e8%bf%9b&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;行减少缩进
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + ]&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;裁剪尾随空格&#34;&gt;&lt;a href=&#34;#%e8%a3%81%e5%89%aa%e5%b0%be%e9%9a%8f%e7%a9%ba%e6%a0%bc&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;裁剪尾随空格
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + shift + x&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;字体放大缩小&#34;&gt;&lt;a href=&#34;#%e5%ad%97%e4%bd%93%e6%94%be%e5%a4%a7%e7%bc%a9%e5%b0%8f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;字体放大(缩小)
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + (或-)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;拆分编辑器&#34;&gt;&lt;a href=&#34;#%e6%8b%86%e5%88%86%e7%bc%96%e8%be%91%e5%99%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;拆分编辑器
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl +1/2/3&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;切换窗口&#34;&gt;&lt;a href=&#34;#%e5%88%87%e6%8d%a2%e7%aa%97%e5%8f%a3&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;切换窗口
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ctrl + shift + left/right&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关闭编辑器窗口&#34;&gt;&lt;a href=&#34;#%e5%85%b3%e9%97%ad%e7%bc%96%e8%be%91%e5%99%a8%e7%aa%97%e5%8f%a3&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;关闭编辑器窗口
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + w&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关闭所有窗口&#34;&gt;&lt;a href=&#34;#%e5%85%b3%e9%97%ad%e6%89%80%e6%9c%89%e7%aa%97%e5%8f%a3&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;关闭所有窗口
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + k + w&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;切换全屏&#34;&gt;&lt;a href=&#34;#%e5%88%87%e6%8d%a2%e5%85%a8%e5%b1%8f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;切换全屏
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;f11&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;自动换行&#34;&gt;&lt;a href=&#34;#%e8%87%aa%e5%8a%a8%e6%8d%a2%e8%a1%8c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;自动换行
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;alt + z&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;显示git&#34;&gt;&lt;a href=&#34;#%e6%98%be%e7%a4%bagit&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;显示Git
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + shift + g&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;全局查找文件&#34;&gt;&lt;a href=&#34;#%e5%85%a8%e5%b1%80%e6%9f%a5%e6%89%be%e6%96%87%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;全局查找文件
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + shift + f&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;显示相关插件的命令如git-log&#34;&gt;&lt;a href=&#34;#%e6%98%be%e7%a4%ba%e7%9b%b8%e5%85%b3%e6%8f%92%e4%bb%b6%e7%9a%84%e5%91%bd%e4%bb%a4%e5%a6%82git-log&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;显示相关插件的命令(如：git log)
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + shift + p&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;选中文字&#34;&gt;&lt;a href=&#34;#%e9%80%89%e4%b8%ad%e6%96%87%e5%ad%97&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;选中文字
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;shift + left / right / up / down&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;折叠代码&#34;&gt;&lt;a href=&#34;#%e6%8a%98%e5%8f%a0%e4%bb%a3%e7%a0%81&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;折叠代码
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ctrl + k + 0-9 (0是完全折叠)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;展开代码&#34;&gt;&lt;a href=&#34;#%e5%b1%95%e5%bc%80%e4%bb%a3%e7%a0%81&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;展开代码
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ctrl + k + j (完全展开代码)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;删除行&#34;&gt;&lt;a href=&#34;#%e5%88%a0%e9%99%a4%e8%a1%8c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;删除行
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + shift + k&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;快速切换主题&#34;&gt;&lt;a href=&#34;#%e5%bf%ab%e9%80%9f%e5%88%87%e6%8d%a2%e4%b8%bb%e9%a2%98&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;快速切换主题
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + k/Ctrl + t&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;快速回到顶部底部&#34;&gt;&lt;a href=&#34;#%e5%bf%ab%e9%80%9f%e5%9b%9e%e5%88%b0%e9%a1%b6%e9%83%a8%e5%ba%95%e9%83%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;快速回到顶部/底部
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + home/end&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;格式化选定代码&#34;&gt;&lt;a href=&#34;#%e6%a0%bc%e5%bc%8f%e5%8c%96%e9%80%89%e5%ae%9a%e4%bb%a3%e7%a0%81&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;格式化选定代码
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + k/f&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;选中代码&#34;&gt;&lt;a href=&#34;#%e9%80%89%e4%b8%ad%e4%bb%a3%e7%a0%81&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;选中代码
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;shift + 鼠标左键&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;多行同时添加内容光标&#34;&gt;&lt;a href=&#34;#%e5%a4%9a%e8%a1%8c%e5%90%8c%e6%97%b6%e6%b7%bb%e5%8a%a0%e5%86%85%e5%ae%b9%e5%85%89%e6%a0%87&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;多行同时添加内容（光标）
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ctrl + alt + up/down&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;全局替换&#34;&gt;&lt;a href=&#34;#%e5%85%a8%e5%b1%80%e6%9b%bf%e6%8d%a2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;全局替换
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ctrl + shift + h&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;当前文件替换&#34;&gt;&lt;a href=&#34;#%e5%bd%93%e5%89%8d%e6%96%87%e4%bb%b6%e6%9b%bf%e6%8d%a2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;当前文件替换
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + h&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;打开最近打开的文件&#34;&gt;&lt;a href=&#34;#%e6%89%93%e5%bc%80%e6%9c%80%e8%bf%91%e6%89%93%e5%bc%80%e7%9a%84%e6%96%87%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;打开最近打开的文件
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Ctrl + r&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;打开新的命令窗&#34;&gt;&lt;a href=&#34;#%e6%89%93%e5%bc%80%e6%96%b0%e7%9a%84%e5%91%bd%e4%bb%a4%e7%aa%97&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;打开新的命令窗
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ctrl + shift + c&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;常用插件&#34;&gt;&lt;a href=&#34;#%e5%b8%b8%e7%94%a8%e6%8f%92%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;常用插件
+&lt;/h1&gt;&lt;h3 id=&#34;1auto-rename-tag&#34;&gt;&lt;a href=&#34;#1auto-rename-tag&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1、Auto Rename Tag
+&lt;/h3&gt;&lt;p&gt;修改html标签，自动帮你完成尾部闭合标签的同步修改，和webstorm一样。&lt;/p&gt;
+&lt;h3 id=&#34;2auto-close-tag&#34;&gt;&lt;a href=&#34;#2auto-close-tag&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;2、Auto Close Tag
+&lt;/h3&gt;&lt;p&gt;自动闭合HTML标签&lt;/p&gt;
+&lt;h3 id=&#34;4beautiful&#34;&gt;&lt;a href=&#34;#4beautiful&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;4、Beautiful
+&lt;/h3&gt;&lt;p&gt;格式化代码的工具&lt;/p&gt;
+&lt;h3 id=&#34;5dash-dash&#34;&gt;&lt;a href=&#34;#5dash-dash&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;5、Dash Dash
+&lt;/h3&gt;&lt;p&gt;是MacOS的API文档浏览器和代码段管理器&lt;/p&gt;
+&lt;h3 id=&#34;6ejs-snippets-ejs&#34;&gt;&lt;a href=&#34;#6ejs-snippets-ejs&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;6、Ejs Snippets ejs
+&lt;/h3&gt;&lt;p&gt;代码提示&lt;/p&gt;
+&lt;h3 id=&#34;7eslint&#34;&gt;&lt;a href=&#34;#7eslint&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;7、ESLint
+&lt;/h3&gt;&lt;p&gt;检查javascript语法错误与提示&lt;/p&gt;
+&lt;h3 id=&#34;8file-navigator&#34;&gt;&lt;a href=&#34;#8file-navigator&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;8、File Navigator
+&lt;/h3&gt;&lt;p&gt;快速查找文件&lt;/p&gt;
+&lt;h3 id=&#34;9git-historygit-log&#34;&gt;&lt;a href=&#34;#9git-historygit-log&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;9、Git History(git log)
+&lt;/h3&gt;&lt;p&gt;查看git log&lt;/p&gt;
+&lt;h3 id=&#34;10gulp-snippets&#34;&gt;&lt;a href=&#34;#10gulp-snippets&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;10、Gulp Snippets
+&lt;/h3&gt;&lt;p&gt;写gulp时用到，gulp语法提示。&lt;/p&gt;
+&lt;h3 id=&#34;11html-css-support&#34;&gt;&lt;a href=&#34;#11html-css-support&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;11、HTML CSS Support
+&lt;/h3&gt;&lt;p&gt;在HTML标签上写class智能提示当前项目所支持的样式&lt;/p&gt;
+&lt;h3 id=&#34;12html-snippets&#34;&gt;&lt;a href=&#34;#12html-snippets&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;12、HTML Snippets
+&lt;/h3&gt;&lt;p&gt;超级好用且初级的H5代码片段以及提示&lt;/p&gt;
+&lt;h3 id=&#34;13debug-for-chrome&#34;&gt;&lt;a href=&#34;#13debug-for-chrome&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;13、Debug for Chrome
+&lt;/h3&gt;&lt;p&gt;让vs code映射chrome的debug功能，静态页面都可以用vscode来打断点调试、配饰稍微复杂一点&lt;/p&gt;
+&lt;h3 id=&#34;14document-this&#34;&gt;&lt;a href=&#34;#14document-this&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;14、Document this
+&lt;/h3&gt;&lt;p&gt;Js的注释模板&lt;/p&gt;
+&lt;h3 id=&#34;15jquery-code-snippets&#34;&gt;&lt;a href=&#34;#15jquery-code-snippets&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;15、jQuery Code Snippets
+&lt;/h3&gt;&lt;p&gt;jquery提示工具&lt;/p&gt;
+&lt;h3 id=&#34;16html2jade&#34;&gt;&lt;a href=&#34;#16html2jade&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;16、Html2jade
+&lt;/h3&gt;&lt;p&gt;html模板转pug模板&lt;/p&gt;
+&lt;h3 id=&#34;17js-css-html&#34;&gt;&lt;a href=&#34;#17js-css-html&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;17、JS-CSS-HTML
+&lt;/h3&gt;&lt;p&gt;Formatter 格式化&lt;/p&gt;
+&lt;h3 id=&#34;18npm-intellisense&#34;&gt;&lt;a href=&#34;#18npm-intellisense&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;18、Npm intellisense
+&lt;/h3&gt;&lt;p&gt;require 时的包提示工具&lt;/p&gt;
+&lt;h3 id=&#34;19open-in-browser&#34;&gt;&lt;a href=&#34;#19open-in-browser&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;19、Open in browser
+&lt;/h3&gt;&lt;p&gt;打开默认浏览器&lt;/p&gt;
+&lt;h3 id=&#34;20one-dark-theme&#34;&gt;&lt;a href=&#34;#20one-dark-theme&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;20、One Dark Theme
+&lt;/h3&gt;&lt;p&gt;一个vs code的主题&lt;/p&gt;
+&lt;h3 id=&#34;21path-intellisense&#34;&gt;&lt;a href=&#34;#21path-intellisense&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;21、Path Intellisense
+&lt;/h3&gt;&lt;p&gt;自动路径补全、默认不带这个功能&lt;/p&gt;
+&lt;h3 id=&#34;22project-manager&#34;&gt;&lt;a href=&#34;#22project-manager&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;22、Project Manager
+&lt;/h3&gt;&lt;p&gt;多个项目之间快速切换的工具&lt;/p&gt;
+&lt;h3 id=&#34;23typings-auto-installer&#34;&gt;&lt;a href=&#34;#23typings-auto-installer&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;23、Typings auto installer
+&lt;/h3&gt;&lt;p&gt;安装vscode 的代码提示依赖库，基于typtings的&lt;/p&gt;
+&lt;h3 id=&#34;24view-in-browser&#34;&gt;&lt;a href=&#34;#24view-in-browser&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;24、View In Browser 　
+&lt;/h3&gt;&lt;p&gt;默认浏览器查看HTML文件（快捷键Ctrl+F1可以修改）&lt;/p&gt;
+&lt;h3 id=&#34;25vscode-icons&#34;&gt;&lt;a href=&#34;#25vscode-icons&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;25、Vscode-icons
+&lt;/h3&gt;&lt;p&gt;让vscode资源目录加上图标、必备&lt;/p&gt;
+&lt;h3 id=&#34;26vuehelper&#34;&gt;&lt;a href=&#34;#26vuehelper&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;26、VueHelper
+&lt;/h3&gt;&lt;p&gt;Vue2代码段（包括Vue2 api、vue-router2、vuex2）&lt;/p&gt;
+&lt;h3 id=&#34;27vue-2-snippets&#34;&gt;&lt;a href=&#34;#27vue-2-snippets&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;27、Vue 2 Snippets
+&lt;/h3&gt;&lt;p&gt;vue必备vue代码提示&lt;/p&gt;
+&lt;h3 id=&#34;28vue-color&#34;&gt;&lt;a href=&#34;#28vue-color&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;28、Vue-color
+&lt;/h3&gt;&lt;p&gt;vue语法高亮主题&lt;/p&gt;
+&lt;h3 id=&#34;29auto-open-markdown-preview&#34;&gt;&lt;a href=&#34;#29auto-open-markdown-preview&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;29、Auto-Open Markdown Preview
+&lt;/h3&gt;&lt;p&gt;markdown文件自动开启预览&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

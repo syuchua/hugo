@@ -1,0 +1,162 @@
+baseurl: https://hugo.yuchu.me # 网站的基础URL
+languageCode: zh-cn # 网站的语言
+defaultContentLanguage: "zh-cn" # 默认的内容语言
+theme: hugo-theme-stack # 使用的主题
+pagination:
+  pagerSize: 5 # 每页显示多少文章
+title: "YuChu's Blog" # 网站的标题
+hasCJKLanguage: true # 是否使用CJK语言,用到中文的时候需要设置为true
+summaryLength: 200 # 摘要的长度
+enablePermalinks: true # 启用永久链接
+enableEmoji: true # 开启 Emoji 支持
+enableInlineShortcodes: true # 开启内联 Shortcodes 支持
+noTimes: false # 同步文件的修改时间
+
+permalinks:
+  post: /post/:filename/
+  page: /:filename/
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+preserveTaxonomyNames: true
+
+# 下面是 Stack 主题的参数
+
+params:
+  mainSections: # 首页从哪些部分获取文章
+    - posts
+  dateFormat: # 日期格式,必须是符合 Go 语言的日期格式
+    published: Jan 02, 2006 # 发布日期
+    lastUpdated: Jan 02, 2006 15:04 MST # 最后更新日期
+
+  footer: # 页脚的配置
+    enable: true # 是否启用页脚
+    since: 2022 # 网站创建年份
+    # customText: "© QX" # 页脚的自定义文本
+    copyright: true # 是否显示版权信息
+    author: true # 是否显示作者信息
+
+  favicon: icons/favicon.ico # 浏览器 Tab 页的网站图标
+  avatar: # 作者头像
+    enabled: true
+    local: true
+    src: "img/avatar.gif"
+  sidebar: # 侧边栏的配置
+    emoji: 😉
+    subtitle: "一年灯火一年诗，总被流光抛掷"
+
+    featuredImageField: image # 文章的封面图片从哪个字段获取,这里是从image字段获取
+    rssFullContent: false # RSS 是否开启全内容 / false 则为只有摘要
+
+  article: # 文章的配置
+    headingAnchor: true # 是否开启标题锚点
+    math: true # 这里关闭是因为我们使用的是 MathJax
+    toc: false # TOC 文章也右边的导航
+    readingTime: true # 阅读时间
+    license: # 文章的版权信息
+      enabled: true # 是否启用版权信息
+      default: 'Licensed under CC BY-NC-SA 4.0' # 默认的版权信息
+
+  google_site_verification: "XXX"
+  bing_site_verification: "XXX"
+  baidu_site_verification: "XXX"
+
+  widgets: # 网页中右边的小部件
+    homepage: # 首页的小部件
+      - type: search # 搜索框
+      - type: archives # 归档
+        params:
+          limit: 5 # 归档显示的数量
+      - type: categories # 分类
+        params:
+          limit: 10 # 分类显示的数量
+      - type: tag-cloud # 标签云
+        params:
+          limit: 10 # 标签云显示的数量
+    page:
+      - type: "toc" # TOC 文章也右边的导航
+
+  colorScheme: # 颜色主题
+    toggle: true  # 是否显示切换按钮
+    # Available values: auto, light, dark
+    default: auto # 默认的颜色主题
+
+### Custom menu
+### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
+### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+menu:
+    main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -100
+          params:
+              newTab: false
+              icon: home
+
+        - identifier: categories
+          name: Categories
+          url: /categories/
+          weight: -85
+          params:
+              newTab: false
+              icon: layout-grid
+
+        - identifier: tags
+          name: Tags
+          url: /tags/
+          weight: -80
+          params:
+              newTab: false
+              icon: tag
+
+        - identifier: rss
+          name: RSS Feed
+          url: /index.xml
+          weight: -10
+          params:
+              newTab: true
+              icon: rss
+
+    social:
+        - identifiter: email
+          name: Email
+          url: mailto:syuchua@proton.me
+          params:
+              newTab: true
+              icon: email
+        - identifier: github
+          name: GitHub
+          url: https://github.com/syuchua
+          params:
+              newTab: true
+              icon: brand-github
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+
+        - name: categories
+          weight: 200
+
+markup:
+  defaultMarkdownHandler: goldmark
+  tableOfContents: # TOC 文章也右边的导航
+    ordered: true # 是否有序
+    startLevel: 2 # 从 2级标题开始
+    endLevel: 5 # 到 5级标题结束
+  highlight: # 代码高亮配置
+    codeFences: true # 是否启用代码块
+    guessSyntax: true # 是否猜测语法
+    lineNoStart: 1 # 代码块的起始行号
+    lineNos: true # 是否显示行号
+    lineNumbersInTable: false # 是否在表格中显示行号
+    noClasses: true # 是否不使用类
+    style: "dracula" # 代码块的样式
+    tabWidth: 4 # tab 的宽度
+

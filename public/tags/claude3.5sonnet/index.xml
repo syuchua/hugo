@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Claude3.5sonnet on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/claude3.5sonnet/</link>
+        <description>Recent content in Claude3.5sonnet on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Mon, 29 Jul 2024 23:28:18 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/claude3.5sonnet/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>通过油猴插件无限白嫖VecMulChat的gpt4o，claude3.5s等最新大模型</title>
+        <link>http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+        <pubDate>Mon, 29 Jul 2024 23:28:18 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
+        <description>&lt;p&gt;今天在&lt;code&gt;Linuxdo&lt;/code&gt;闲逛时发现&lt;a class=&#34;link&#34; href=&#34;https://linux.do/t/topic/162476&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;一篇帖子&lt;/a&gt;，说是使用某个网站+油猴脚本可以实现&lt;code&gt;GPT4o&lt;/code&gt;和&lt;code&gt;claude3.5sonnet&lt;/code&gt;等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&amp;#x1f606;**&lt;/p&gt;
+&lt;p&gt;首先是网站地址：
+&lt;a class=&#34;link&#34; href=&#34;https://www.vecmul.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.vecmul.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;进入后不要登录，先安装这个油猴脚本：
+&lt;a class=&#34;link&#34; href=&#34;https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;之后点击编辑&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/image-20240729234408576.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240729234408576&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;把下面的代码替换进去：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// ==UserScript==
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// @name         将聊天请求计数保持为零
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// @namespace    http://tampermonkey.net/
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// @version      0.5
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// @description  始终将localStorage中chat-request项的计数保持为0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// @match        https://www.vecmul.com/*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// @grant        none
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;// ==/UserScript==
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10&lt;/span&gt;&lt;span&gt;(&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;function&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;function&lt;/span&gt; keepCountAtZero() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14&lt;/span&gt;&lt;span&gt;        &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; chatRequest &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; localStorage.getItem(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;chat-request&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15&lt;/span&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (chatRequest) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16&lt;/span&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff79c6&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17&lt;/span&gt;&lt;span&gt;                &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;let&lt;/span&gt; data &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; JSON.parse(chatRequest);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18&lt;/span&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (data.count &lt;span style=&#34;color:#ff79c6&#34;&gt;!==&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19&lt;/span&gt;&lt;span&gt;                    data.count &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20&lt;/span&gt;&lt;span&gt;                    localStorage.setItem(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;chat-request&amp;#39;&lt;/span&gt;, JSON.stringify(data));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21&lt;/span&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22&lt;/span&gt;&lt;span&gt;            } &lt;span style=&#34;color:#ff79c6&#34;&gt;catch&lt;/span&gt; (e) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23&lt;/span&gt;&lt;span&gt;                console.error(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;解析chat-request时出错:&amp;#39;&lt;/span&gt;, e);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24&lt;/span&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25&lt;/span&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26&lt;/span&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// 初始执行
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;29&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    keepCountAtZero();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;30&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31&lt;/span&gt;&lt;span&gt;    &lt;span style=&#34;color:#6272a4&#34;&gt;// 重写localStorage的setItem方法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;32&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff79c6&#34;&gt;const&lt;/span&gt; originalSetItem &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; Storage.prototype.setItem;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;33&lt;/span&gt;&lt;span&gt;    Storage.prototype.setItem &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;function&lt;/span&gt;(key, value) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;34&lt;/span&gt;&lt;span&gt;        originalSetItem.call(&lt;span style=&#34;color:#ff79c6&#34;&gt;this&lt;/span&gt;, key, value);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;35&lt;/span&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (key &lt;span style=&#34;color:#ff79c6&#34;&gt;===&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;chat-request&amp;#39;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;36&lt;/span&gt;&lt;span&gt;            keepCountAtZero();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;37&lt;/span&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;38&lt;/span&gt;&lt;span&gt;    };
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;39&lt;/span&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;40&lt;/span&gt;&lt;span&gt;    console.log(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;聊天请求计数将始终为零。&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;41&lt;/span&gt;&lt;span&gt;})();
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&amp;#x1f606;**&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

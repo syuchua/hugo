@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>机器人框架 on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A1%86%E6%9E%B6/</link>
+        <description>Recent content in 机器人框架 on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Thu, 08 Aug 2024 15:26:06 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>教你搭建一个自己的芙宁娜QQ机器人，支持AI聊天、语音、绘画和发送涩图及翻唱</title>
+        <link>http://localhost:1313/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</link>
+        <pubDate>Thu, 08 Aug 2024 15:26:06 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</guid>
+        <description>&lt;p&gt;今天来分享一个我自己写的芙宁娜QQ机器人后端，拥有的能力包括但不限于AI聊天、绘画、发送涩图、AI语音、翻唱歌曲等，还兼具上下文功能，支持自定义system_prompt，适配http和反向ws连接。先来一波展示：&lt;/p&gt;
+&lt;h2 id=&#34;食用方法&#34;&gt;&lt;a href=&#34;#%e9%a3%9f%e7%94%a8%e6%96%b9%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;食用方法
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;直接对话即可
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240616001408.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;ul&gt;
+&lt;li&gt;发送&lt;code&gt;发一张&lt;/code&gt;，&lt;code&gt;来一张&lt;/code&gt;+关键词即可自定义发送涩图，比方说&lt;code&gt;发一张卡芙卡&lt;/code&gt;
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240616001141.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;发送&lt;code&gt;来份涩图&lt;/code&gt;，&lt;code&gt;来份色图&lt;/code&gt;，&lt;code&gt;再来一张&lt;/code&gt; 即可发送随机涩图
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240616001208.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;发送&lt;code&gt;画一张&lt;/code&gt;，&lt;code&gt;生成一张&lt;/code&gt; 即可发送AI绘画（如果config.json里有GPT有关的配置，则关键词会调用dalle进行绘画，除dalle外，还支持白嫖bing的AI绘画，需提前将cookie的值填入cookies.json中，只有一个账号的cookie就按字典格式填一个，多个的话可以放进列表里）
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240616001253.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;发送&lt;code&gt;语音说&lt;/code&gt;，``语音回复&lt;code&gt; +&lt;/code&gt;要用语音说的话&lt;code&gt;让机器人发送语音，或者再提示词里提示机器人通过把&lt;/code&gt;#voice`标签放在回复的开头，实现更生动地语音回复。
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240720233521.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;发送&lt;code&gt;点歌&lt;/code&gt;+歌曲名进行点歌，支持模糊匹配。
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240805154117.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;R-18?
+该接口的涩图数量足有十几万，其中r18占27.8%，建议公共场合尽量设置为0，2的话，还是不要太相信自己的运气了(问就是惨痛的教训)
+&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240616002550.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;命令功能&#34;&gt;&lt;a href=&#34;#%e5%91%bd%e4%bb%a4%e5%8a%9f%e8%83%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;命令功能
+&lt;/h2&gt;&lt;p&gt;机器人支持以下命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/help&lt;/code&gt;：显示帮助信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/reset&lt;/code&gt;：重置当前会话。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/character&lt;/code&gt;：输出&lt;code&gt;config.json&lt;/code&gt;中的&lt;code&gt;character&lt;/code&gt;值，也即当前的人设。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/history&lt;/code&gt;: 输出之前的条消息记录，默认十条，也可以接空格+数字指定。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/clear&lt;/code&gt;:清除消息记录，默认十条，可接空格+数字指定。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/music_list&lt;/code&gt;: 获取歌曲列表&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/r18 [0, 1, 2]&lt;/code&gt;切换涩图接口r18模式，0为关闭，1为开启，2随机&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/model [new_model]&lt;/code&gt;切换模型，新模型需先在model.json中配置好&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;语音功能需要本地搭建gpt-sovits，可以参考视频https://b23.tv/9dOdMo6&lt;/p&gt;
+&lt;p&gt;这里放上本地搭建语音整合包
+&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/J2um&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GPT-SoVITS-Inference&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;部署&#34;&gt;&lt;a href=&#34;#%e9%83%a8%e7%bd%b2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;部署
+&lt;/h2&gt;&lt;p&gt;接下来是机器人项目的部署，对接QQ使用的是支持onebot协议的&lt;a class=&#34;link&#34; href=&#34;https://github.com/LLOneBot/LLOneBot&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;llonebot&lt;/a&gt;，所以其他类似项目如&lt;a class=&#34;link&#34; href=&#34;https://github.com/LagrangeDev/Lagrange.Core&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lagrange&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;https://github.com/NapNeko/NapCatQQ&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NapCat&lt;/a&gt;也是可以的，这里仅演示llonebot的配置，默认使用反向ws连接&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/MAH0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;包含NTQQ，llonebot插件，MongoDB安装包和项目源码的整合包&lt;/a&gt;下载整合包并解压&lt;/p&gt;
+&lt;p&gt;先双击&lt;code&gt;install_windows.exe&lt;/code&gt;安装NTQQ，然后把llonebot.zip复制到NTQQ的插件目录下解压，重启QQ即可在设置里看到有关配置，然后就是填写反向ws监听地址&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;ws://127.0.0.1:8011/ws
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后是双击MongoDB的安装文件，没什么好讲的，安装完成后进入bin目录，打开cmd，输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt; mongod --dbpath D:\MongoDB\data --logpath D:\MongoDB\log\mongodb.log --logappend   #替换成你自己的对应目录
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;关闭终端，填写机器人项目的config，config.json里是基础配置&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;openai_api_key&lt;/code&gt;: 你的openai_api_key&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;model&lt;/code&gt;: 使用的模型，默认为gpt-3.5-turbo&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;self_id&lt;/code&gt;：机器人的QQ号。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;admin_id&lt;/code&gt;：管理员的QQ号。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;block_id&lt;/code&gt;: 要屏蔽的QQ号。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nicknames&lt;/code&gt;：机器人的昵称列表。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;system_message&lt;/code&gt;：系统消息配置，最重要的是&lt;code&gt;character&lt;/code&gt;，相当于机器人的人格。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;connection_type&lt;/code&gt;: 连接类型，可选http或ws_reverse&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;report_secret&lt;/code&gt;: http事件上传密钥。仅使用http连接时需要填写，默认的123456也可以不管&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;enable_time&lt;/code&gt;: 设置定时开启时间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;disable_time&lt;/code&gt;: 设置定时关闭时间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;proxy_api_base&lt;/code&gt;: openai_api_key请求地址，默认为https://api.openai.com/v1&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;system_message&lt;/code&gt;：&lt;code&gt;character&lt;/code&gt;里填写人设&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;reply_probability&lt;/code&gt;: 当收到的消息中没有nickname时的回复频率，1为每一条都回复，0为仅回复带有nickname的消息，默认0.5&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;r18&lt;/code&gt;: 0为关闭r18，1开启r18，2为随机发送(慎选)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;audio_save_path&lt;/code&gt;: 语音文件保存位置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;voice_service_url&lt;/code&gt;: 语音接口地址&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cha_name&lt;/code&gt;：语音接口指定角色
+dialogues.json里主要是配置一些固定回答，一般没什么用，除非有什么恶趣味
+model.json里主要是非gpt的其他模型的配置，如果填了，会覆盖config.json里GPT的配置需要为OneAPI格式，&lt;code&gt;model&lt;/code&gt;里填写的模型名需要现在&lt;code&gt;aviliable_models&lt;/code&gt;里填上。&lt;code&gt;vision&lt;/code&gt;代表是否支持识图，如果你的模型可以识图就填true(如果使用gpt系列模型，gpt4系列默认允许识图)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;视频教程&#34;&gt;&lt;a href=&#34;#%e8%a7%86%e9%a2%91%e6%95%99%e7%a8%8b&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;视频教程
+&lt;/h3&gt;&lt;p&gt;【芙宁娜QQ机器人搭建教程】 &lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1BBYcekEUs/?share_source=copy_web&amp;amp;vd_source=6f08734cb3a294b6a1e634a3e5b481ca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.bilibili.com/video/BV1BBYcekEUs/?share_source=copy_web&amp;vd_source=6f08734cb3a294b6a1e634a3e5b481ca&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;获取bing的cookie用于非gpt系列的ai绘图&#34;&gt;&lt;a href=&#34;#%e8%8e%b7%e5%8f%96bing%e7%9a%84cookie%e7%94%a8%e4%ba%8e%e9%9d%9egpt%e7%b3%bb%e5%88%97%e7%9a%84ai%e7%bb%98%e5%9b%be&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;获取bing的cookie用于非gpt系列的AI绘图
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/f/qxjsX/2024-08-05%2021-41-49.mp4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;如果视频无法渲染可以点击链接下载&lt;/a&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h3 id=&#34;项目开源仓库&#34;&gt;&lt;a href=&#34;#%e9%a1%b9%e7%9b%ae%e5%bc%80%e6%ba%90%e4%bb%93%e5%ba%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;项目开源仓库
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/syuchua/MY_QBOT&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;syuchua/MY_QBOT: 一个简单的QQ机器人后端框架 (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;一些跟芙芙聊天的日常&#34;&gt;&lt;a href=&#34;#%e4%b8%80%e4%ba%9b%e8%b7%9f%e8%8a%99%e8%8a%99%e8%81%8a%e5%a4%a9%e7%9a%84%e6%97%a5%e5%b8%b8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;一些跟芙芙聊天的日常
+&lt;/h3&gt;&lt;p&gt;【谁家傻芙芙连9.8和9.11哪个大都分不清】 &lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1TivWeFEot/?share_source=copy_web&amp;amp;vd_source=6f08734cb3a294b6a1e634a3e5b481ca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.bilibili.com/video/BV1TivWeFEot/?share_source=copy_web&amp;vd_source=6f08734cb3a294b6a1e634a3e5b481ca&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Redis on YuChu&#39;s Blog</title>
+        <link>http://localhost:1313/tags/redis/</link>
+        <description>Recent content in Redis on YuChu&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 25 Sep 2024 23:03:33 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>运维岗需要掌握的Redis基础和优化技巧</title>
+        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84redis%E5%9F%BA%E7%A1%80%E5%92%8C%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/</link>
+        <pubDate>Wed, 25 Sep 2024 23:03:33 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84redis%E5%9F%BA%E7%A1%80%E5%92%8C%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/</guid>
+        <description>&lt;hr&gt;
+&lt;h1 id=&#34;redis-运维笔记&#34;&gt;&lt;a href=&#34;#redis-%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;Redis 运维笔记
+&lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#1-redis-%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5&#34; &gt;Redis 基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#2-redis-%e6%8c%81%e4%b9%85%e5%8c%96%e6%9c%ba%e5%88%b6&#34; &gt;Redis 持久化机制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#3-redis-%e9%ab%98%e5%8f%af%e7%94%a8&#34; &gt;Redis 高可用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#4-redis-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&#34; &gt;Redis 常用命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#5-redis-%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96&#34; &gt;Redis 性能优化&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-redis-基本概念&#34;&gt;&lt;a href=&#34;#1-redis-%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1. Redis 基本概念
+&lt;/h2&gt;&lt;h3 id=&#34;redis-是什么&#34;&gt;&lt;a href=&#34;#redis-%e6%98%af%e4%bb%80%e4%b9%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;Redis 是什么？&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Redis 是一个开源的内存数据结构存储系统，支持多种数据结构如：字符串、哈希、列表、集合、有序集合等。&lt;/li&gt;
+&lt;li&gt;Redis 提供持久化机制，可以将内存中的数据保存到磁盘中，重启时加载使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;redis-应用场景&#34;&gt;&lt;a href=&#34;#redis-%e5%ba%94%e7%94%a8%e5%9c%ba%e6%99%af&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;Redis 应用场景&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缓存&lt;/strong&gt;: 提高访问速度，减少数据库压力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分布式锁&lt;/strong&gt;: 利用 Redis 的原子操作实现高效分布式锁。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;消息队列&lt;/strong&gt;: 利用列表结构实现高效队列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-redis-持久化机制&#34;&gt;&lt;a href=&#34;#2-redis-%e6%8c%81%e4%b9%85%e5%8c%96%e6%9c%ba%e5%88%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;2. Redis 持久化机制
+&lt;/h2&gt;&lt;p&gt;Redis 支持两种主要的持久化方式：&lt;/p&gt;
+&lt;h3 id=&#34;1-rdb-redis-database-backup&#34;&gt;&lt;a href=&#34;#1-rdb-redis-database-backup&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;1. RDB (Redis Database Backup)&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;原理&lt;/strong&gt;: 在指定时间间隔内生成数据快照并保存到磁盘。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;: RDB 文件紧凑，适合备份。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;: 数据不是实时持久化，可能丢失部分数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;配置示例&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;save 900 1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;save 300 10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;save 60 10000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-aof-append-only-file&#34;&gt;&lt;a href=&#34;#2-aof-append-only-file&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;2. AOF (Append-Only File)&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;原理&lt;/strong&gt;: 记录每次写操作，以日志的形式追加到文件中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;: 数据持久化更实时，默认每秒保存一次。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缺点&lt;/strong&gt;: AOF 文件比 RDB 更大，恢复速度较慢。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;配置示例&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;appendonly yes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;appendfsync everysec&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;选择合适的持久化方式&#34;&gt;&lt;a href=&#34;#%e9%80%89%e6%8b%a9%e5%90%88%e9%80%82%e7%9a%84%e6%8c%81%e4%b9%85%e5%8c%96%e6%96%b9%e5%bc%8f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;选择合适的持久化方式&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RDB&lt;/strong&gt;: 用于备份，适合在不要求实时性但需要快速恢复的场景。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AOF&lt;/strong&gt;: 用于数据更实时的持久化，但需要更多的磁盘资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-redis-高可用&#34;&gt;&lt;a href=&#34;#3-redis-%e9%ab%98%e5%8f%af%e7%94%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;3. Redis 高可用
+&lt;/h2&gt;&lt;h3 id=&#34;1-主从复制-master-slave-replication&#34;&gt;&lt;a href=&#34;#1-%e4%b8%bb%e4%bb%8e%e5%a4%8d%e5%88%b6-master-slave-replication&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;1. 主从复制 (Master-Slave Replication)&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Redis 支持异步复制，一个 Master 可以有多个 Slave。&lt;/li&gt;
+&lt;li&gt;Slave 只读，接收 Master 数据的更新。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;命令&lt;/strong&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;SLAVEOF &amp;lt;master-ip&amp;gt; &amp;lt;master-port&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-哨兵模式-sentinel&#34;&gt;&lt;a href=&#34;#2-%e5%93%a8%e5%85%b5%e6%a8%a1%e5%bc%8f-sentinel&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;2. 哨兵模式 (Sentinel)&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;实现高可用性，哨兵可以监控主从实例的运行状态，并在主节点故障时自动进行故障转移。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优点&lt;/strong&gt;: 自动故障切换，监控实例状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置文件&lt;/strong&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;sentinel monitor mymaster 127.0.0.1 6379 2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-redis-集群-redis-cluster&#34;&gt;&lt;a href=&#34;#3-redis-%e9%9b%86%e7%be%a4-redis-cluster&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;3. Redis 集群 (Redis Cluster)&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分布式&lt;/strong&gt;: 将数据分布在多个节点上，支持水平扩展。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;哈希槽 (Hash Slot)&lt;/strong&gt;: Redis 集群通过哈希槽将数据分布在多个节点，集群默认有 16384 个槽。&lt;/li&gt;
+&lt;li&gt;支持自动分片和故障转移。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-redis-常用命令&#34;&gt;&lt;a href=&#34;#4-redis-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;4. Redis 常用命令
+&lt;/h2&gt;&lt;h3 id=&#34;键管理&#34;&gt;&lt;a href=&#34;#%e9%94%ae%e7%ae%a1%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;键管理&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;查看所有键:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;KEYS *
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除键:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;DEL &amp;lt;key&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;字符串操作&#34;&gt;&lt;a href=&#34;#%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;字符串操作&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;设置键值:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;SET &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取键值:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;GET &amp;lt;key&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;列表操作&#34;&gt;&lt;a href=&#34;#%e5%88%97%e8%a1%a8%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;列表操作&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;添加元素到列表:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;LPUSH &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取列表元素:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;LRANGE &amp;lt;key&amp;gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; -1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;哈希操作&#34;&gt;&lt;a href=&#34;#%e5%93%88%e5%b8%8c%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;哈希操作&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;设置哈希字段:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;HSET &amp;lt;key&amp;gt; &amp;lt;field&amp;gt; &amp;lt;value&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取哈希字段:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;HGET &amp;lt;key&amp;gt; &amp;lt;field&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;集合操作&#34;&gt;&lt;a href=&#34;#%e9%9b%86%e5%90%88%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;集合操作&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;添加元素到集合:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;SADD &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取集合所有元素:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;SMEMBERS &amp;lt;key&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;有序集合操作&#34;&gt;&lt;a href=&#34;#%e6%9c%89%e5%ba%8f%e9%9b%86%e5%90%88%e6%93%8d%e4%bd%9c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;有序集合操作&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;添加元素到有序集合:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;ZADD &amp;lt;key&amp;gt; &amp;lt;score&amp;gt; &amp;lt;value&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取有序集合元素:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;ZRANGE &amp;lt;key&amp;gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt; -1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;5-redis-性能优化&#34;&gt;&lt;a href=&#34;#5-redis-%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;5. Redis 性能优化
+&lt;/h2&gt;&lt;h3 id=&#34;1-使用缓存&#34;&gt;&lt;a href=&#34;#1-%e4%bd%bf%e7%94%a8%e7%bc%93%e5%ad%98&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;1. 使用缓存&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;合理设置缓存过期时间，避免占用过多内存。&lt;/li&gt;
+&lt;li&gt;配置示例:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;maxmemory 2gb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;maxmemory-policy allkeys-lru&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-数据分区&#34;&gt;&lt;a href=&#34;#2-%e6%95%b0%e6%8d%ae%e5%88%86%e5%8c%ba&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;2. 数据分区&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用 Redis 集群，将数据分散到不同节点，减少单个节点的压力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-禁用-aof-或调整-aof-策略&#34;&gt;&lt;a href=&#34;#3-%e7%a6%81%e7%94%a8-aof-%e6%88%96%e8%b0%83%e6%95%b4-aof-%e7%ad%96%e7%95%a5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;3. 禁用 AOF 或调整 AOF 策略&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;如果对数据一致性要求不高，可以禁用 AOF 或调整为 &lt;code&gt;everysec&lt;/code&gt; 以提高性能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-优化-redis-配置&#34;&gt;&lt;a href=&#34;#4-%e4%bc%98%e5%8c%96-redis-%e9%85%8d%e7%bd%ae&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;4. 优化 Redis 配置&lt;/strong&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;增加后台线程，调整 &lt;code&gt;io-threads&lt;/code&gt; 来提升并发性能。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
