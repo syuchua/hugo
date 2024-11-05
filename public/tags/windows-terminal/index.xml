@@ -1,103 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Windows Terminal on YuChu&#39;s Blog</title>
-        <link>https://hugo.yuchu.me/tags/windows-terminal/</link>
-        <description>Recent content in Windows Terminal on YuChu&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Tue, 07 May 2024 22:05:04 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/windows-terminal/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>oh-my-posh:基于WindowsTerminal的powershell美化教程</title>
-        <link>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</link>
-        <pubDate>Tue, 07 May 2024 22:05:04 +0800</pubDate>
-        
-        <guid>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</guid>
-        <description>&lt;p&gt;今天来更一篇关于Windows终端美化的教程，先放个成品：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/terminal.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;实现的效果主要有终端半透明、亚克力材质、背景图片以及终端主题。&lt;/p&gt;
-&lt;h1 id=&#34;安装powershell-7&#34;&gt;&lt;a href=&#34;#%e5%ae%89%e8%a3%85powershell-7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;安装PowerShell 7
-&lt;/h1&gt;&lt;p&gt;相比于 Windows 默认提供的 Powershell，Powershell 7 拥有以下几个优势：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;支持跨平台使用，增强了其灵活性和适用范围。&lt;/li&gt;
-&lt;li&gt;提供了更优越的性能表现。&lt;/li&gt;
-&lt;li&gt;处于持续更新状态，保证了功能的不断完善和安全性的提升。&lt;/li&gt;
-&lt;li&gt;简而言之，Powershell 7 是 Powershell 的升级版。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;官网地址：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;PowerShell 文档 - PowerShell
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Github 地址：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;https://github.com/PowerShell/PowerShell
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;下载地址：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;https://github.com/PowerShell/PowerShell/releases/
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows Terminal on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/windows-terminal/</link><description>Recent content in Windows Terminal on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 07 May 2024 22:05:04 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/windows-terminal/index.xml" rel="self" type="application/rss+xml"/><item><title>oh-my-posh:基于WindowsTerminal的powershell美化教程</title><link>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 07 May 2024 22:05:04 +0800</pubDate><guid>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</guid><description>&lt;p>今天来更一篇关于Windows终端美化的教程，先放个成品：&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/terminal.jpg"
+loading="lazy"
+>&lt;/p>
+&lt;p>实现的效果主要有终端半透明、亚克力材质、背景图片以及终端主题。&lt;/p>
+&lt;h1 id="安装powershell-7">&lt;a href="#%e5%ae%89%e8%a3%85powershell-7" class="header-anchor">&lt;/a>安装PowerShell 7
+&lt;/h1>&lt;p>相比于 Windows 默认提供的 Powershell，Powershell 7 拥有以下几个优势：&lt;/p>
+&lt;ol>
+&lt;li>支持跨平台使用，增强了其灵活性和适用范围。&lt;/li>
+&lt;li>提供了更优越的性能表现。&lt;/li>
+&lt;li>处于持续更新状态，保证了功能的不断完善和安全性的提升。&lt;/li>
+&lt;li>简而言之，Powershell 7 是 Powershell 的升级版。&lt;/li>
+&lt;/ol>
+&lt;p>官网地址：&lt;/p>
+&lt;pre>&lt;code>PowerShell 文档 - PowerShell
+&lt;/code>&lt;/pre>
+&lt;p>Github 地址：&lt;/p>
+&lt;pre>&lt;code>https://github.com/PowerShell/PowerShell
+&lt;/code>&lt;/pre>
+&lt;p>下载地址：&lt;/p>
+&lt;pre>&lt;code>https://github.com/PowerShell/PowerShell/releases/
 https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;选择合适自己的安装即可。&lt;/p&gt;
-&lt;h1 id=&#34;安装windows-terminal&#34;&gt;&lt;a href=&#34;#%e5%ae%89%e8%a3%85windows-terminal&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;安装Windows Terminal
-&lt;/h1&gt;&lt;p&gt;直接去微软商店下载即可：https://apps.microsoft.com/detail/9n0dx20hk701?hl=zh=CN&amp;amp;gl=CN&lt;/p&gt;
-&lt;h1 id=&#34;安装winget&#34;&gt;&lt;a href=&#34;#%e5%ae%89%e8%a3%85winget&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;安装winget
-&lt;/h1&gt;&lt;p&gt;一般在Windows10 高于 1709 (Build 16299) 的版本和 Windows11上以及预装了winget，可以通过在命令行输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;winget --version
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;确认，如果没有的话可以在微软商店安装：https://apps.microsoft.com/detail/9nblggh4nns1?hl=zh-CN&amp;amp;gl=CN&lt;/p&gt;
-&lt;h1 id=&#34;修改透明度亚克力材质和背景图片&#34;&gt;&lt;a href=&#34;#%e4%bf%ae%e6%94%b9%e9%80%8f%e6%98%8e%e5%ba%a6%e4%ba%9a%e5%85%8b%e5%8a%9b%e6%9d%90%e8%b4%a8%e5%92%8c%e8%83%8c%e6%99%af%e5%9b%be%e7%89%87&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;修改透明度、亚克力材质和背景图片
-&lt;/h1&gt;&lt;p&gt;旧版的Windows Terminal需要修改json的配置文件，但新版可以直接在设置界面可视化开启
+&lt;/code>&lt;/pre>
+&lt;p>选择合适自己的安装即可。&lt;/p>
+&lt;h1 id="安装windows-terminal">&lt;a href="#%e5%ae%89%e8%a3%85windows-terminal" class="header-anchor">&lt;/a>安装Windows Terminal
+&lt;/h1>&lt;p>直接去微软商店下载即可：https://apps.microsoft.com/detail/9n0dx20hk701?hl=zh=CN&amp;amp;gl=CN&lt;/p>
+&lt;h1 id="安装winget">&lt;a href="#%e5%ae%89%e8%a3%85winget" class="header-anchor">&lt;/a>安装winget
+&lt;/h1>&lt;p>一般在Windows10 高于 1709 (Build 16299) 的版本和 Windows11上以及预装了winget，可以通过在命令行输入&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>winget --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>确认，如果没有的话可以在微软商店安装：https://apps.microsoft.com/detail/9nblggh4nns1?hl=zh-CN&amp;amp;gl=CN&lt;/p>
+&lt;h1 id="修改透明度亚克力材质和背景图片">&lt;a href="#%e4%bf%ae%e6%94%b9%e9%80%8f%e6%98%8e%e5%ba%a6%e4%ba%9a%e5%85%8b%e5%8a%9b%e6%9d%90%e8%b4%a8%e5%92%8c%e8%83%8c%e6%99%af%e5%9b%be%e7%89%87" class="header-anchor">&lt;/a>修改透明度、亚克力材质和背景图片
+&lt;/h1>&lt;p>旧版的Windows Terminal需要修改json的配置文件，但新版可以直接在设置界面可视化开启
 点击设置-外观
-&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/terminal_set.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;默认值-外观-背景图像路径，可以自定义图片作为终端背景，再往下拉一点，设置图像不透明度，个人喜欢色调偏暗的，就设定为20%了。
-&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240507223022.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;再往下拉一点，就是设定终端界面的不透明度和亚克力材质了。
-&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240507223442.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;如果想要差异化的，还可以单独设定不同终端的外观。
-&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240507223621.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h1 id=&#34;安装oh-my-posh&#34;&gt;&lt;a href=&#34;#%e5%ae%89%e8%a3%85oh-my-posh&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;安装oh-my-posh
-&lt;/h1&gt;&lt;p&gt;直接winget就可以安装&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;winget search oh-my-posh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果出现两个结果，一个msstore的一个winget的，随便选一个就行。&lt;/p&gt;
-&lt;h2 id=&#34;设置oh-my-posh主题&#34;&gt;&lt;a href=&#34;#%e8%ae%be%e7%bd%aeoh-my-posh%e4%b8%bb%e9%a2%98&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;设置oh-my-posh主题
-&lt;/h2&gt;&lt;p&gt;在PowerShell中输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;code $profile    # 没有vscode的话也可以输入notepad $profile 使用记事本打开
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在打开的文件中输入这行命令：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\peru.omp.json | Invoke-Expression
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中的peru.omp.json即主题配置，可以自行修改，前往&lt;code&gt;C:\Users\&amp;lt;用户名&amp;gt;\AppData\Local\Programs\oh-my-posh\themes&lt;/code&gt;目录下即可查看不同配置，可以依次试用，选一个你喜欢的。&lt;/p&gt;
-&lt;h1 id=&#34;end&#34;&gt;&lt;a href=&#34;#end&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;END
-&lt;/h1&gt;</description>
-        </item>
-        
-    </channel>
-</rss>
+&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/terminal_set.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>默认值-外观-背景图像路径，可以自定义图片作为终端背景，再往下拉一点，设置图像不透明度，个人喜欢色调偏暗的，就设定为20%了。
+&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240507223022.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>再往下拉一点，就是设定终端界面的不透明度和亚克力材质了。
+&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240507223442.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>如果想要差异化的，还可以单独设定不同终端的外观。
+&lt;img src="https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/20240507223621.png"
+loading="lazy"
+>&lt;/p>
+&lt;h1 id="安装oh-my-posh">&lt;a href="#%e5%ae%89%e8%a3%85oh-my-posh" class="header-anchor">&lt;/a>安装oh-my-posh
+&lt;/h1>&lt;p>直接winget就可以安装&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>winget search oh-my-posh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果出现两个结果，一个msstore的一个winget的，随便选一个就行。&lt;/p>
+&lt;h2 id="设置oh-my-posh主题">&lt;a href="#%e8%ae%be%e7%bd%aeoh-my-posh%e4%b8%bb%e9%a2%98" class="header-anchor">&lt;/a>设置oh-my-posh主题
+&lt;/h2>&lt;p>在PowerShell中输入&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>code $profile # 没有vscode的话也可以输入notepad $profile 使用记事本打开
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在打开的文件中输入这行命令：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\peru.omp.json | Invoke-Expression
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中的peru.omp.json即主题配置，可以自行修改，前往&lt;code>C:\Users\&amp;lt;用户名&amp;gt;\AppData\Local\Programs\oh-my-posh\themes&lt;/code>目录下即可查看不同配置，可以依次试用，选一个你喜欢的。&lt;/p>
+&lt;h1 id="end">&lt;a href="#end" class="header-anchor">&lt;/a>END
+&lt;/h1></description></item></channel></rss>

@@ -1,143 +1,124 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>系统性能监控 on YuChu&#39;s Blog</title>
-        <link>https://hugo.yuchu.me/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7/</link>
-        <description>Recent content in 系统性能监控 on YuChu&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Wed, 25 Sep 2024 23:04:42 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>运维岗需要掌握的SRE和系统性能监控知识</title>
-        <link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</link>
-        <pubDate>Wed, 25 Sep 2024 23:04:42 +0800</pubDate>
-        
-        <guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</guid>
-        <description>&lt;hr&gt;
-&lt;h1 id=&#34;系统性能监控笔记&#34;&gt;&lt;a href=&#34;#%e7%b3%bb%e7%bb%9f%e6%80%a7%e8%83%bd%e7%9b%91%e6%8e%a7%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;系统性能监控笔记
-&lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#1-linux-%e7%b3%bb%e7%bb%9f%e8%b4%9f%e8%bd%bd%e7%9b%91%e6%8e%a7&#34; &gt;Linux 系统负载监控&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#2-%e7%bd%91%e7%bb%9c%e7%9b%91%e6%8e%a7&#34; &gt;网络监控&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#3-%e7%a3%81%e7%9b%98%e4%b8%8e-io-%e7%9b%91%e6%8e%a7&#34; &gt;磁盘与 IO 监控&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#4-%e5%86%85%e5%ad%98%e7%9b%91%e6%8e%a7&#34; &gt;内存监控&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;#5-%e7%b3%bb%e7%bb%9f%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90%e5%b7%a5%e5%85%b7&#34; &gt;系统性能分析工具&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;1-linux-系统负载监控&#34;&gt;&lt;a href=&#34;#1-linux-%e7%b3%bb%e7%bb%9f%e8%b4%9f%e8%bd%bd%e7%9b%91%e6%8e%a7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1. Linux 系统负载监控
-&lt;/h2&gt;&lt;h3 id=&#34;查看系统负载&#34;&gt;&lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e8%b4%9f%e8%bd%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;查看系统负载&lt;/strong&gt;
-&lt;/h3&gt;&lt;h4 id=&#34;uptime&#34;&gt;&lt;a href=&#34;#uptime&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;uptime&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;显示系统的负载平均值。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;uptime
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;top&#34;&gt;&lt;a href=&#34;#top&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;top&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;动态显示系统的进程和负载信息。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;top
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;load-average-的含义&#34;&gt;&lt;a href=&#34;#load-average-%e7%9a%84%e5%90%ab%e4%b9%89&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;load average&lt;/strong&gt; 的含义
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Load average 是系统在 1 分钟、5 分钟、15 分钟内的平均负载。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;2-网络监控&#34;&gt;&lt;a href=&#34;#2-%e7%bd%91%e7%bb%9c%e7%9b%91%e6%8e%a7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;2. 网络监控
-&lt;/h2&gt;&lt;h3 id=&#34;查看网络连接状态&#34;&gt;&lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e7%bd%91%e7%bb%9c%e8%bf%9e%e6%8e%a5%e7%8a%b6%e6%80%81&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;查看网络连接状态&lt;/strong&gt;
-&lt;/h3&gt;&lt;h4 id=&#34;netstat&#34;&gt;&lt;a href=&#34;#netstat&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;netstat&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;显示网络连接、路由表、接口统计信息。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;netstat -an
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;ss&#34;&gt;&lt;a href=&#34;#ss&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;ss&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;替代 &lt;code&gt;netstat&lt;/code&gt; 的工具，更加快速。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;ss -antp
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;查看带宽使用情况&#34;&gt;&lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e5%b8%a6%e5%ae%bd%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;查看带宽使用情况&lt;/strong&gt;
-&lt;/h3&gt;&lt;h4 id=&#34;iftop&#34;&gt;&lt;a href=&#34;#iftop&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;iftop&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;实时监控网络流量。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;iftop
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;nload&#34;&gt;&lt;a href=&#34;#nload&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;nload&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;监控网络接口带宽使用情况。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;nload
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;3-磁盘与-io-监控&#34;&gt;&lt;a href=&#34;#3-%e7%a3%81%e7%9b%98%e4%b8%8e-io-%e7%9b%91%e6%8e%a7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;3. 磁盘与 IO 监控
-&lt;/h2&gt;&lt;h3 id=&#34;查看磁盘空间&#34;&gt;&lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e7%a3%81%e7%9b%98%e7%a9%ba%e9%97%b4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;查看磁盘空间&lt;/strong&gt;
-&lt;/h3&gt;&lt;h4 id=&#34;df&#34;&gt;&lt;a href=&#34;#df&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;df&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;显示磁盘使用情况。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;df -h
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;du&#34;&gt;&lt;a href=&#34;#du&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;du&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;显示文件和目录的磁盘使用情况。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;du -sh &amp;lt;directory&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;监控-io-性能&#34;&gt;&lt;a href=&#34;#%e7%9b%91%e6%8e%a7-io-%e6%80%a7%e8%83%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;监控 IO 性能&lt;/strong&gt;
-&lt;/h3&gt;&lt;h4 id=&#34;iostat&#34;&gt;&lt;a href=&#34;#iostat&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;iostat&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;监控 CPU 和设备的 IO 统计。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;iostat
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;iotop&#34;&gt;&lt;a href=&#34;#iotop&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;iotop&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;实时查看磁盘 IO 使用情况。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;iotop
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;4-内存监控&#34;&gt;&lt;a href=&#34;#4-%e5%86%85%e5%ad%98%e7%9b%91%e6%8e%a7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;4. 内存监控
-&lt;/h2&gt;&lt;h3 id=&#34;查看内存使用情况&#34;&gt;&lt;a href=&#34;#%e6%9f%a5%e7%9c%8b%e5%86%85%e5%ad%98%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;查看内存使用情况&lt;/strong&gt;
-&lt;/h3&gt;&lt;h4 id=&#34;free&#34;&gt;&lt;a href=&#34;#free&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;free&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;显示系统的内存使用情况。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;free -m
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;vmstat&#34;&gt;&lt;a href=&#34;#vmstat&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;vmstat&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;报告虚拟内存统计信息。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;vmstat
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;top-1&#34;&gt;&lt;a href=&#34;#top-1&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;top&lt;/strong&gt;
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;在 &lt;code&gt;top&lt;/code&gt; 命令中查看内存使用情况。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;5-系统性能分析工具&#34;&gt;&lt;a href=&#34;#5-%e7%b3%bb%e7%bb%9f%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90%e5%b7%a5%e5%85%b7&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;5. 系统性能分析工具
-&lt;/h2&gt;&lt;h3 id=&#34;sar&#34;&gt;&lt;a href=&#34;#sar&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;sar&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;收集、报告和保存系统活动信息。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;sar -u &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;3&lt;/span&gt;   &lt;span style=&#34;color:#6272a4&#34;&gt;# 每秒收集一次 CPU 使用率，连续三次&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;htop&#34;&gt;&lt;a href=&#34;#htop&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;htop&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;类似 &lt;code&gt;top&lt;/code&gt;，但提供了更好的 UI 和更多功能。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;htop
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;perf&#34;&gt;&lt;a href=&#34;#perf&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;&lt;strong&gt;perf&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Linux 性能分析工具，用于剖析 CPU 使用情况和应用性能。
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;perf top
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        
-    </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>系统性能监控 on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7/</link><description>Recent content in 系统性能监控 on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Sep 2024 23:04:42 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7/index.xml" rel="self" type="application/rss+xml"/><item><title>运维岗需要掌握的SRE和系统性能监控知识</title><link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</link><pubDate>Wed, 25 Sep 2024 23:04:42 +0800</pubDate><guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</guid><description>&lt;hr>
+&lt;h1 id="系统性能监控笔记">&lt;a href="#%e7%b3%bb%e7%bb%9f%e6%80%a7%e8%83%bd%e7%9b%91%e6%8e%a7%e7%ac%94%e8%ae%b0" class="header-anchor">&lt;/a>系统性能监控笔记
+&lt;/h1>&lt;h2 id="目录">&lt;a href="#%e7%9b%ae%e5%bd%95" class="header-anchor">&lt;/a>目录
+&lt;/h2>&lt;ol>
+&lt;li>&lt;a class="link" href="#1-linux-%e7%b3%bb%e7%bb%9f%e8%b4%9f%e8%bd%bd%e7%9b%91%e6%8e%a7" >Linux 系统负载监控&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#2-%e7%bd%91%e7%bb%9c%e7%9b%91%e6%8e%a7" >网络监控&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#3-%e7%a3%81%e7%9b%98%e4%b8%8e-io-%e7%9b%91%e6%8e%a7" >磁盘与 IO 监控&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#4-%e5%86%85%e5%ad%98%e7%9b%91%e6%8e%a7" >内存监控&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#5-%e7%b3%bb%e7%bb%9f%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90%e5%b7%a5%e5%85%b7" >系统性能分析工具&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="1-linux-系统负载监控">&lt;a href="#1-linux-%e7%b3%bb%e7%bb%9f%e8%b4%9f%e8%bd%bd%e7%9b%91%e6%8e%a7" class="header-anchor">&lt;/a>1. Linux 系统负载监控
+&lt;/h2>&lt;h3 id="查看系统负载">&lt;a href="#%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e8%b4%9f%e8%bd%bd" class="header-anchor">&lt;/a>&lt;strong>查看系统负载&lt;/strong>
+&lt;/h3>&lt;h4 id="uptime">&lt;a href="#uptime" class="header-anchor">&lt;/a>&lt;strong>uptime&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>显示系统的负载平均值。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>uptime
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="top">&lt;a href="#top" class="header-anchor">&lt;/a>&lt;strong>top&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>动态显示系统的进程和负载信息。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>top
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="load-average-的含义">&lt;a href="#load-average-%e7%9a%84%e5%90%ab%e4%b9%89" class="header-anchor">&lt;/a>&lt;strong>load average&lt;/strong> 的含义
+&lt;/h4>&lt;ul>
+&lt;li>Load average 是系统在 1 分钟、5 分钟、15 分钟内的平均负载。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="2-网络监控">&lt;a href="#2-%e7%bd%91%e7%bb%9c%e7%9b%91%e6%8e%a7" class="header-anchor">&lt;/a>2. 网络监控
+&lt;/h2>&lt;h3 id="查看网络连接状态">&lt;a href="#%e6%9f%a5%e7%9c%8b%e7%bd%91%e7%bb%9c%e8%bf%9e%e6%8e%a5%e7%8a%b6%e6%80%81" class="header-anchor">&lt;/a>&lt;strong>查看网络连接状态&lt;/strong>
+&lt;/h3>&lt;h4 id="netstat">&lt;a href="#netstat" class="header-anchor">&lt;/a>&lt;strong>netstat&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>显示网络连接、路由表、接口统计信息。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>netstat -an
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="ss">&lt;a href="#ss" class="header-anchor">&lt;/a>&lt;strong>ss&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>替代 &lt;code>netstat&lt;/code> 的工具，更加快速。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>ss -antp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="查看带宽使用情况">&lt;a href="#%e6%9f%a5%e7%9c%8b%e5%b8%a6%e5%ae%bd%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5" class="header-anchor">&lt;/a>&lt;strong>查看带宽使用情况&lt;/strong>
+&lt;/h3>&lt;h4 id="iftop">&lt;a href="#iftop" class="header-anchor">&lt;/a>&lt;strong>iftop&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>实时监控网络流量。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>iftop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="nload">&lt;a href="#nload" class="header-anchor">&lt;/a>&lt;strong>nload&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>监控网络接口带宽使用情况。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>nload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="3-磁盘与-io-监控">&lt;a href="#3-%e7%a3%81%e7%9b%98%e4%b8%8e-io-%e7%9b%91%e6%8e%a7" class="header-anchor">&lt;/a>3. 磁盘与 IO 监控
+&lt;/h2>&lt;h3 id="查看磁盘空间">&lt;a href="#%e6%9f%a5%e7%9c%8b%e7%a3%81%e7%9b%98%e7%a9%ba%e9%97%b4" class="header-anchor">&lt;/a>&lt;strong>查看磁盘空间&lt;/strong>
+&lt;/h3>&lt;h4 id="df">&lt;a href="#df" class="header-anchor">&lt;/a>&lt;strong>df&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>显示磁盘使用情况。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>df -h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="du">&lt;a href="#du" class="header-anchor">&lt;/a>&lt;strong>du&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>显示文件和目录的磁盘使用情况。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>du -sh &amp;lt;directory&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="监控-io-性能">&lt;a href="#%e7%9b%91%e6%8e%a7-io-%e6%80%a7%e8%83%bd" class="header-anchor">&lt;/a>&lt;strong>监控 IO 性能&lt;/strong>
+&lt;/h3>&lt;h4 id="iostat">&lt;a href="#iostat" class="header-anchor">&lt;/a>&lt;strong>iostat&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>监控 CPU 和设备的 IO 统计。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>iostat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="iotop">&lt;a href="#iotop" class="header-anchor">&lt;/a>&lt;strong>iotop&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>实时查看磁盘 IO 使用情况。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>iotop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="4-内存监控">&lt;a href="#4-%e5%86%85%e5%ad%98%e7%9b%91%e6%8e%a7" class="header-anchor">&lt;/a>4. 内存监控
+&lt;/h2>&lt;h3 id="查看内存使用情况">&lt;a href="#%e6%9f%a5%e7%9c%8b%e5%86%85%e5%ad%98%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5" class="header-anchor">&lt;/a>&lt;strong>查看内存使用情况&lt;/strong>
+&lt;/h3>&lt;h4 id="free">&lt;a href="#free" class="header-anchor">&lt;/a>&lt;strong>free&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>显示系统的内存使用情况。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>free -m
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="vmstat">&lt;a href="#vmstat" class="header-anchor">&lt;/a>&lt;strong>vmstat&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>报告虚拟内存统计信息。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>vmstat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="top-1">&lt;a href="#top-1" class="header-anchor">&lt;/a>&lt;strong>top&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>在 &lt;code>top&lt;/code> 命令中查看内存使用情况。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="5-系统性能分析工具">&lt;a href="#5-%e7%b3%bb%e7%bb%9f%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90%e5%b7%a5%e5%85%b7" class="header-anchor">&lt;/a>5. 系统性能分析工具
+&lt;/h2>&lt;h3 id="sar">&lt;a href="#sar" class="header-anchor">&lt;/a>&lt;strong>sar&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>收集、报告和保存系统活动信息。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>sar -u &lt;span style="color:#bd93f9">1&lt;/span> &lt;span style="color:#bd93f9">3&lt;/span> &lt;span style="color:#6272a4"># 每秒收集一次 CPU 使用率，连续三次&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="htop">&lt;a href="#htop" class="header-anchor">&lt;/a>&lt;strong>htop&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>类似 &lt;code>top&lt;/code>，但提供了更好的 UI 和更多功能。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>htop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="perf">&lt;a href="#perf" class="header-anchor">&lt;/a>&lt;strong>perf&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>Linux 性能分析工具，用于剖析 CPU 使用情况和应用性能。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>perf top
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul></description></item></channel></rss>

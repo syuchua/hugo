@@ -1,117 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Raidrive on YuChu&#39;s Blog</title>
-        <link>https://hugo.yuchu.me/tags/raidrive/</link>
-        <description>Recent content in Raidrive on YuChu&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Wed, 10 Apr 2024 22:59:40 +0000</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/raidrive/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>用alist&#43;raidrive将网盘空间挂载到本地</title>
-        <link>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
-        <pubDate>Wed, 10 Apr 2024 22:59:40 +0000</pubDate>
-        
-        <guid>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
-        <description>&lt;h2 id=&#34;成品展示&#34;&gt;&lt;a href=&#34;#%e6%88%90%e5%93%81%e5%b1%95%e7%a4%ba&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;成品展示
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/2Bf8/alist1.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;
-&lt;img src=&#34;https://cloud.yuchu.me/f/38h2/alist2.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;原理&#34;&gt;&lt;a href=&#34;#%e5%8e%9f%e7%90%86&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;原理
-&lt;/h3&gt;&lt;p&gt;通过alist挂载网盘，然后用RaiDrive的webdav功能将网盘内容映射到本地，可以直接对网盘内容进行增删改查，实现近似本地词牌的功能。&lt;/p&gt;
-&lt;h2 id=&#34;alist下载安装&#34;&gt;&lt;a href=&#34;#alist%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;alist下载安装
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/alist-org/alist/releases/download/v3.32.0/alist-windows-amd64.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;alist官方下载&lt;/a&gt;
-GitHub访问较慢的也可以从该链接下载:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/jRfM&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;alist下载&lt;/a&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;将下载的压缩包解压到指定的目录下&lt;/li&gt;
-&lt;li&gt;此目录下运行cmd，输入 &lt;code&gt;.\alist.exe server&lt;/code&gt;开始安装程序&lt;/li&gt;
-&lt;li&gt;当看到输出&lt;code&gt;start server@0.0.0.0:5244&lt;/code&gt;且后续无报错时，说明安装完成。初始会指定alist用户名为admin，并随机一个密码，该密码会在安装时展示，也可以使用&lt;code&gt;.\alist.exe admin&lt;/code&gt;查询&lt;/li&gt;
-&lt;li&gt;安装成功后，浏览器打开 &lt;code&gt;127.0.0.1:5244&lt;/code&gt;即可访问alist管理界面。输入刚刚的用户名和密码，点击&lt;code&gt;管理&lt;/code&gt;，可以进入管理界面修改用户名和密码。&lt;/li&gt;
-&lt;li&gt;关闭该进程可以在cmd界面按下&lt;code&gt;Crtl+C&lt;/code&gt;，之后重新启动以及更改密码可以在根目录使用如下命令&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;alist start
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;alist admin set your_passwd   #your_passwd改为你要更改的密码
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;alist挂载网盘&#34;&gt;&lt;a href=&#34;#alist%e6%8c%82%e8%bd%bd%e7%bd%91%e7%9b%98&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;alist挂载网盘
-&lt;/h2&gt;&lt;p&gt;&lt;em&gt;点击管理界面的存储-添加-驱动，即可添加指定网盘，目前已支持几十种&lt;/em&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Raidrive on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/raidrive/</link><description>Recent content in Raidrive on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 10 Apr 2024 22:59:40 +0000</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/raidrive/index.xml" rel="self" type="application/rss+xml"/><item><title>用alist+raidrive将网盘空间挂载到本地</title><link>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</link><pubDate>Wed, 10 Apr 2024 22:59:40 +0000</pubDate><guid>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid><description>&lt;h2 id="成品展示">&lt;a href="#%e6%88%90%e5%93%81%e5%b1%95%e7%a4%ba" class="header-anchor">&lt;/a>成品展示
+&lt;/h2>&lt;p>&lt;img src="https://cloud.yuchu.me/f/2Bf8/alist1.jpg"
+loading="lazy"
+>
+&lt;img src="https://cloud.yuchu.me/f/38h2/alist2.jpg"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="原理">&lt;a href="#%e5%8e%9f%e7%90%86" class="header-anchor">&lt;/a>原理
+&lt;/h3>&lt;p>通过alist挂载网盘，然后用RaiDrive的webdav功能将网盘内容映射到本地，可以直接对网盘内容进行增删改查，实现近似本地词牌的功能。&lt;/p>
+&lt;h2 id="alist下载安装">&lt;a href="#alist%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85" class="header-anchor">&lt;/a>alist下载安装
+&lt;/h2>&lt;ol>
+&lt;li>&lt;a class="link" href="https://github.com/alist-org/alist/releases/download/v3.32.0/alist-windows-amd64.zip" target="_blank" rel="noopener"
+>alist官方下载&lt;/a>
+GitHub访问较慢的也可以从该链接下载:&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a class="link" href="https://cloud.yuchu.me/s/jRfM" target="_blank" rel="noopener"
+>alist下载&lt;/a>&lt;/p>
+&lt;ol start="2">
+&lt;li>将下载的压缩包解压到指定的目录下&lt;/li>
+&lt;li>此目录下运行cmd，输入 &lt;code>.\alist.exe server&lt;/code>开始安装程序&lt;/li>
+&lt;li>当看到输出&lt;code>start server@0.0.0.0:5244&lt;/code>且后续无报错时，说明安装完成。初始会指定alist用户名为admin，并随机一个密码，该密码会在安装时展示，也可以使用&lt;code>.\alist.exe admin&lt;/code>查询&lt;/li>
+&lt;li>安装成功后，浏览器打开 &lt;code>127.0.0.1:5244&lt;/code>即可访问alist管理界面。输入刚刚的用户名和密码，点击&lt;code>管理&lt;/code>，可以进入管理界面修改用户名和密码。&lt;/li>
+&lt;li>关闭该进程可以在cmd界面按下&lt;code>Crtl+C&lt;/code>，之后重新启动以及更改密码可以在根目录使用如下命令&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>alist start
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>alist admin set your_passwd #your_passwd改为你要更改的密码
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="alist挂载网盘">&lt;a href="#alist%e6%8c%82%e8%bd%bd%e7%bd%91%e7%9b%98" class="header-anchor">&lt;/a>alist挂载网盘
+&lt;/h2>&lt;p>&lt;em>点击管理界面的存储-添加-驱动，即可添加指定网盘，目前已支持几十种&lt;/em>
 这部分内容在alist的官方文档里已经足够详细，这里以阿里云盘为例，其他的不再赘述，附上官方文档链接，供大家参考
-&lt;a class=&#34;link&#34; href=&#34;https://alist.nn.ci/zh/guide/drivers/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;alist官方文档/添加存储&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;驱动&lt;/strong&gt; 选择&lt;code&gt;阿里云盘open&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;挂载路径&lt;/strong&gt; 可自定义，比方说&lt;code&gt;/aliyun&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;获取刷新令牌&lt;/strong&gt;
-刷新令牌 根据文档里的说明进行获取，访问下面地址，按下面图片操作&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://alist.nn.ci/tool/aliyundrive/request&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;地址&lt;/a&gt;
-&lt;img src=&#34;https://cloud.yuchu.me/f/5Ds6/alist_aliyun.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;复制 token，回到到刷新令牌处粘贴，点击保存&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/65ty/alist-aliyun.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;配置alist开机自启&#34;&gt;&lt;a href=&#34;#%e9%85%8d%e7%bd%aealist%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;配置alist开机自启
-&lt;/h2&gt;&lt;p&gt;在alist根目录中新建文版文档，填入以下内容:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;Set ws = CreateObject(&amp;#34;Wscript.Shell&amp;#34;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;ws.run &amp;#34;alist.exe server&amp;#34;,vbhide
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;保存，更改后缀名为vbs，右键-创建快捷方式，将快捷方式移动到开机自启的目录&lt;code&gt;C：\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp&lt;/code&gt;下。该目录可以使用&lt;code&gt;Crtl+R&lt;/code&gt;，输入&lt;code&gt;shell:Common Startup&lt;/code&gt;回车后打开。&lt;/p&gt;
-&lt;h2 id=&#34;raidrive安装与配置&#34;&gt;&lt;a href=&#34;#raidrive%e5%ae%89%e8%a3%85%e4%b8%8e%e9%85%8d%e7%bd%ae&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;raidrive安装与配置
-&lt;/h2&gt;&lt;p&gt;直接访问官网下载对应版本，
-&lt;a class=&#34;link&#34; href=&#34;https://app.raidrive.com/download/raidrive/release/RaiDrive_2023.9.90_x64.msi&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;raidrive官网下载&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;之后一步步安装即可&lt;/p&gt;
-&lt;h3 id=&#34;网盘映射&#34;&gt;&lt;a href=&#34;#%e7%bd%91%e7%9b%98%e6%98%a0%e5%b0%84&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;网盘映射
-&lt;/h3&gt;&lt;p&gt;raidrive界面-添加-NAS-WebDAV&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;虚拟驱动器&lt;/strong&gt; 第一行选择喜欢的盘符字母，默认为Z&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;地址&lt;/strong&gt; 取消勾选 ，第一行第一格IP输入 127.0.0.1(或localhost) 第二格端口输入 5244&lt;/p&gt;
-&lt;p&gt;第二行输入&lt;code&gt;/dav&lt;/code&gt;即可，这样alist挂载的所有网盘都会被映射到本地，也可以跟上特定后缀，比方说你的阿里云盘被挂载在alist的&lt;code&gt;/aliyun&lt;/code&gt;目录下，那第二行就可以改成&lt;code&gt;/dav/aliyun&lt;/code&gt;，这样，就只有阿里云盘被映射到本地了&lt;/p&gt;
-&lt;p&gt;第三行输入账户密码，点击连接即可。
-&lt;img src=&#34;https://cloud.yuchu.me/f/74uZ/raidrive.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;最后如果是这样的就代表没问题了，可以打开&lt;code&gt;我的电脑&lt;/code&gt;查看是否有一个绿色的webdav出现。
-&lt;img src=&#34;https://cloud.yuchu.me/f/4Oil/raidrive.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h1 id=&#34;end&#34;&gt;&lt;a href=&#34;#end&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;END
-&lt;/h1&gt;</description>
-        </item>
-        
-    </channel>
-</rss>
+&lt;a class="link" href="https://alist.nn.ci/zh/guide/drivers/" target="_blank" rel="noopener"
+>alist官方文档/添加存储&lt;/a>&lt;/p>
+&lt;p>&lt;strong>驱动&lt;/strong> 选择&lt;code>阿里云盘open&lt;/code>&lt;/p>
+&lt;p>&lt;strong>挂载路径&lt;/strong> 可自定义，比方说&lt;code>/aliyun&lt;/code>&lt;/p>
+&lt;p>&lt;strong>获取刷新令牌&lt;/strong>
+刷新令牌 根据文档里的说明进行获取，访问下面地址，按下面图片操作&lt;/p>
+&lt;p>&lt;a class="link" href="https://alist.nn.ci/tool/aliyundrive/request" target="_blank" rel="noopener"
+>地址&lt;/a>
+&lt;img src="https://cloud.yuchu.me/f/5Ds6/alist_aliyun.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>复制 token，回到到刷新令牌处粘贴，点击保存&lt;/p>
+&lt;p>&lt;img src="https://cloud.yuchu.me/f/65ty/alist-aliyun.png"
+loading="lazy"
+>&lt;/p>
+&lt;h2 id="配置alist开机自启">&lt;a href="#%e9%85%8d%e7%bd%aealist%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af" class="header-anchor">&lt;/a>配置alist开机自启
+&lt;/h2>&lt;p>在alist根目录中新建文版文档，填入以下内容:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>Set ws = CreateObject(&amp;#34;Wscript.Shell&amp;#34;)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>ws.run &amp;#34;alist.exe server&amp;#34;,vbhide
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>保存，更改后缀名为vbs，右键-创建快捷方式，将快捷方式移动到开机自启的目录&lt;code>C：\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp&lt;/code>下。该目录可以使用&lt;code>Crtl+R&lt;/code>，输入&lt;code>shell:Common Startup&lt;/code>回车后打开。&lt;/p>
+&lt;h2 id="raidrive安装与配置">&lt;a href="#raidrive%e5%ae%89%e8%a3%85%e4%b8%8e%e9%85%8d%e7%bd%ae" class="header-anchor">&lt;/a>raidrive安装与配置
+&lt;/h2>&lt;p>直接访问官网下载对应版本，
+&lt;a class="link" href="https://app.raidrive.com/download/raidrive/release/RaiDrive_2023.9.90_x64.msi" target="_blank" rel="noopener"
+>raidrive官网下载&lt;/a>&lt;/p>
+&lt;p>之后一步步安装即可&lt;/p>
+&lt;h3 id="网盘映射">&lt;a href="#%e7%bd%91%e7%9b%98%e6%98%a0%e5%b0%84" class="header-anchor">&lt;/a>网盘映射
+&lt;/h3>&lt;p>raidrive界面-添加-NAS-WebDAV&lt;/p>
+&lt;p>&lt;strong>虚拟驱动器&lt;/strong> 第一行选择喜欢的盘符字母，默认为Z&lt;/p>
+&lt;p>&lt;strong>地址&lt;/strong> 取消勾选 ，第一行第一格IP输入 127.0.0.1(或localhost) 第二格端口输入 5244&lt;/p>
+&lt;p>第二行输入&lt;code>/dav&lt;/code>即可，这样alist挂载的所有网盘都会被映射到本地，也可以跟上特定后缀，比方说你的阿里云盘被挂载在alist的&lt;code>/aliyun&lt;/code>目录下，那第二行就可以改成&lt;code>/dav/aliyun&lt;/code>，这样，就只有阿里云盘被映射到本地了&lt;/p>
+&lt;p>第三行输入账户密码，点击连接即可。
+&lt;img src="https://cloud.yuchu.me/f/74uZ/raidrive.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>最后如果是这样的就代表没问题了，可以打开&lt;code>我的电脑&lt;/code>查看是否有一个绿色的webdav出现。
+&lt;img src="https://cloud.yuchu.me/f/4Oil/raidrive.jpg"
+loading="lazy"
+>&lt;/p>
+&lt;h1 id="end">&lt;a href="#end" class="header-anchor">&lt;/a>END
+&lt;/h1></description></item></channel></rss>

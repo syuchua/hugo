@@ -1,109 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Markdown on YuChu&#39;s Blog</title>
-        <link>https://hugo.yuchu.me/tags/markdown/</link>
-        <description>Recent content in Markdown on YuChu&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Fri, 22 Mar 2024 21:00:20 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/markdown/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>极简markdown语法</title>
-        <link>https://hugo.yuchu.me/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</link>
-        <pubDate>Fri, 22 Mar 2024 21:00:20 +0800</pubDate>
-        
-        <guid>https://hugo.yuchu.me/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</guid>
-        <description>&lt;h1 id=&#34;极简markdown语法&#34;&gt;&lt;a href=&#34;#%e6%9e%81%e7%ae%80markdown%e8%af%ad%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;极简markdown语法
-&lt;/h1&gt;&lt;h2 id=&#34;标题&#34;&gt;&lt;a href=&#34;#%e6%a0%87%e9%a2%98&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;标题
-&lt;/h2&gt;&lt;p&gt;要创建标题，请在单词或短语前面添加井号 (#) 。# 的数量代表了标题的级别。例如，添加三个 # 表示创建一个三级标题 (&amp;lt;\h3&amp;gt;) (例如：### My Header)&lt;/p&gt;
-&lt;h3 id=&#34;可选&#34;&gt;&lt;a href=&#34;#%e5%8f%af%e9%80%89&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;可选
-&lt;/h3&gt;&lt;p&gt;还可以在文本下方添加任意数量的 == 号来标识一级标题，或者 &amp;ndash; 号来标识二级标题。&lt;/p&gt;
-&lt;h2 id=&#34;段落&#34;&gt;&lt;a href=&#34;#%e6%ae%b5%e8%90%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;段落
-&lt;/h2&gt;&lt;p&gt;要创建段落，请使用空白行将一行或多行文本进行分隔。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;换行&#34;&gt;&lt;a href=&#34;#%e6%8d%a2%e8%a1%8c&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;换行
-&lt;/h2&gt;&lt;p&gt;在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行(或使用HTML语法的&lt;!-- raw HTML omitted --&gt;)。&lt;/p&gt;
-&lt;h2 id=&#34;强调&#34;&gt;&lt;a href=&#34;#%e5%bc%ba%e8%b0%83&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;强调
-&lt;/h2&gt;&lt;h3 id=&#34;粗体&#34;&gt;&lt;a href=&#34;#%e7%b2%97%e4%bd%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;粗体
-&lt;/h3&gt;&lt;p&gt;要加粗文本，请在单词或短语的前后各添加两个星号（*&lt;em&gt;内容&lt;/em&gt;*）或下划线（_&lt;em&gt;内容&lt;/em&gt;_）。如需加粗一个单词或短语的中间部分用以表示强调的话，请在要加粗部分的两侧各添加两个星号（这**是内**容）。&lt;/p&gt;
-&lt;h3 id=&#34;斜体&#34;&gt;&lt;a href=&#34;#%e6%96%9c%e4%bd%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;斜体
-&lt;/h3&gt;&lt;p&gt;要用斜体显示文本，请在单词或短语前后添加一个星号（*内容*）或下划线（_内容_）。要斜体突出单词的中间部分，请在字母前后各添加一个星号，中间不要带空格。&lt;/p&gt;
-&lt;h3 id=&#34;粗体斜体&#34;&gt;&lt;a href=&#34;#%e7%b2%97%e4%bd%93%e6%96%9c%e4%bd%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;粗体&amp;amp;斜体
-&lt;/h3&gt;&lt;p&gt;要同时用粗体和斜体突出显示文本，请在单词或短语的前后各添加三个星号或下划线。要加粗并用斜体显示单词或短语的中间部分，请在要突出显示的部分前后各添加三个星号，中间不要带空格。&lt;/p&gt;
-&lt;h2 id=&#34;引用&#34;&gt;&lt;a href=&#34;#%e5%bc%95%e7%94%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;引用
-&lt;/h2&gt;&lt;p&gt;要创建块引用，请在段落前添加一个 &amp;gt; 符号&lt;/p&gt;
-&lt;h3 id=&#34;多个段落的块引用&#34;&gt;&lt;a href=&#34;#%e5%a4%9a%e4%b8%aa%e6%ae%b5%e8%90%bd%e7%9a%84%e5%9d%97%e5%bc%95%e7%94%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;多个段落的块引用
-&lt;/h3&gt;&lt;p&gt;块引用可以包含多个段落。为段落之间的空白行添加一个 &amp;gt; 符号。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;  &amp;gt; 第一段
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  &amp;gt; 第二段
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;嵌套块引用&#34;&gt;&lt;a href=&#34;#%e5%b5%8c%e5%a5%97%e5%9d%97%e5%bc%95%e7%94%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;嵌套块引用
-&lt;/h3&gt;&lt;p&gt;块引用可以嵌套。在要嵌套的段落前添加一个 &amp;raquo; 符号&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;  &amp;gt; 一层引用
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  &amp;gt;&amp;gt; 二层引用
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;带有其它元素的块引用&#34;&gt;&lt;a href=&#34;#%e5%b8%a6%e6%9c%89%e5%85%b6%e5%ae%83%e5%85%83%e7%b4%a0%e7%9a%84%e5%9d%97%e5%bc%95%e7%94%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;带有其它元素的块引用
-&lt;/h2&gt;&lt;p&gt;块引用可以包含其他 Markdown 格式的元素。并非所有元素都可以使用，你需要进行实验以查看哪些元素有效。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;  &amp;gt; #### The quarterly results look great!
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  &amp;gt; - Revenue was off the chart.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  &amp;gt; - Profits were higher than ever.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;  &amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6&lt;/span&gt;&lt;span&gt;  &amp;gt;  *Everything* is going according to **plan**.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;列表&#34;&gt;&lt;a href=&#34;#%e5%88%97%e8%a1%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;列表
-&lt;/h2&gt;&lt;p&gt;有序列表
-要创建有序列表，请在每个列表项前添加数字并紧跟一个英文句点。数字不必按数学顺序排列，但是列表应当以数字 1 起始。&lt;/p&gt;
-&lt;h3 id=&#34;无序列表&#34;&gt;&lt;a href=&#34;#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;无序列表
-&lt;/h3&gt;&lt;p&gt;无序列表
-要创建无序列表，请在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+) 。缩进一个或多个列表项可创建嵌套列表&lt;/p&gt;
-&lt;h3 id=&#34;在列表中嵌套其他元素&#34;&gt;&lt;a href=&#34;#%e5%9c%a8%e5%88%97%e8%a1%a8%e4%b8%ad%e5%b5%8c%e5%a5%97%e5%85%b6%e4%bb%96%e5%85%83%e7%b4%a0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;在列表中嵌套其他元素
-&lt;/h3&gt;&lt;p&gt;要在保留列表连续性的同时在列表中添加另一种元素，请将该元素缩进四个空格或一个制表符。&lt;/p&gt;
-&lt;h2 id=&#34;表格&#34;&gt;&lt;a href=&#34;#%e8%a1%a8%e6%a0%bc&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;表格
-&lt;/h2&gt;&lt;p&gt;要添加表，请使用三个或多个连字符（&amp;mdash;）创建每列的标题，并使用管道（|）分隔每列。您可以选择在表的任一端添加管道。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;  | Syntax      | Description |
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  | ----------- | ----------- |
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  | Header      | Title       |
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  | Paragraph   | Text        |
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;对齐&#34;&gt;&lt;a href=&#34;#%e5%af%b9%e9%bd%90&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;对齐
-&lt;/h3&gt;&lt;p&gt;您可以通过在标题行中的连字符的左侧，右侧或两侧添加冒号（:），将列中的文本对齐到左侧，右侧或中心&lt;/p&gt;
-&lt;h2 id=&#34;分隔线语法&#34;&gt;&lt;a href=&#34;#%e5%88%86%e9%9a%94%e7%ba%bf%e8%af%ad%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;分隔线语法
-&lt;/h2&gt;&lt;p&gt;要创建分隔线，请在单独一行上使用三个或多个星号 (***)、破折号 (&amp;mdash;) 或下划线 (___) ，并且不能包含其他内容。&lt;/p&gt;
-&lt;h2 id=&#34;链接语法&#34;&gt;&lt;a href=&#34;#%e9%93%be%e6%8e%a5%e8%af%ad%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;链接语法
-&lt;/h2&gt;&lt;p&gt;链接文本放在中括号内，链接地址放在后面的括号中，链接title可选。&lt;/p&gt;
-&lt;p&gt;超链接Markdown语法代码：&lt;code&gt;[超链接显示名](超链接地址 &amp;quot;超链接title&amp;quot;)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;对应的HTML代码：&lt;code&gt;&amp;lt;a href=&amp;quot;超链接地址&amp;quot; title=&amp;quot;超链接title&amp;quot;&amp;gt;超链接显示名&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;这是一个链接 &lt;code&gt;[Markdown语法](https://markdown.com.cn)&lt;/code&gt;。&lt;/p&gt;
-&lt;h3 id=&#34;给链接增加-title&#34;&gt;&lt;a href=&#34;#%e7%bb%99%e9%93%be%e6%8e%a5%e5%a2%9e%e5%8a%a0-title&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;给链接增加 Title
-&lt;/h3&gt;&lt;p&gt;链接title是当鼠标悬停在链接上时会出现的文字，这个title是可选的，它放在圆括号中链接地址后面，跟链接地址之间以空格分隔。&lt;/p&gt;
-&lt;p&gt;这是一个链接 &lt;code&gt;[Markdown语法](https://markdown.com.cn &amp;quot;最好的markdown教程&amp;quot;)&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;网址和email地址&#34;&gt;&lt;a href=&#34;#%e7%bd%91%e5%9d%80%e5%92%8cemail%e5%9c%b0%e5%9d%80&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;网址和Email地址
-&lt;/h3&gt;&lt;p&gt;使用尖括号可以很方便地把URL或者email地址变成可点击的链接。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;  &amp;lt;https://markdown.com.cn&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  &amp;lt;fake@example.com&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;引用类型链接&#34;&gt;&lt;a href=&#34;#%e5%bc%95%e7%94%a8%e7%b1%bb%e5%9e%8b%e9%93%be%e6%8e%a5&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;引用类型链接
-&lt;/h3&gt;&lt;p&gt;引用样式链接是一种特殊的链接，它使URL在Markdown中更易于显示和阅读。参考样式链接分为两部分：与文本保持内联的部分以及存储在文件中其他位置的部分，以使文本易于阅读。&lt;/p&gt;
-&lt;h4 id=&#34;链接的第一部分格式&#34;&gt;&lt;a href=&#34;#%e9%93%be%e6%8e%a5%e7%9a%84%e7%ac%ac%e4%b8%80%e9%83%a8%e5%88%86%e6%a0%bc%e5%bc%8f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;链接的第一部分格式
-&lt;/h4&gt;&lt;p&gt;引用类型的链接的第一部分使用两组括号进行格式设置。第一组方括号包围应显示为链接的文本。第二组括号显示了一个标签，该标签用于指向您存储在文档其他位置的链接。&lt;/p&gt;
-&lt;p&gt;尽管不是必需的，可以在第一组和第二组括号之间包含一个空格。第二组括号中的标签不区分大小写，可以包含字母，数字，空格或标点符号。&lt;/p&gt;
-&lt;p&gt;以下示例格式对于链接的第一部分效果相同：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;[hobbit-hole][1]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;[hobbit-hole] [1]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;链接的第二部分格式&#34;&gt;&lt;a href=&#34;#%e9%93%be%e6%8e%a5%e7%9a%84%e7%ac%ac%e4%ba%8c%e9%83%a8%e5%88%86%e6%a0%bc%e5%bc%8f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;链接的第二部分格式
-&lt;/h4&gt;&lt;p&gt;引用类型链接的第二部分使用以下属性设置格式：&lt;/p&gt;
-&lt;p&gt;放在括号中的标签，其后紧跟一个冒号和至少一个空格（例如[label]:）。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Markdown on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/markdown/</link><description>Recent content in Markdown on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 22 Mar 2024 21:00:20 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title>极简markdown语法</title><link>https://hugo.yuchu.me/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</link><pubDate>Fri, 22 Mar 2024 21:00:20 +0800</pubDate><guid>https://hugo.yuchu.me/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</guid><description>&lt;h1 id="极简markdown语法">&lt;a href="#%e6%9e%81%e7%ae%80markdown%e8%af%ad%e6%b3%95" class="header-anchor">&lt;/a>极简markdown语法
+&lt;/h1>&lt;h2 id="标题">&lt;a href="#%e6%a0%87%e9%a2%98" class="header-anchor">&lt;/a>标题
+&lt;/h2>&lt;p>要创建标题，请在单词或短语前面添加井号 (#) 。# 的数量代表了标题的级别。例如，添加三个 # 表示创建一个三级标题 (&amp;lt;\h3&amp;gt;) (例如：### My Header)&lt;/p>
+&lt;h3 id="可选">&lt;a href="#%e5%8f%af%e9%80%89" class="header-anchor">&lt;/a>可选
+&lt;/h3>&lt;p>还可以在文本下方添加任意数量的 == 号来标识一级标题，或者 &amp;ndash; 号来标识二级标题。&lt;/p>
+&lt;h2 id="段落">&lt;a href="#%e6%ae%b5%e8%90%bd" class="header-anchor">&lt;/a>段落
+&lt;/h2>&lt;p>要创建段落，请使用空白行将一行或多行文本进行分隔。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="换行">&lt;a href="#%e6%8d%a2%e8%a1%8c" class="header-anchor">&lt;/a>换行
+&lt;/h2>&lt;p>在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行(或使用HTML语法的&lt;!-- raw HTML omitted -->)。&lt;/p>
+&lt;h2 id="强调">&lt;a href="#%e5%bc%ba%e8%b0%83" class="header-anchor">&lt;/a>强调
+&lt;/h2>&lt;h3 id="粗体">&lt;a href="#%e7%b2%97%e4%bd%93" class="header-anchor">&lt;/a>粗体
+&lt;/h3>&lt;p>要加粗文本，请在单词或短语的前后各添加两个星号（*&lt;em>内容&lt;/em>*）或下划线（_&lt;em>内容&lt;/em>_）。如需加粗一个单词或短语的中间部分用以表示强调的话，请在要加粗部分的两侧各添加两个星号（这**是内**容）。&lt;/p>
+&lt;h3 id="斜体">&lt;a href="#%e6%96%9c%e4%bd%93" class="header-anchor">&lt;/a>斜体
+&lt;/h3>&lt;p>要用斜体显示文本，请在单词或短语前后添加一个星号（*内容*）或下划线（_内容_）。要斜体突出单词的中间部分，请在字母前后各添加一个星号，中间不要带空格。&lt;/p>
+&lt;h3 id="粗体斜体">&lt;a href="#%e7%b2%97%e4%bd%93%e6%96%9c%e4%bd%93" class="header-anchor">&lt;/a>粗体&amp;amp;斜体
+&lt;/h3>&lt;p>要同时用粗体和斜体突出显示文本，请在单词或短语的前后各添加三个星号或下划线。要加粗并用斜体显示单词或短语的中间部分，请在要突出显示的部分前后各添加三个星号，中间不要带空格。&lt;/p>
+&lt;h2 id="引用">&lt;a href="#%e5%bc%95%e7%94%a8" class="header-anchor">&lt;/a>引用
+&lt;/h2>&lt;p>要创建块引用，请在段落前添加一个 &amp;gt; 符号&lt;/p>
+&lt;h3 id="多个段落的块引用">&lt;a href="#%e5%a4%9a%e4%b8%aa%e6%ae%b5%e8%90%bd%e7%9a%84%e5%9d%97%e5%bc%95%e7%94%a8" class="header-anchor">&lt;/a>多个段落的块引用
+&lt;/h3>&lt;p>块引用可以包含多个段落。为段落之间的空白行添加一个 &amp;gt; 符号。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span> &amp;gt; 第一段
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span> &amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> &amp;gt; 第二段
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="嵌套块引用">&lt;a href="#%e5%b5%8c%e5%a5%97%e5%9d%97%e5%bc%95%e7%94%a8" class="header-anchor">&lt;/a>嵌套块引用
+&lt;/h3>&lt;p>块引用可以嵌套。在要嵌套的段落前添加一个 &amp;raquo; 符号&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span> &amp;gt; 一层引用
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span> &amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> &amp;gt;&amp;gt; 二层引用
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="带有其它元素的块引用">&lt;a href="#%e5%b8%a6%e6%9c%89%e5%85%b6%e5%ae%83%e5%85%83%e7%b4%a0%e7%9a%84%e5%9d%97%e5%bc%95%e7%94%a8" class="header-anchor">&lt;/a>带有其它元素的块引用
+&lt;/h2>&lt;p>块引用可以包含其他 Markdown 格式的元素。并非所有元素都可以使用，你需要进行实验以查看哪些元素有效。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span> &amp;gt; #### The quarterly results look great!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span> &amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> &amp;gt; - Revenue was off the chart.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span> &amp;gt; - Profits were higher than ever.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span> &amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span> &amp;gt; *Everything* is going according to **plan**.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="列表">&lt;a href="#%e5%88%97%e8%a1%a8" class="header-anchor">&lt;/a>列表
+&lt;/h2>&lt;p>有序列表
+要创建有序列表，请在每个列表项前添加数字并紧跟一个英文句点。数字不必按数学顺序排列，但是列表应当以数字 1 起始。&lt;/p>
+&lt;h3 id="无序列表">&lt;a href="#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8" class="header-anchor">&lt;/a>无序列表
+&lt;/h3>&lt;p>无序列表
+要创建无序列表，请在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+) 。缩进一个或多个列表项可创建嵌套列表&lt;/p>
+&lt;h3 id="在列表中嵌套其他元素">&lt;a href="#%e5%9c%a8%e5%88%97%e8%a1%a8%e4%b8%ad%e5%b5%8c%e5%a5%97%e5%85%b6%e4%bb%96%e5%85%83%e7%b4%a0" class="header-anchor">&lt;/a>在列表中嵌套其他元素
+&lt;/h3>&lt;p>要在保留列表连续性的同时在列表中添加另一种元素，请将该元素缩进四个空格或一个制表符。&lt;/p>
+&lt;h2 id="表格">&lt;a href="#%e8%a1%a8%e6%a0%bc" class="header-anchor">&lt;/a>表格
+&lt;/h2>&lt;p>要添加表，请使用三个或多个连字符（&amp;mdash;）创建每列的标题，并使用管道（|）分隔每列。您可以选择在表的任一端添加管道。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span> | Syntax | Description |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span> | ----------- | ----------- |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> | Header | Title |
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span> | Paragraph | Text |
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="对齐">&lt;a href="#%e5%af%b9%e9%bd%90" class="header-anchor">&lt;/a>对齐
+&lt;/h3>&lt;p>您可以通过在标题行中的连字符的左侧，右侧或两侧添加冒号（:），将列中的文本对齐到左侧，右侧或中心&lt;/p>
+&lt;h2 id="分隔线语法">&lt;a href="#%e5%88%86%e9%9a%94%e7%ba%bf%e8%af%ad%e6%b3%95" class="header-anchor">&lt;/a>分隔线语法
+&lt;/h2>&lt;p>要创建分隔线，请在单独一行上使用三个或多个星号 (***)、破折号 (&amp;mdash;) 或下划线 (___) ，并且不能包含其他内容。&lt;/p>
+&lt;h2 id="链接语法">&lt;a href="#%e9%93%be%e6%8e%a5%e8%af%ad%e6%b3%95" class="header-anchor">&lt;/a>链接语法
+&lt;/h2>&lt;p>链接文本放在中括号内，链接地址放在后面的括号中，链接title可选。&lt;/p>
+&lt;p>超链接Markdown语法代码：&lt;code>[超链接显示名](超链接地址 &amp;quot;超链接title&amp;quot;)&lt;/code>&lt;/p>
+&lt;p>对应的HTML代码：&lt;code>&amp;lt;a href=&amp;quot;超链接地址&amp;quot; title=&amp;quot;超链接title&amp;quot;&amp;gt;超链接显示名&amp;lt;/a&amp;gt;&lt;/code>&lt;/p>
+&lt;p>这是一个链接 &lt;code>[Markdown语法](https://markdown.com.cn)&lt;/code>。&lt;/p>
+&lt;h3 id="给链接增加-title">&lt;a href="#%e7%bb%99%e9%93%be%e6%8e%a5%e5%a2%9e%e5%8a%a0-title" class="header-anchor">&lt;/a>给链接增加 Title
+&lt;/h3>&lt;p>链接title是当鼠标悬停在链接上时会出现的文字，这个title是可选的，它放在圆括号中链接地址后面，跟链接地址之间以空格分隔。&lt;/p>
+&lt;p>这是一个链接 &lt;code>[Markdown语法](https://markdown.com.cn &amp;quot;最好的markdown教程&amp;quot;)&lt;/code>&lt;/p>
+&lt;h3 id="网址和email地址">&lt;a href="#%e7%bd%91%e5%9d%80%e5%92%8cemail%e5%9c%b0%e5%9d%80" class="header-anchor">&lt;/a>网址和Email地址
+&lt;/h3>&lt;p>使用尖括号可以很方便地把URL或者email地址变成可点击的链接。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span> &amp;lt;https://markdown.com.cn&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span> &amp;lt;fake@example.com&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="引用类型链接">&lt;a href="#%e5%bc%95%e7%94%a8%e7%b1%bb%e5%9e%8b%e9%93%be%e6%8e%a5" class="header-anchor">&lt;/a>引用类型链接
+&lt;/h3>&lt;p>引用样式链接是一种特殊的链接，它使URL在Markdown中更易于显示和阅读。参考样式链接分为两部分：与文本保持内联的部分以及存储在文件中其他位置的部分，以使文本易于阅读。&lt;/p>
+&lt;h4 id="链接的第一部分格式">&lt;a href="#%e9%93%be%e6%8e%a5%e7%9a%84%e7%ac%ac%e4%b8%80%e9%83%a8%e5%88%86%e6%a0%bc%e5%bc%8f" class="header-anchor">&lt;/a>链接的第一部分格式
+&lt;/h4>&lt;p>引用类型的链接的第一部分使用两组括号进行格式设置。第一组方括号包围应显示为链接的文本。第二组括号显示了一个标签，该标签用于指向您存储在文档其他位置的链接。&lt;/p>
+&lt;p>尽管不是必需的，可以在第一组和第二组括号之间包含一个空格。第二组括号中的标签不区分大小写，可以包含字母，数字，空格或标点符号。&lt;/p>
+&lt;p>以下示例格式对于链接的第一部分效果相同：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>[hobbit-hole][1]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>[hobbit-hole] [1]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="链接的第二部分格式">&lt;a href="#%e9%93%be%e6%8e%a5%e7%9a%84%e7%ac%ac%e4%ba%8c%e9%83%a8%e5%88%86%e6%a0%bc%e5%bc%8f" class="header-anchor">&lt;/a>链接的第二部分格式
+&lt;/h4>&lt;p>引用类型链接的第二部分使用以下属性设置格式：&lt;/p>
+&lt;p>放在括号中的标签，其后紧跟一个冒号和至少一个空格（例如[label]:）。
 链接的URL，可以选择将其括在尖括号中。
 链接的可选标题，可以将其括在双引号，单引号或括号中。
-以下示例格式对于链接的第二部分效果相同：&lt;/p&gt;
-&lt;p&gt;可以将链接的第二部分放在Markdown文档中的任何位置。有些人将它们放在出现的段落之后，有些人则将它们放在文档的末尾（例如尾注或脚注）。&lt;/p&gt;
-&lt;h2 id=&#34;图片语法&#34;&gt;&lt;a href=&#34;#%e5%9b%be%e7%89%87%e8%af%ad%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;图片语法
-&lt;/h2&gt;&lt;p&gt;要添加图像，请使用感叹号 (!), 然后在方括号增加替代文本，图片链接放在圆括号里，括号里的链接后可以增加一个可选的图片标题文本。&lt;/p&gt;
-&lt;p&gt;插入图片Markdown语法代码：&lt;code&gt;![图片alt](图片链接 &amp;quot;图片title&amp;quot;)&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;对应的HTML代码：&lt;code&gt;&amp;lt;img src=&amp;quot;图片链接&amp;quot; alt=&amp;quot;图片alt&amp;quot; title=&amp;quot;图片title&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;链接图片&#34;&gt;&lt;a href=&#34;#%e9%93%be%e6%8e%a5%e5%9b%be%e7%89%87&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;链接图片
-&lt;/h3&gt;&lt;p&gt;给图片增加链接，请将图像的Markdown 括在方括号中，然后将链接添加在圆括号中。&lt;/p&gt;
-&lt;h2 id=&#34;转义字符语法&#34;&gt;&lt;a href=&#34;#%e8%bd%ac%e4%b9%89%e5%ad%97%e7%ac%a6%e8%af%ad%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;转义字符语法
-&lt;/h2&gt;&lt;p&gt;要显示原本用于格式化 Markdown 文档的字符，请在字符前面添加反斜杠字符 \ 。&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
-</rss>
+以下示例格式对于链接的第二部分效果相同：&lt;/p>
+&lt;p>可以将链接的第二部分放在Markdown文档中的任何位置。有些人将它们放在出现的段落之后，有些人则将它们放在文档的末尾（例如尾注或脚注）。&lt;/p>
+&lt;h2 id="图片语法">&lt;a href="#%e5%9b%be%e7%89%87%e8%af%ad%e6%b3%95" class="header-anchor">&lt;/a>图片语法
+&lt;/h2>&lt;p>要添加图像，请使用感叹号 (!), 然后在方括号增加替代文本，图片链接放在圆括号里，括号里的链接后可以增加一个可选的图片标题文本。&lt;/p>
+&lt;p>插入图片Markdown语法代码：&lt;code>![图片alt](图片链接 &amp;quot;图片title&amp;quot;)&lt;/code>。&lt;/p>
+&lt;p>对应的HTML代码：&lt;code>&amp;lt;img src=&amp;quot;图片链接&amp;quot; alt=&amp;quot;图片alt&amp;quot; title=&amp;quot;图片title&amp;quot;&amp;gt;&lt;/code>&lt;/p>
+&lt;h3 id="链接图片">&lt;a href="#%e9%93%be%e6%8e%a5%e5%9b%be%e7%89%87" class="header-anchor">&lt;/a>链接图片
+&lt;/h3>&lt;p>给图片增加链接，请将图像的Markdown 括在方括号中，然后将链接添加在圆括号中。&lt;/p>
+&lt;h2 id="转义字符语法">&lt;a href="#%e8%bd%ac%e4%b9%89%e5%ad%97%e7%ac%a6%e8%af%ad%e6%b3%95" class="header-anchor">&lt;/a>转义字符语法
+&lt;/h2>&lt;p>要显示原本用于格式化 Markdown 文档的字符，请在字符前面添加反斜杠字符 \ 。&lt;/p></description></item></channel></rss>

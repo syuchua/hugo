@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Claude on YuChu&#39;s Blog</title>
-        <link>https://hugo.yuchu.me/tags/claude/</link>
-        <description>Recent content in Claude on YuChu&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <lastBuildDate>Thu, 11 Jul 2024 23:24:24 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/claude/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>基于gcp的VertexAI搭建一个简单的claude中转api服务</title>
-        <link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</link>
-        <pubDate>Thu, 11 Jul 2024 23:24:24 +0800</pubDate>
-        
-        <guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</guid>
-        <description>&lt;p&gt;最近写一个QQ机器人的后端项目，用于对接AI大模型以及一些图片、语音接口，难免要跟各类大模型的api打交道，听说claude更适合角色扮演，而且新出的Claude3.5-sonnet能力甚至超越了GPT-4o,遂一直想要体验一下，但没有国外的实体手机号，所以没有机会。机缘巧合下得知gcp的VertexAI可以白嫖最新的Gemini和Claude，立马来了兴趣，研究后却发现是通过sdk的方式调用的，没有api，但这不是什么大问题，能用就行，实在不行自己写一个本地api服务不就行了吗，说干就干，直接放上仓库地址，如果能帮到您的话不妨给个star鼓励一下：&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/syuchua/gcp_claude_transfer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/syuchua/gcp_claude_transfer&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;配置1说明都在readme里了，如果有什么不明白的话，欢迎提issue。&lt;/p&gt;
-</description>
-        </item>
-        
-    </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Claude on YuChu's Blog</title><link>https://hugo.yuchu.me/tags/claude/</link><description>Recent content in Claude on YuChu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 11 Jul 2024 23:24:24 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/claude/index.xml" rel="self" type="application/rss+xml"/><item><title>基于gcp的VertexAI搭建一个简单的claude中转api服务</title><link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</link><pubDate>Thu, 11 Jul 2024 23:24:24 +0800</pubDate><guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</guid><description>&lt;p>最近写一个QQ机器人的后端项目，用于对接AI大模型以及一些图片、语音接口，难免要跟各类大模型的api打交道，听说claude更适合角色扮演，而且新出的Claude3.5-sonnet能力甚至超越了GPT-4o,遂一直想要体验一下，但没有国外的实体手机号，所以没有机会。机缘巧合下得知gcp的VertexAI可以白嫖最新的Gemini和Claude，立马来了兴趣，研究后却发现是通过sdk的方式调用的，没有api，但这不是什么大问题，能用就行，实在不行自己写一个本地api服务不就行了吗，说干就干，直接放上仓库地址，如果能帮到您的话不妨给个star鼓励一下：&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/syuchua/gcp_claude_transfer" target="_blank" rel="noopener"
+>https://github.com/syuchua/gcp_claude_transfer&lt;/a>&lt;/p>
+&lt;p>配置1说明都在readme里了，如果有什么不明白的话，欢迎提issue。&lt;/p></description></item></channel></rss>
