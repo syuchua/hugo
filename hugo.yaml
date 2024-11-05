@@ -33,7 +33,7 @@ params:
   footer: # 页脚的配置
     enable: true # 是否启用页脚
     since: 2022 # 网站创建年份
-    # customText: "© QX" # 页脚的自定义文本
+    # customText: "© QX" # 页的自定义文本
     copyright: true # 是否显示版权信息
     author: true # 是否显示作者信息
 
@@ -70,7 +70,7 @@ params:
           limit: 5 # 归档显示的数量
       - type: categories # 分类
         params:
-          limit: 10 # 分类显示的数量
+          limit: 10 # 分类示的数量
       - type: tag-cloud # 标签云
         params:
           limit: 10 # 标签云显示的数量
@@ -83,19 +83,26 @@ params:
     default: auto # 默认的颜色主题
 
   externalResources:
-    js:
-      - name: "Vibrant"
-        url: "https://cdnjs.cloudflare.com/ajax/libs/node-vibrant/3.1.6/vibrant.min.js"
-        integrity: "sha256-Qb6U1FkQMOZBbODVy3b+E/GHBqIM4M4K6ISI6/X+5g8="
-        crossorigin: "anonymous"
-      - name: "KaTeX"
-        url: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.js"
-        integrity: "sha384-ndJLot+4aXeQ5V5K30RzxJrPK1Zf4HHh+h1z5vN5I5L5PDEJwJkrKBDHpjyzLxhM"
-        crossorigin: "anonymous"
-      - name: "PhotoSwipe"
-        url: "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"
-        integrity: "sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="
-        crossorigin: "anonymous"
+    - name: "Vibrant"
+      src: "https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"
+      integrity: "sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM="
+      type: "script"
+      defer: true
+      namespace: "Vibrant"
+      
+    - name: "KaTeX"
+      src: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+      integrity: "sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+      type: "script"
+      defer: true
+      namespace: "KaTeX"
+      
+    - name: "PhotoSwipe"
+      src: "https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"
+      integrity: "sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="
+      type: "script"
+      defer: true
+      namespace: "PhotoSwipe"
 
 ### Custom menu
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
