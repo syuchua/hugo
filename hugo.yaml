@@ -82,6 +82,14 @@ params:
     # Available values: auto, light, dark
     default: auto # 默认的颜色主题
 
+  externalResources:
+    - name: Vibrant
+      url: "https://cdnjs.cloudflare.com/ajax/libs/node-vibrant/3.1.6/vibrant.min.js"
+    - name: KaTeX
+      url: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.js"
+    - name: PhotoSwipe
+      url: "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"
+
 ### Custom menu
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
