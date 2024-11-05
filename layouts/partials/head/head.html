@@ -22,11 +22,11 @@
     <link rel="shortcut icon" href="{{ . | relURL }}" />
 {{ end }}
 
-{{- range .Site.Params.externalResources.js -}}
-    {{- if .url -}}
+{{- with .Site.Params.externalResources -}}
+    {{- range .js -}}
         <script type="text/javascript" src="{{ .url }}"
-            {{- with .integrity }} integrity="{{ . }}"{{- end }} 
-            {{- with .crossorigin | default "anonymous" }} crossorigin="{{ . }}"{{- end -}}
+            {{- with .integrity }} integrity="{{ . }}"{{- end }}
+            {{- with .crossorigin }} crossorigin="{{ . }}"{{- end }}
             defer>
         </script>
     {{- end -}}
