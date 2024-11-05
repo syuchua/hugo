@@ -22,8 +22,14 @@
     <link rel="shortcut icon" href="{{ . | relURL }}" />
 {{ end }}
 
-{{- range .Site.Params.externalResources -}}
-    <script src="{{ .url }}" defer></script>
+{{- range .Site.Params.externalResources.js -}}
+    {{- if .url -}}
+        <script type="text/javascript" src="{{ .url }}"
+            {{- with .integrity }} integrity="{{ . }}"{{- end }} 
+            {{- with .crossorigin | default "anonymous" }} crossorigin="{{ . }}"{{- end -}}
+            defer>
+        </script>
+    {{- end -}}
 {{- end -}}
 
 {{- template "_internal/google_analytics.html" . -}}
