@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Winget on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/winget/</link>
+        <link>https://hugo.yuchu.me/tags/winget/</link>
         <description>Recent content in Winget on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 26 Mar 2024 20:05:34 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/winget/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 26 Mar 2024 20:05:34 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/winget/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>winget的基础配置与使用</title>
-        <link>http://localhost:1313/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
+        <link>https://hugo.yuchu.me/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
         <pubDate>Tue, 26 Mar 2024 20:05:34 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
+        <guid>https://hugo.yuchu.me/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
         <description>&lt;h1 id=&#34;1什么是winget&#34;&gt;&lt;a href=&#34;#1%e4%bb%80%e4%b9%88%e6%98%afwinget&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1.什么是winget
 &lt;/h1&gt;&lt;p&gt;微软公司在 2020 年 5 月 Microsoft Build 开发者大会上发布了用于 Windows 系统的官方支持的软件包管理器 —— Windows 软件包管理器（Windows Package Manager），也就是 WinGet 软件包管理器。经过 3 年的发展，越来越多的软件厂商在这个平台上发布自家软件。WinGet 除了支持 exe、msi 等传统的 Win32 安装包格式外，还支持用于新版 Windows 的 msix/msixbundle 格式所打包的软件。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/en-us/windows/package-manager&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Hexo on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/hexo/</link>
+        <link>https://hugo.yuchu.me/tags/hexo/</link>
         <description>Recent content in Hexo on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 28 Mar 2024 21:17:07 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/hexo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 28 Mar 2024 21:17:07 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/hexo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>基于hexo和GitHub page搭建个人博客</title>
-        <link>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+        <link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Thu, 28 Mar 2024 21:17:07 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
         <description>&lt;h3 id=&#34;成品展示&#34;&gt;&lt;a href=&#34;#%e6%88%90%e5%93%81%e5%b1%95%e7%a4%ba&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;成品展示
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/JWcK/my_blog.png&#34;
 	

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Raidrive on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/raidrive/</link>
+        <link>https://hugo.yuchu.me/tags/raidrive/</link>
         <description>Recent content in Raidrive on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 10 Apr 2024 22:59:40 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/raidrive/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 10 Apr 2024 22:59:40 +0000</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/raidrive/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>用alist&#43;raidrive将网盘空间挂载到本地</title>
-        <link>http://localhost:1313/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
+        <link>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
         <pubDate>Wed, 10 Apr 2024 22:59:40 +0000</pubDate>
         
-        <guid>http://localhost:1313/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
         <description>&lt;h2 id=&#34;成品展示&#34;&gt;&lt;a href=&#34;#%e6%88%90%e5%93%81%e5%b1%95%e7%a4%ba&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;成品展示
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/2Bf8/alist1.jpg&#34;
 	

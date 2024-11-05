@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Numpy on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/numpy/</link>
+        <link>https://hugo.yuchu.me/tags/numpy/</link>
         <description>Recent content in Numpy on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 02 May 2024 22:34:29 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/numpy/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 May 2024 22:34:29 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/numpy/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>termux折腾日记之安装jupyter、numpy、pandas和matplotlib</title>
-        <link>http://localhost:1313/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</link>
+        <link>https://hugo.yuchu.me/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</link>
         <pubDate>Thu, 02 May 2024 22:34:29 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</guid>
+        <guid>https://hugo.yuchu.me/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</guid>
         <description>&lt;p&gt;前几天因为课程需要折腾了一下遗传算法，因为担心老师课上提问，带电脑又不方便，变突发奇想程序能不能在手机上运行，毕竟手机上也是有终端环境——termux的。但是termux毕竟只是终端，无法生成函数图像。你说x11？算了吧，还不如直接上电脑呢。&lt;/p&gt;
 &lt;p&gt;于是想到了jupyter——一款支持图像输出的在线强大工具，只需要浏览器就能运行。话不多说，直接上手安装:
 &lt;code&gt;pip install jupyter&lt;/code&gt;

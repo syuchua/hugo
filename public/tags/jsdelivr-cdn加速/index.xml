@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Jsdelivr CDN加速 on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/jsdelivr-cdn%E5%8A%A0%E9%80%9F/</link>
+        <link>https://hugo.yuchu.me/tags/jsdelivr-cdn%E5%8A%A0%E9%80%9F/</link>
         <description>Recent content in Jsdelivr CDN加速 on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 20 Apr 2024 16:16:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/jsdelivr-cdn%E5%8A%A0%E9%80%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 20 Apr 2024 16:16:35 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/jsdelivr-cdn%E5%8A%A0%E9%80%9F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>基于github&#43;jsdelivr实现免费图床</title>
-        <link>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</link>
+        <link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</link>
         <pubDate>Sat, 20 Apr 2024 16:16:35 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</guid>
         <description>&lt;p&gt;图床想必大家都不陌生了，无论是个人搭建博客或是其他站点、APP、小程序，还是企业级的应用，想要加速网站的访问，都离不开图床，但一款稳定好用的图床又往往要么是收费的，要么需要实名注册等各种流程，那有没有什么免费且方便的代替方案呢？&lt;/p&gt;
 &lt;p&gt;答案是显而易见的，使用GitHub的仓库作为图床，再经由jsdelivr的免费cdn加速，一款稳定方便的图床就诞生了，下面开始本期教程。&lt;/p&gt;
 &lt;h1 id=&#34;新建github仓库&#34;&gt;&lt;a href=&#34;#%e6%96%b0%e5%bb%bagithub%e4%bb%93%e5%ba%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;新建GitHub仓库

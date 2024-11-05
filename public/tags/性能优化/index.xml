@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>性能优化 on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+        <link>https://hugo.yuchu.me/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
         <description>Recent content in 性能优化 on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 18 Oct 2024 17:17:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Oct 2024 17:17:39 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>记一次开发过程中涉及性能问题分析的乌龙事件，顺便谈谈python的装饰器</title>
-        <link>http://localhost:1313/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</link>
         <pubDate>Fri, 18 Oct 2024 17:17:39 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</guid>
         <description>&lt;p&gt;在开发QQ机器人项目的过程中，我经历了一次颇具戏剧性的性能问题排查。这次乌龙事件不仅让我对Python的装饰器机制有了更深入的理解，也让我明白了细节对于程序性能的重要性。在此，我想分享整个排查过程，并深入探讨Python的装饰器。&lt;/p&gt;
 &lt;h2 id=&#34;问题的起因&#34;&gt;&lt;a href=&#34;#%e9%97%ae%e9%a2%98%e7%9a%84%e8%b5%b7%e5%9b%a0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;问题的起因
 &lt;/h2&gt;&lt;p&gt;为了提高代码的复用性和可维护性，我在项目中广泛使用了Python的装饰器，来实现鉴权、计算函数运行时间、捕获异常、限速、超时重试、屏蔽词过滤等功能。&lt;/p&gt;

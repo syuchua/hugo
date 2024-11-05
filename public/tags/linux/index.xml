@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Linux on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/linux/</link>
+        <link>https://hugo.yuchu.me/tags/linux/</link>
         <description>Recent content in Linux on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 25 Sep 2024 23:02:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 25 Sep 2024 23:02:00 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>运维岗需要掌握的Linux命令</title>
-        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</link>
         <pubDate>Wed, 25 Sep 2024 23:02:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</guid>
         <description>&lt;hr&gt;
 &lt;h1 id=&#34;linux-基础运维笔记&#34;&gt;&lt;a href=&#34;#linux-%e5%9f%ba%e7%a1%80%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;Linux 基础运维笔记
 &lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>钉钉 on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/%E9%92%89%E9%92%89/</link>
+        <link>https://hugo.yuchu.me/tags/%E9%92%89%E9%92%89/</link>
         <description>Recent content in 钉钉 on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sat, 20 Apr 2024 16:00:09 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E9%92%89%E9%92%89/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 20 Apr 2024 16:00:09 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/%E9%92%89%E9%92%89/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>不是，钉钉什么时候这么强了？</title>
-        <link>http://localhost:1313/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</link>
+        <link>https://hugo.yuchu.me/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</link>
         <pubDate>Sat, 20 Apr 2024 16:00:09 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</guid>
         <description>&lt;p&gt;最近一段时间对AI大模型以及各种衍生的生产力工具比较感兴趣，就特别希望有一个all-in-one的产品出现，虽说网上也能各种导航站，但一来信息更新不一定及时，二来还经常有各种广告，且站长们有时候更换域名都不通知一下的，导致过期的域名往往被一些不合法的小网站注册。另外一点是现在国产软件大都臃肿，各种弹窗广告催你贷款，下载某某软件不说，你美团往软件里塞个原神是什么原神，不是，真有人在美团玩原神吗？&lt;/p&gt;
 &lt;p&gt;话说回来，现在其实我是比较抗拒在手机上下载一款新软件的，毕竟存储真不太够用了。其他一下纯工具类软件，比方说&lt;code&gt;一个木函&lt;/code&gt;之类的，下载似乎也没多大必要，因为实现的都是一些小众的功能，很久才能用上一次，何况大部分还都能被小程序代替。
 相反，要是一款本来就是为工作而生，没有那么多花里胡哨的功能和广告的应用，以不大的内存增长为代价，可以实现继承各种有助于提高生产力的功能，那就再好不过了。&lt;/p&gt;

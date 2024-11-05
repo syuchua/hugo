@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/posts/</link>
+        <link>https://hugo.yuchu.me/posts/</link>
         <description>Recent content in Posts on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 18 Oct 2024 17:17:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 18 Oct 2024 17:17:39 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/posts/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>记一次开发过程中涉及性能问题分析的乌龙事件，顺便谈谈python的装饰器</title>
-        <link>http://localhost:1313/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</link>
         <pubDate>Fri, 18 Oct 2024 17:17:39 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/</guid>
         <description>&lt;p&gt;在开发QQ机器人项目的过程中，我经历了一次颇具戏剧性的性能问题排查。这次乌龙事件不仅让我对Python的装饰器机制有了更深入的理解，也让我明白了细节对于程序性能的重要性。在此，我想分享整个排查过程，并深入探讨Python的装饰器。&lt;/p&gt;
 &lt;h2 id=&#34;问题的起因&#34;&gt;&lt;a href=&#34;#%e9%97%ae%e9%a2%98%e7%9a%84%e8%b5%b7%e5%9b%a0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;问题的起因
 &lt;/h2&gt;&lt;p&gt;为了提高代码的复用性和可维护性，我在项目中广泛使用了Python的装饰器，来实现鉴权、计算函数运行时间、捕获异常、限速、超时重试、屏蔽词过滤等功能。&lt;/p&gt;
@@ -219,10 +219,10 @@
         </item>
         <item>
         <title>运维岗需要掌握的SRE和系统性能监控知识</title>
-        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</link>
         <pubDate>Wed, 25 Sep 2024 23:04:42 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84sre%E5%92%8C%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%9F%A5%E8%AF%86/</guid>
         <description>&lt;hr&gt;
 &lt;h1 id=&#34;系统性能监控笔记&#34;&gt;&lt;a href=&#34;#%e7%b3%bb%e7%bb%9f%e6%80%a7%e8%83%bd%e7%9b%91%e6%8e%a7%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;系统性能监控笔记
 &lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
@@ -351,10 +351,10 @@
         </item>
         <item>
         <title>运维岗需要掌握的Redis基础和优化技巧</title>
-        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84redis%E5%9F%BA%E7%A1%80%E5%92%8C%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84redis%E5%9F%BA%E7%A1%80%E5%92%8C%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/</link>
         <pubDate>Wed, 25 Sep 2024 23:03:33 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84redis%E5%9F%BA%E7%A1%80%E5%92%8C%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84redis%E5%9F%BA%E7%A1%80%E5%92%8C%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7/</guid>
         <description>&lt;hr&gt;
 &lt;h1 id=&#34;redis-运维笔记&#34;&gt;&lt;a href=&#34;#redis-%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;Redis 运维笔记
 &lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
@@ -539,10 +539,10 @@
         </item>
         <item>
         <title>运维岗需要掌握的数据库基础和调优技巧</title>
-        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</link>
         <pubDate>Wed, 25 Sep 2024 23:03:02 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%92%8C%E8%B0%83%E4%BC%98%E6%8A%80%E5%B7%A7/</guid>
         <description>&lt;h1 id=&#34;数据库运维笔记&#34;&gt;&lt;a href=&#34;#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;数据库运维笔记
 &lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
 &lt;/h2&gt;&lt;ol&gt;
@@ -741,10 +741,10 @@
         </item>
         <item>
         <title>运维岗需要掌握的K8s基础</title>
-        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</link>
         <pubDate>Wed, 25 Sep 2024 23:02:34 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84k8s%E5%9F%BA%E7%A1%80/</guid>
         <description>&lt;hr&gt;
 &lt;h1 id=&#34;kubernetes-k8s-运维笔记&#34;&gt;&lt;a href=&#34;#kubernetes-k8s-%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;Kubernetes (K8s) 运维笔记
 &lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
@@ -956,10 +956,10 @@
         </item>
         <item>
         <title>运维岗需要掌握的Linux命令</title>
-        <link>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</link>
         <pubDate>Wed, 25 Sep 2024 23:02:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/</guid>
         <description>&lt;hr&gt;
 &lt;h1 id=&#34;linux-基础运维笔记&#34;&gt;&lt;a href=&#34;#linux-%e5%9f%ba%e7%a1%80%e8%bf%90%e7%bb%b4%e7%ac%94%e8%ae%b0&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;Linux 基础运维笔记
 &lt;/h1&gt;&lt;h2 id=&#34;目录&#34;&gt;&lt;a href=&#34;#%e7%9b%ae%e5%bd%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;目录
@@ -1353,10 +1353,10 @@
         </item>
         <item>
         <title>教你搭建一个自己的芙宁娜QQ机器人，支持AI聊天、语音、绘画和发送涩图及翻唱</title>
-        <link>http://localhost:1313/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</link>
+        <link>https://hugo.yuchu.me/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</link>
         <pubDate>Thu, 08 Aug 2024 15:26:06 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</guid>
         <description>&lt;p&gt;今天来分享一个我自己写的芙宁娜QQ机器人后端，拥有的能力包括但不限于AI聊天、绘画、发送涩图、AI语音、翻唱歌曲等，还兼具上下文功能，支持自定义system_prompt，适配http和反向ws连接。先来一波展示：&lt;/p&gt;
 &lt;h2 id=&#34;食用方法&#34;&gt;&lt;a href=&#34;#%e9%a3%9f%e7%94%a8%e6%96%b9%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;食用方法
 &lt;/h2&gt;&lt;ul&gt;
@@ -1496,10 +1496,10 @@ model.json里主要是非gpt的其他模型的配置，如果填了，会覆盖c
         </item>
         <item>
         <title>通过油猴插件无限白嫖VecMulChat的gpt4o，claude3.5s等最新大模型</title>
-        <link>http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+        <link>https://hugo.yuchu.me/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Mon, 29 Jul 2024 23:28:18 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
         <description>&lt;p&gt;今天在&lt;code&gt;Linuxdo&lt;/code&gt;闲逛时发现&lt;a class=&#34;link&#34; href=&#34;https://linux.do/t/topic/162476&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;一篇帖子&lt;/a&gt;，说是使用某个网站+油猴脚本可以实现&lt;code&gt;GPT4o&lt;/code&gt;和&lt;code&gt;claude3.5sonnet&lt;/code&gt;等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&amp;#x1f606;**&lt;/p&gt;
 &lt;p&gt;首先是网站地址：
@@ -1566,10 +1566,10 @@ model.json里主要是非gpt的其他模型的配置，如果填了，会覆盖c
         </item>
         <item>
         <title>解决POST请求被Nginx转换成GET的问题</title>
-        <link>http://localhost:1313/posts/%E8%A7%A3%E5%86%B3post%E8%AF%B7%E6%B1%82%E8%A2%ABnginx%E8%BD%AC%E6%8D%A2%E6%88%90get%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+        <link>https://hugo.yuchu.me/posts/%E8%A7%A3%E5%86%B3post%E8%AF%B7%E6%B1%82%E8%A2%ABnginx%E8%BD%AC%E6%8D%A2%E6%88%90get%E7%9A%84%E9%97%AE%E9%A2%98/</link>
         <pubDate>Thu, 11 Jul 2024 23:28:04 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E8%A7%A3%E5%86%B3post%E8%AF%B7%E6%B1%82%E8%A2%ABnginx%E8%BD%AC%E6%8D%A2%E6%88%90get%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E8%A7%A3%E5%86%B3post%E8%AF%B7%E6%B1%82%E8%A2%ABnginx%E8%BD%AC%E6%8D%A2%E6%88%90get%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
         <description>&lt;p&gt;前几天把自己的一个项目扔到了服务器上，用nginx+域名反代了一下ip+端口，测试却发现请求失败，日志里的报错信息显示不支持的请求类型&lt;/p&gt;
 &lt;h4 id=&#34;waht&#34;&gt;&lt;a href=&#34;#waht&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;waht?
 &lt;/h4&gt;&lt;p&gt;明明本地跑的好好的啊，一番排查之后才找到问题，我这个项目实际上是一个api接口，只接受POST请求，但nginx的配置文件里有一个return 301步骤把http请求都转发给了https，转发之后，POST请求就变成了GET，查了一些资料，发现原来只要把return301 改成307就好了&lt;/p&gt;
@@ -1650,10 +1650,10 @@ model.json里主要是非gpt的其他模型的配置，如果填了，会覆盖c
         </item>
         <item>
         <title>基于gcp的VertexAI搭建一个简单的claude中转api服务</title>
-        <link>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</link>
+        <link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</link>
         <pubDate>Thu, 11 Jul 2024 23:24:24 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/</guid>
         <description>&lt;p&gt;最近写一个QQ机器人的后端项目，用于对接AI大模型以及一些图片、语音接口，难免要跟各类大模型的api打交道，听说claude更适合角色扮演，而且新出的Claude3.5-sonnet能力甚至超越了GPT-4o,遂一直想要体验一下，但没有国外的实体手机号，所以没有机会。机缘巧合下得知gcp的VertexAI可以白嫖最新的Gemini和Claude，立马来了兴趣，研究后却发现是通过sdk的方式调用的，没有api，但这不是什么大问题，能用就行，实在不行自己写一个本地api服务不就行了吗，说干就干，直接放上仓库地址，如果能帮到您的话不妨给个star鼓励一下：&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/syuchua/gcp_claude_transfer&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/syuchua/gcp_claude_transfer&lt;/a&gt;&lt;/p&gt;
@@ -1662,10 +1662,10 @@ model.json里主要是非gpt的其他模型的配置，如果填了，会覆盖c
         </item>
         <item>
         <title>会唱歌的芙宁娜AI桌宠，确定不来看看吗？</title>
-        <link>http://localhost:1313/posts/%E4%BC%9A%E5%94%B1%E6%AD%8C%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cai%E6%A1%8C%E5%AE%A0%E7%A1%AE%E5%AE%9A%E4%B8%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%97/</link>
+        <link>https://hugo.yuchu.me/posts/%E4%BC%9A%E5%94%B1%E6%AD%8C%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cai%E6%A1%8C%E5%AE%A0%E7%A1%AE%E5%AE%9A%E4%B8%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%97/</link>
         <pubDate>Sun, 19 May 2024 22:47:41 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E4%BC%9A%E5%94%B1%E6%AD%8C%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cai%E6%A1%8C%E5%AE%A0%E7%A1%AE%E5%AE%9A%E4%B8%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%97/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E4%BC%9A%E5%94%B1%E6%AD%8C%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cai%E6%A1%8C%E5%AE%A0%E7%A1%AE%E5%AE%9A%E4%B8%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%97/</guid>
         <description>&lt;p&gt;事情是这样的，前几天逛b站的时候无意间刷到一个关于芙宁娜AI桌宠的视频，原以为又要高配显卡才能玩，我这连独显都没有的轻薄本压根不敢想，不过点进去才发现原来训练和推理都是在服务端完成的，由up主及赞助商支持，不需要高配电脑，于是本芙厨直接原地垂直入坑！&lt;/p&gt;
 &lt;p&gt;原视频链接贴在这里，希望大家多支持下up主:
 &lt;a class=&#34;link&#34; href=&#34;https://b23.tv/zjFhc99&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1807,10 +1807,10 @@ model.json里主要是非gpt的其他模型的配置，如果填了，会覆盖c
         </item>
         <item>
         <title>oh-my-posh:基于WindowsTerminal的powershell美化教程</title>
-        <link>http://localhost:1313/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</link>
+        <link>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</link>
         <pubDate>Tue, 07 May 2024 22:05:04 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</guid>
+        <guid>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</guid>
         <description>&lt;p&gt;今天来更一篇关于Windows终端美化的教程，先放个成品：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/terminal.jpg&#34;
 	
@@ -1899,10 +1899,10 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
         </item>
         <item>
         <title>termux折腾日记之安装jupyter、numpy、pandas和matplotlib</title>
-        <link>http://localhost:1313/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</link>
+        <link>https://hugo.yuchu.me/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</link>
         <pubDate>Thu, 02 May 2024 22:34:29 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</guid>
+        <guid>https://hugo.yuchu.me/posts/termux%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0%E4%B9%8B%E5%AE%89%E8%A3%85jupyternumpypandas%E5%92%8Cmatplotlib/</guid>
         <description>&lt;p&gt;前几天因为课程需要折腾了一下遗传算法，因为担心老师课上提问，带电脑又不方便，变突发奇想程序能不能在手机上运行，毕竟手机上也是有终端环境——termux的。但是termux毕竟只是终端，无法生成函数图像。你说x11？算了吧，还不如直接上电脑呢。&lt;/p&gt;
 &lt;p&gt;于是想到了jupyter——一款支持图像输出的在线强大工具，只需要浏览器就能运行。话不多说，直接上手安装:
 &lt;code&gt;pip install jupyter&lt;/code&gt;
@@ -1960,10 +1960,10 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
         </item>
         <item>
         <title>shizuku:安卓玩机入门指南</title>
-        <link>http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link>
+        <link>https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link>
         <pubDate>Mon, 29 Apr 2024 21:09:03 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid>
+        <guid>https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid>
         <description>&lt;h1 id=&#34;shizuku是什么&#34;&gt;&lt;a href=&#34;#shizuku%e6%98%af%e4%bb%80%e4%b9%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;shizuku是什么？
 &lt;/h1&gt;&lt;p&gt;&lt;code&gt;Shizuku&lt;/code&gt; 是一款开源的 ADB（Android Debug Briage）权限管理器。由于现阶段大部分安卓手机都无法解锁获取 ROOT 高级权限，但是用户又需要高级权限对系统进行一些操作，恰好这些功能可以通过 ADB 权限进行解决，比如冻结应用、卸载不想要的系统应用（只有少部分能通过adb卸载，更多的还是建议root）。这种情况下，&lt;code&gt;Shizuku&lt;/code&gt; 就是一个非常好的解决方案。&lt;/p&gt;
 &lt;p&gt;具体关于shizuku是什么，官网已经给出了很明确的解释：&lt;code&gt;Shizuku&lt;/code&gt; 可以帮助普通应用借助一个由 app_process 启动的 Java 进程直接以 adb 或 root 特权使用系统 API。简单来说，root权限&amp;gt;&lt;code&gt;shizuku&lt;/code&gt;的权限&amp;gt;普通用户，利用这一聊胜于无的权限，我们就已经可以做很多事了。&lt;/p&gt;
@@ -2049,10 +2049,10 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
         </item>
         <item>
         <title>基于github&#43;jsdelivr实现免费图床</title>
-        <link>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</link>
+        <link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</link>
         <pubDate>Sat, 20 Apr 2024 16:16:35 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Egithub-jsdelivr%E5%AE%9E%E7%8E%B0%E5%85%8D%E8%B4%B9%E5%9B%BE%E5%BA%8A/</guid>
         <description>&lt;p&gt;图床想必大家都不陌生了，无论是个人搭建博客或是其他站点、APP、小程序，还是企业级的应用，想要加速网站的访问，都离不开图床，但一款稳定好用的图床又往往要么是收费的，要么需要实名注册等各种流程，那有没有什么免费且方便的代替方案呢？&lt;/p&gt;
 &lt;p&gt;答案是显而易见的，使用GitHub的仓库作为图床，再经由jsdelivr的免费cdn加速，一款稳定方便的图床就诞生了，下面开始本期教程。&lt;/p&gt;
 &lt;h1 id=&#34;新建github仓库&#34;&gt;&lt;a href=&#34;#%e6%96%b0%e5%bb%bagithub%e4%bb%93%e5%ba%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;新建GitHub仓库
@@ -2147,10 +2147,10 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
         </item>
         <item>
         <title>不是，钉钉什么时候这么强了？</title>
-        <link>http://localhost:1313/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</link>
+        <link>https://hugo.yuchu.me/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</link>
         <pubDate>Sat, 20 Apr 2024 16:00:09 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E4%B8%8D%E6%98%AF%E9%92%89%E9%92%89%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%BF%99%E4%B9%88%E5%BC%BA%E4%BA%86/</guid>
         <description>&lt;p&gt;最近一段时间对AI大模型以及各种衍生的生产力工具比较感兴趣，就特别希望有一个all-in-one的产品出现，虽说网上也能各种导航站，但一来信息更新不一定及时，二来还经常有各种广告，且站长们有时候更换域名都不通知一下的，导致过期的域名往往被一些不合法的小网站注册。另外一点是现在国产软件大都臃肿，各种弹窗广告催你贷款，下载某某软件不说，你美团往软件里塞个原神是什么原神，不是，真有人在美团玩原神吗？&lt;/p&gt;
 &lt;p&gt;话说回来，现在其实我是比较抗拒在手机上下载一款新软件的，毕竟存储真不太够用了。其他一下纯工具类软件，比方说&lt;code&gt;一个木函&lt;/code&gt;之类的，下载似乎也没多大必要，因为实现的都是一些小众的功能，很久才能用上一次，何况大部分还都能被小程序代替。
 相反，要是一款本来就是为工作而生，没有那么多花里胡哨的功能和广告的应用，以不大的内存增长为代价，可以实现继承各种有助于提高生产力的功能，那就再好不过了。&lt;/p&gt;
@@ -2280,10 +2280,10 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
         </item>
         <item>
         <title>遗传算法的python实现</title>
-        <link>http://localhost:1313/posts/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E7%9A%84python%E5%AE%9E%E7%8E%B0/</link>
+        <link>https://hugo.yuchu.me/posts/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E7%9A%84python%E5%AE%9E%E7%8E%B0/</link>
         <pubDate>Fri, 19 Apr 2024 20:25:38 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E7%9A%84python%E5%AE%9E%E7%8E%B0/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E7%9A%84python%E5%AE%9E%E7%8E%B0/</guid>
         <description>&lt;p&gt;&lt;code&gt;事情是这样的，压根没学过什么人工智能相关课程的笔者收到了这样一份小组作业：&lt;/code&gt;
 &lt;img src=&#34;https://cloud.yuchu.me/f/9VF2/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95.jpg&#34;
 	
@@ -2703,10 +2703,10 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
         </item>
         <item>
         <title>3分钟搭建一个ChatGPT镜像站，非api，支持官网账号登录</title>
-        <link>http://localhost:1313/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</link>
+        <link>https://hugo.yuchu.me/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</link>
         <pubDate>Sun, 14 Apr 2024 17:30:22 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</guid>
+        <guid>https://hugo.yuchu.me/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</guid>
         <description>&lt;p&gt;本篇基于github上的开源项目&lt;a class=&#34;link&#34; href=&#34;https://github.com/xyhelper/chatgpt-mirror-server&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/xyhelper/chatgpt-mirror-server&lt;/a&gt;旨在通过简单的操作搭建一个ChatGPT的个人镜像，绕过cloudflare，提升访问速度，且没有烦人的机器人验证步骤，可本地搭建，也可部署在服务器上，通过登录官网账号的方式，非api模式，提高回答准确性。同时，基于共享账号的普遍存在，可以实现成本远低于api模式的GPT4和GPTs使用。&lt;/p&gt;
 &lt;h1 id=&#34;前置条件&#34;&gt;&lt;a href=&#34;#%e5%89%8d%e7%bd%ae%e6%9d%a1%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;前置条件
@@ -2821,10 +2821,10 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
         </item>
         <item>
         <title>用alist&#43;raidrive将网盘空间挂载到本地</title>
-        <link>http://localhost:1313/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
+        <link>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</link>
         <pubDate>Wed, 10 Apr 2024 22:59:40 +0000</pubDate>
         
-        <guid>http://localhost:1313/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/</guid>
         <description>&lt;h2 id=&#34;成品展示&#34;&gt;&lt;a href=&#34;#%e6%88%90%e5%93%81%e5%b1%95%e7%a4%ba&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;成品展示
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/2Bf8/alist1.jpg&#34;
 	
@@ -2927,10 +2927,10 @@ GitHub访问较慢的也可以从该链接下载:&lt;/li&gt;
         </item>
         <item>
         <title>用docker搭建cloudreve个人网盘系统</title>
-        <link>http://localhost:1313/posts/%E7%94%A8docker%E6%90%AD%E5%BB%BAcloudreve%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98%E7%B3%BB%E7%BB%9F/</link>
+        <link>https://hugo.yuchu.me/posts/%E7%94%A8docker%E6%90%AD%E5%BB%BAcloudreve%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Sat, 06 Apr 2024 18:55:04 +0000</pubDate>
         
-        <guid>http://localhost:1313/posts/%E7%94%A8docker%E6%90%AD%E5%BB%BAcloudreve%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98%E7%B3%BB%E7%BB%9F/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E7%94%A8docker%E6%90%AD%E5%BB%BAcloudreve%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%9B%98%E7%B3%BB%E7%BB%9F/</guid>
         <description>&lt;h2 id=&#34;成品展示&#34;&gt;&lt;a href=&#34;#%e6%88%90%e5%93%81%e5%b1%95%e7%a4%ba&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;成品展示
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/x2ux/cloudreve.jpg&#34;
 	
@@ -3166,10 +3166,10 @@ GitHub访问较慢的也可以从该链接下载:&lt;/li&gt;
         </item>
         <item>
         <title>基于hexo和GitHub page搭建个人博客</title>
-        <link>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+        <link>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Thu, 28 Mar 2024 21:17:07 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E5%9F%BA%E4%BA%8Ehexo%E5%92%8Cgithubpage%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
         <description>&lt;h3 id=&#34;成品展示&#34;&gt;&lt;a href=&#34;#%e6%88%90%e5%93%81%e5%b1%95%e7%a4%ba&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;成品展示
 &lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/JWcK/my_blog.png&#34;
 	
@@ -3341,10 +3341,10 @@ GitHub访问较慢的也可以从该链接下载:&lt;/li&gt;
         </item>
         <item>
         <title>VSCode常用快捷键及插件</title>
-        <link>http://localhost:1313/posts/vscode%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E6%8F%92%E4%BB%B6/</link>
+        <link>https://hugo.yuchu.me/posts/vscode%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E6%8F%92%E4%BB%B6/</link>
         <pubDate>Tue, 26 Mar 2024 17:12:02 +0000</pubDate>
         
-        <guid>http://localhost:1313/posts/vscode%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E6%8F%92%E4%BB%B6/</guid>
+        <guid>https://hugo.yuchu.me/posts/vscode%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E6%8F%92%E4%BB%B6/</guid>
         <description>&lt;h1 id=&#34;常用快捷键&#34;&gt;&lt;a href=&#34;#%e5%b8%b8%e7%94%a8%e5%bf%ab%e6%8d%b7%e9%94%ae&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt; 常用快捷键
 &lt;/h1&gt;&lt;h2 id=&#34;注释&#34;&gt;&lt;a href=&#34;#%e6%b3%a8%e9%87%8a&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;注释
 &lt;/h2&gt;&lt;ul&gt;
@@ -3491,10 +3491,10 @@ GitHub访问较慢的也可以从该链接下载:&lt;/li&gt;
         </item>
         <item>
         <title>winget的基础配置与使用</title>
-        <link>http://localhost:1313/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
+        <link>https://hugo.yuchu.me/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</link>
         <pubDate>Tue, 26 Mar 2024 20:05:34 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
+        <guid>https://hugo.yuchu.me/posts/winget%E7%9A%84%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/</guid>
         <description>&lt;h1 id=&#34;1什么是winget&#34;&gt;&lt;a href=&#34;#1%e4%bb%80%e4%b9%88%e6%98%afwinget&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1.什么是winget
 &lt;/h1&gt;&lt;p&gt;微软公司在 2020 年 5 月 Microsoft Build 开发者大会上发布了用于 Windows 系统的官方支持的软件包管理器 —— Windows 软件包管理器（Windows Package Manager），也就是 WinGet 软件包管理器。经过 3 年的发展，越来越多的软件厂商在这个平台上发布自家软件。WinGet 除了支持 exe、msi 等传统的 Win32 安装包格式外，还支持用于新版 Windows 的 msix/msixbundle 格式所打包的软件。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/en-us/windows/package-manager&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -3814,10 +3814,10 @@ GitHub访问较慢的也可以从该链接下载:&lt;/li&gt;
         </item>
         <item>
         <title>极简markdown语法</title>
-        <link>http://localhost:1313/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</link>
+        <link>https://hugo.yuchu.me/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</link>
         <pubDate>Fri, 22 Mar 2024 21:00:20 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E6%9E%81%E7%AE%80markdown%E8%AF%AD%E6%B3%95/</guid>
         <description>&lt;h1 id=&#34;极简markdown语法&#34;&gt;&lt;a href=&#34;#%e6%9e%81%e7%ae%80markdown%e8%af%ad%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;极简markdown语法
 &lt;/h1&gt;&lt;h2 id=&#34;标题&#34;&gt;&lt;a href=&#34;#%e6%a0%87%e9%a2%98&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;标题
 &lt;/h2&gt;&lt;p&gt;要创建标题，请在单词或短语前面添加井号 (#) 。# 的数量代表了标题的级别。例如，添加三个 # 表示创建一个三级标题 (&amp;lt;\h3&amp;gt;) (例如：### My Header)&lt;/p&gt;
@@ -3912,10 +3912,10 @@ GitHub访问较慢的也可以从该链接下载:&lt;/li&gt;
         </item>
         <item>
         <title>欢迎来到我的博客</title>
-        <link>http://localhost:1313/posts/welcome/</link>
+        <link>https://hugo.yuchu.me/posts/welcome/</link>
         <pubDate>Thu, 14 Dec 2023 17:30:22 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/welcome/</guid>
+        <guid>https://hugo.yuchu.me/posts/welcome/</guid>
         <description>&lt;h1 id=&#34;欢迎来到我的博客&#34;&gt;&lt;a href=&#34;#%e6%ac%a2%e8%bf%8e%e6%9d%a5%e5%88%b0%e6%88%91%e7%9a%84%e5%8d%9a%e5%ae%a2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;欢迎来到我的博客
 &lt;/h1&gt;&lt;p&gt;欢迎来到我的个人博客！这里是我分享技术见解和生活点滴的地方。&lt;/p&gt;
 &lt;h2 id=&#34;关于我&#34;&gt;&lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e6%88%91&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;关于我

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>终端美化 on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96/</link>
+        <link>https://hugo.yuchu.me/tags/%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96/</link>
         <description>Recent content in 终端美化 on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Tue, 07 May 2024 22:05:04 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 07 May 2024 22:05:04 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/%E7%BB%88%E7%AB%AF%E7%BE%8E%E5%8C%96/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>oh-my-posh:基于WindowsTerminal的powershell美化教程</title>
-        <link>http://localhost:1313/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</link>
+        <link>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</link>
         <pubDate>Tue, 07 May 2024 22:05:04 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</guid>
+        <guid>https://hugo.yuchu.me/posts/oh-my-posh-%E5%9F%BA%E4%BA%8Ewindowsterminal%E7%9A%84powershell%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</guid>
         <description>&lt;p&gt;今天来更一篇关于Windows终端美化的教程，先放个成品：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/mazhijia/jsdeliver@main/img/terminal.jpg&#34;
 	

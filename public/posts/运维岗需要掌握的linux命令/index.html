@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" Linux 基础运维笔记 目录 RPM 包管理 YUM 包管理 文件系统管理 LVM 动态扩容 系统负载查看 磁盘管理与分区 进程管理 网络管理 安全管理 日志管理 1. RPM 包管理 常用命令 操作 命令 查看包文件列表 rpm -ql &lt;package_name&gt; 安装包 rpm -ivh &lt;package.rpm&gt; 升级包 rpm -Uvh &lt;package.rpm&gt; 卸载包 rpm -e &lt;package_name&gt; 查询已安装包 rpm -qa 检查文件来源 rpm -qf &lt;file_path&gt; 验证包 rpm -V &lt;package_name&gt; 示例 1rpm -ql httpd 1rpm -ivh nginx-1.20.1.rpm 2. YUM 包管理 常用命令 操作 命令 列出可用包 yum list available 安装包 yum install &lt;package_name&gt; 更新系统中所有包 yum update 卸载包 yum remove &lt;package_name&gt; 查看包信息 yum info &lt;package_name&gt; 列出已安装的包 yum list installed 清除缓存 yum clean all 示例 1yum install httpd 1yum remove httpd 3. 文件系统管理 挂载与卸载文件系统 挂载文件系统\n">
 <title>运维岗需要掌握的Linux命令</title>
 
-<link rel='canonical' href='http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/'>
+<link rel='canonical' href='https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/'>
 
 <link rel="stylesheet" href="/scss/style.min.b4f96306692b2078e3f5bf877fb7df2ffdb7c49ed97e6c90c02534b5529757fd.css"><meta property='og:title' content="运维岗需要掌握的Linux命令">
 <meta property='og:description' content=" Linux 基础运维笔记 目录 RPM 包管理 YUM 包管理 文件系统管理 LVM 动态扩容 系统负载查看 磁盘管理与分区 进程管理 网络管理 安全管理 日志管理 1. RPM 包管理 常用命令 操作 命令 查看包文件列表 rpm -ql &lt;package_name&gt; 安装包 rpm -ivh &lt;package.rpm&gt; 升级包 rpm -Uvh &lt;package.rpm&gt; 卸载包 rpm -e &lt;package_name&gt; 查询已安装包 rpm -qa 检查文件来源 rpm -qf &lt;file_path&gt; 验证包 rpm -V &lt;package_name&gt; 示例 1rpm -ql httpd 1rpm -ivh nginx-1.20.1.rpm 2. YUM 包管理 常用命令 操作 命令 列出可用包 yum list available 安装包 yum install &lt;package_name&gt; 更新系统中所有包 yum update 卸载包 yum remove &lt;package_name&gt; 查看包信息 yum info &lt;package_name&gt; 列出已安装的包 yum list installed 清除缓存 yum clean all 示例 1yum install httpd 1yum remove httpd 3. 文件系统管理 挂载与卸载文件系统 挂载文件系统\n">
-<meta property='og:url' content='http://localhost:1313/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/'>
+<meta property='og:url' content='https://hugo.yuchu.me/posts/%E8%BF%90%E7%BB%B4%E5%B2%97%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84linux%E5%91%BD%E4%BB%A4/'>
 <meta property='og:site_name' content='YuChu&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='运维' /><meta property='article:tag' content='Linux' /><meta property='article:tag' content='Linux常用命令' /><meta property='article:published_time' content='2024-09-25T23:02:00&#43;08:00'/><meta property='article:modified_time' content='2024-09-25T23:02:00&#43;08:00'/>
 <meta name="twitter:title" content="运维岗需要掌握的Linux命令">
@@ -1789,7 +1789,7 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.b01f2956559f70a05e16322bba582c04d12658bf280558e97bad921f3d020550.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

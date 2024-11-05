@@ -1,0 +1,75 @@
+<!-- 阅读进度条 -->
+{{ if strings.HasPrefix .RelPermalink "/posts/" }}
+
+<div class="top-scroll-bar"></div>
+
+<style>
+
+    .top-scroll-bar {
+
+        position: fixed;
+
+        top: 0;
+
+        left: 0;
+
+        z-index: 9999;
+
+        display: none;
+
+        width: 0;
+
+        height: 3px;
+
+        background: #ef3982;
+
+    }
+
+</style>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $(window).scroll(function(){
+
+            $(".top-scroll-bar").attr("style", "width: " + ($(this).scrollTop() / ($(document).height() - $(this).height()) * 100) + "%; display: block;");
+
+        });
+
+    });
+
+</script>
+
+{{ end }}
+
+<!-- 图片灯箱效果 -->
+{{if .Page.Site.Params.fancybox }}
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+{{ end }}
+
+{{ if .Site.Params.google_site_verification }}
+
+<meta name="google-site-verification" content="{{ .Site.Params.google_site_verification }}" />
+
+{{ end }}
+
+
+{{ if .Site.Params.bing_site_verification }}
+
+<meta name="msvalidate.01" content="{{ .Site.Params.bing_site_verification }}" />
+
+{{ end }}
+
+{{ if .Site.Params.baidu_site_verification }}
+
+<meta name="baidu-site-verification" content="{{ .Site.Params.baidu_site_verification }}" />
+
+{{ end }}

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="shizuku是什么？ Shizuku 是一款开源的 ADB（Android Debug Briage）权限管理器。由于现阶段大部分安卓手机都无法解锁获取 ROOT 高级权限，但是用户又需要高级权限对系统进行一些操作，恰好这些功能可以通过 ADB 权限进行解决，比如冻结应用、卸载不想要的系统应用（只有少部分能通过adb卸载，更多的还是建议root）。这种情况下，Shizuku 就是一个非常好的解决方案。\n具体关于shizuku是什么，官网已经给出了很明确的解释：Shizuku 可以帮助普通应用借助一个由 app_process 启动的 Java 进程直接以 adb 或 root 特权使用系统 API。简单来说，root权限&gt;shizuku的权限&gt;普通用户，利用这一聊胜于无的权限，我们就已经可以做很多事了。\n">
 <title>shizuku:安卓玩机入门指南</title>
 
-<link rel='canonical' href='http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/'>
+<link rel='canonical' href='https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/'>
 
 <link rel="stylesheet" href="/scss/style.min.b4f96306692b2078e3f5bf877fb7df2ffdb7c49ed97e6c90c02534b5529757fd.css"><meta property='og:title' content="shizuku:安卓玩机入门指南">
 <meta property='og:description' content="shizuku是什么？ Shizuku 是一款开源的 ADB（Android Debug Briage）权限管理器。由于现阶段大部分安卓手机都无法解锁获取 ROOT 高级权限，但是用户又需要高级权限对系统进行一些操作，恰好这些功能可以通过 ADB 权限进行解决，比如冻结应用、卸载不想要的系统应用（只有少部分能通过adb卸载，更多的还是建议root）。这种情况下，Shizuku 就是一个非常好的解决方案。\n具体关于shizuku是什么，官网已经给出了很明确的解释：Shizuku 可以帮助普通应用借助一个由 app_process 启动的 Java 进程直接以 adb 或 root 特权使用系统 API。简单来说，root权限&gt;shizuku的权限&gt;普通用户，利用这一聊胜于无的权限，我们就已经可以做很多事了。\n">
-<meta property='og:url' content='http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/'>
+<meta property='og:url' content='https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/'>
 <meta property='og:site_name' content='YuChu&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='shizuku' /><meta property='article:tag' content='安卓玩机' /><meta property='article:tag' content='免root框架' /><meta property='article:tag' content='黑阈' /><meta property='article:tag' content='mt管理器' /><meta property='article:tag' content='scene' /><meta property='article:tag' content='APP Ops' /><meta property='article:tag' content='GKD' /><meta property='article:tag' content='Termux' /><meta property='article:published_time' content='2024-04-29T21:09:03&#43;08:00'/><meta property='article:modified_time' content='2024-04-29T21:09:03&#43;08:00'/>
 <meta name="twitter:title" content="shizuku:安卓玩机入门指南">
@@ -1446,7 +1446,7 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.b01f2956559f70a05e16322bba582c04d12658bf280558e97bad921f3d020550.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Claude3.5sonnet on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/claude3.5sonnet/</link>
+        <link>https://hugo.yuchu.me/tags/claude3.5sonnet/</link>
         <description>Recent content in Claude3.5sonnet on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 29 Jul 2024 23:28:18 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/claude3.5sonnet/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 29 Jul 2024 23:28:18 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/claude3.5sonnet/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>通过油猴插件无限白嫖VecMulChat的gpt4o，claude3.5s等最新大模型</title>
-        <link>http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+        <link>https://hugo.yuchu.me/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
         <pubDate>Mon, 29 Jul 2024 23:28:18 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/</guid>
         <description>&lt;p&gt;今天在&lt;code&gt;Linuxdo&lt;/code&gt;闲逛时发现&lt;a class=&#34;link&#34; href=&#34;https://linux.do/t/topic/162476&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;一篇帖子&lt;/a&gt;，说是使用某个网站+油猴脚本可以实现&lt;code&gt;GPT4o&lt;/code&gt;和&lt;code&gt;claude3.5sonnet&lt;/code&gt;等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&amp;#x1f606;**&lt;/p&gt;
 &lt;p&gt;首先是网站地址：

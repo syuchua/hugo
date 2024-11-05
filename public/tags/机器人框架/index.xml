@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>机器人框架 on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A1%86%E6%9E%B6/</link>
+        <link>https://hugo.yuchu.me/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A1%86%E6%9E%B6/</link>
         <description>Recent content in 机器人框架 on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 08 Aug 2024 15:26:06 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 08 Aug 2024 15:26:06 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>教你搭建一个自己的芙宁娜QQ机器人，支持AI聊天、语音、绘画和发送涩图及翻唱</title>
-        <link>http://localhost:1313/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</link>
+        <link>https://hugo.yuchu.me/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</link>
         <pubDate>Thu, 08 Aug 2024 15:26:06 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</guid>
+        <guid>https://hugo.yuchu.me/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/</guid>
         <description>&lt;p&gt;今天来分享一个我自己写的芙宁娜QQ机器人后端，拥有的能力包括但不限于AI聊天、绘画、发送涩图、AI语音、翻唱歌曲等，还兼具上下文功能，支持自定义system_prompt，适配http和反向ws连接。先来一波展示：&lt;/p&gt;
 &lt;h2 id=&#34;食用方法&#34;&gt;&lt;a href=&#34;#%e9%a3%9f%e7%94%a8%e6%96%b9%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;食用方法
 &lt;/h2&gt;&lt;ul&gt;

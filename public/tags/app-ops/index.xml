@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>APP Ops on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/app-ops/</link>
+        <link>https://hugo.yuchu.me/tags/app-ops/</link>
         <description>Recent content in APP Ops on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 29 Apr 2024 21:09:03 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/app-ops/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 29 Apr 2024 21:09:03 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/app-ops/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>shizuku:安卓玩机入门指南</title>
-        <link>http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link>
+        <link>https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link>
         <pubDate>Mon, 29 Apr 2024 21:09:03 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid>
+        <guid>https://hugo.yuchu.me/posts/shizuku-%E5%AE%89%E5%8D%93%E7%8E%A9%E6%9C%BA%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid>
         <description>&lt;h1 id=&#34;shizuku是什么&#34;&gt;&lt;a href=&#34;#shizuku%e6%98%af%e4%bb%80%e4%b9%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;shizuku是什么？
 &lt;/h1&gt;&lt;p&gt;&lt;code&gt;Shizuku&lt;/code&gt; 是一款开源的 ADB（Android Debug Briage）权限管理器。由于现阶段大部分安卓手机都无法解锁获取 ROOT 高级权限，但是用户又需要高级权限对系统进行一些操作，恰好这些功能可以通过 ADB 权限进行解决，比如冻结应用、卸载不想要的系统应用（只有少部分能通过adb卸载，更多的还是建议root）。这种情况下，&lt;code&gt;Shizuku&lt;/code&gt; 就是一个非常好的解决方案。&lt;/p&gt;
 &lt;p&gt;具体关于shizuku是什么，官网已经给出了很明确的解释：&lt;code&gt;Shizuku&lt;/code&gt; 可以帮助普通应用借助一个由 app_process 启动的 Java 进程直接以 adb 或 root 特权使用系统 API。简单来说，root权限&amp;gt;&lt;code&gt;shizuku&lt;/code&gt;的权限&amp;gt;普通用户，利用这一聊胜于无的权限，我们就已经可以做很多事了。&lt;/p&gt;

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="成品展示 原理 通过alist挂载网盘，然后用RaiDrive的webdav功能将网盘内容映射到本地，可以直接对网盘内容进行增删改查，实现近似本地词牌的功能。\nalist下载安装 alist官方下载 GitHub访问较慢的也可以从该链接下载: alist下载\n将下载的压缩包解压到指定的目录下 此目录下运行cmd，输入 .\\alist.exe server开始安装程序 当看到输出start server@0.0.0.0:5244且后续无报错时，说明安装完成。初始会指定alist用户名为admin，并随机一个密码，该密码会在安装时展示，也可以使用.\\alist.exe admin查询 安装成功后，浏览器打开 127.0.0.1:5244即可访问alist管理界面。输入刚刚的用户名和密码，点击管理，可以进入管理界面修改用户名和密码。 关闭该进程可以在cmd界面按下Crtl+C，之后重新启动以及更改密码可以在根目录使用如下命令 1alist start 2alist admin set your_passwd #your_passwd改为你要更改的密码 alist挂载网盘 点击管理界面的存储-添加-驱动，即可添加指定网盘，目前已支持几十种 这部分内容在alist的官方文档里已经足够详细，这里以阿里云盘为例，其他的不再赘述，附上官方文档链接，供大家参考 alist官方文档/添加存储\n">
 <title>用alist&#43;raidrive将网盘空间挂载到本地</title>
 
-<link rel='canonical' href='http://localhost:1313/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/'>
+<link rel='canonical' href='https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/'>
 
 <link rel="stylesheet" href="/scss/style.min.b4f96306692b2078e3f5bf877fb7df2ffdb7c49ed97e6c90c02534b5529757fd.css"><meta property='og:title' content="用alist+raidrive将网盘空间挂载到本地">
 <meta property='og:description' content="成品展示 原理 通过alist挂载网盘，然后用RaiDrive的webdav功能将网盘内容映射到本地，可以直接对网盘内容进行增删改查，实现近似本地词牌的功能。\nalist下载安装 alist官方下载 GitHub访问较慢的也可以从该链接下载: alist下载\n将下载的压缩包解压到指定的目录下 此目录下运行cmd，输入 .\\alist.exe server开始安装程序 当看到输出start server@0.0.0.0:5244且后续无报错时，说明安装完成。初始会指定alist用户名为admin，并随机一个密码，该密码会在安装时展示，也可以使用.\\alist.exe admin查询 安装成功后，浏览器打开 127.0.0.1:5244即可访问alist管理界面。输入刚刚的用户名和密码，点击管理，可以进入管理界面修改用户名和密码。 关闭该进程可以在cmd界面按下Crtl+C，之后重新启动以及更改密码可以在根目录使用如下命令 1alist start 2alist admin set your_passwd #your_passwd改为你要更改的密码 alist挂载网盘 点击管理界面的存储-添加-驱动，即可添加指定网盘，目前已支持几十种 这部分内容在alist的官方文档里已经足够详细，这里以阿里云盘为例，其他的不再赘述，附上官方文档链接，供大家参考 alist官方文档/添加存储\n">
-<meta property='og:url' content='http://localhost:1313/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/'>
+<meta property='og:url' content='https://hugo.yuchu.me/posts/%E7%94%A8alist-raidrive%E5%B0%86%E7%BD%91%E7%9B%98%E7%A9%BA%E9%97%B4%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/'>
 <meta property='og:site_name' content='YuChu&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='alist' /><meta property='article:tag' content='raidrive' /><meta property='article:tag' content='webdav' /><meta property='article:published_time' content='2024-04-10T22:59:40&#43;00:00'/><meta property='article:modified_time' content='2024-04-10T22:59:40&#43;00:00'/>
 <meta name="twitter:title" content="用alist+raidrive将网盘空间挂载到本地">
@@ -1459,7 +1459,7 @@ GitHub访问较慢的也可以从该链接下载:</li>
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.b01f2956559f70a05e16322bba582c04d12658bf280558e97bad921f3d020550.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

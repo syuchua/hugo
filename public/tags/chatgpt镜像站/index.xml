@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Chatgpt镜像站 on YuChu&#39;s Blog</title>
-        <link>http://localhost:1313/tags/chatgpt%E9%95%9C%E5%83%8F%E7%AB%99/</link>
+        <link>https://hugo.yuchu.me/tags/chatgpt%E9%95%9C%E5%83%8F%E7%AB%99/</link>
         <description>Recent content in Chatgpt镜像站 on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 14 Apr 2024 17:30:22 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/chatgpt%E9%95%9C%E5%83%8F%E7%AB%99/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 14 Apr 2024 17:30:22 +0800</lastBuildDate><atom:link href="https://hugo.yuchu.me/tags/chatgpt%E9%95%9C%E5%83%8F%E7%AB%99/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>3分钟搭建一个ChatGPT镜像站，非api，支持官网账号登录</title>
-        <link>http://localhost:1313/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</link>
+        <link>https://hugo.yuchu.me/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</link>
         <pubDate>Sun, 14 Apr 2024 17:30:22 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</guid>
+        <guid>https://hugo.yuchu.me/posts/3%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AAchatgpt%E9%95%9C%E5%83%8F%E7%AB%99%E9%9D%9Eapi%E6%94%AF%E6%8C%81%E5%AE%98%E7%BD%91%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95/</guid>
         <description>&lt;p&gt;本篇基于github上的开源项目&lt;a class=&#34;link&#34; href=&#34;https://github.com/xyhelper/chatgpt-mirror-server&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/xyhelper/chatgpt-mirror-server&lt;/a&gt;旨在通过简单的操作搭建一个ChatGPT的个人镜像，绕过cloudflare，提升访问速度，且没有烦人的机器人验证步骤，可本地搭建，也可部署在服务器上，通过登录官网账号的方式，非api模式，提高回答准确性。同时，基于共享账号的普遍存在，可以实现成本远低于api模式的GPT4和GPTs使用。&lt;/p&gt;
 &lt;h1 id=&#34;前置条件&#34;&gt;&lt;a href=&#34;#%e5%89%8d%e7%bd%ae%e6%9d%a1%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;前置条件
