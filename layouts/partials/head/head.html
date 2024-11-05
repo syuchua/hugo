@@ -23,12 +23,18 @@
 {{ end }}
 
 {{- with .Site.Params.externalResources -}}
-    {{- range .js -}}
-        <script type="text/javascript" src="{{ .url }}"
-            {{- with .integrity }} integrity="{{ . }}"{{- end }}
-            {{- with .crossorigin }} crossorigin="{{ . }}"{{- end }}
-            defer>
-        </script>
+    {{- range . -}}
+        {{- if eq .type "script" -}}
+            <script type="text/javascript" src="{{ .src }}"
+                {{- with .integrity }} integrity="{{ . }}"{{- end }}
+                {{- with .crossorigin | default "anonymous" }} crossorigin="{{ . }}"{{- end }}
+                {{- if .defer }} defer{{- end }}>
+            </script>
+        {{- else if eq .type "style" -}}
+            <link rel="stylesheet" href="{{ .src }}"
+                {{- with .integrity }} integrity="{{ . }}"{{- end }}
+                {{- with .crossorigin | default "anonymous" }} crossorigin="{{ . }}"{{- end }}>
+        {{- end -}}
     {{- end -}}
 {{- end -}}
 
