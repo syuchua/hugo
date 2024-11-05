@@ -83,12 +83,16 @@ params:
     default: auto # 默认的颜色主题
 
   externalResources:
-    - name: Vibrant
-      url: "https://cdnjs.cloudflare.com/ajax/libs/node-vibrant/3.1.6/vibrant.min.js"
-    - name: KaTeX
-      url: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.js"
-    - name: PhotoSwipe
-      url: "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"
+    js:
+      - name: Vibrant
+        url: "https://cdnjs.cloudflare.com/ajax/libs/node-vibrant/3.1.6/vibrant.min.js"
+        integrity: "sha256-Qb6U1FkQMOZBbODVy3b+E/GHBqIM4M4K6ISI6/X+5g8="
+      - name: KaTeX
+        url: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.11/katex.min.js"
+        integrity: "sha384-ndJLot+4aXeQ5V5K30RzxJrPK1Zf4HHh+h1z5vN5I5L5PDEJwJkrKBDHpjyzLxhM"
+      - name: PhotoSwipe
+        url: "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"
+        integrity: "sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="
 
 ### Custom menu
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
