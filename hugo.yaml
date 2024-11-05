@@ -168,3 +168,6 @@ markup:
     style: "dracula" # 代码块的样式
     tabWidth: 4 # tab 的宽度
 
+ignoreLogs:
+  - warning-goldmark-raw-html
+
