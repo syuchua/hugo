@@ -14,10 +14,7 @@
 <meta name="twitter:title" content="用docker搭建cloudreve个人网盘系统">
 <meta name="twitter:description" content="成品展示 准备工作 一台vps（若只是个人使用的话也可以是任意一台手机或电脑） 安装docker和docker-compose 一个域名（同第一条，仅个人使用可忽略，但你也不想每次登录都先输一大串IP地址吧） vps的话，国内推荐阿里云和腾讯云，都有学生优惠，能白嫖几个月，其他诸如雨云等没试过，不做推荐。国外有微软的azure，学生免费一年，亚马逊（容易被封且需要绑信用卡，有被反撸的可能），还有谷歌云，但也是需要信用卡，有被反撸的风险，digitalorcean通过GitHub学生包可以白嫖200美元额度，还有老牌付费vps厂家如vultr，新晋便宜vps商nackhard等，就不一一列举了。\n">
     <link rel="shortcut icon" href="/icons/favicon.ico" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js" integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM=" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js" integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin="anonymous" defer>
-            </script>
+
 
 
 <div class="top-scroll-bar"></div>
@@ -115,7 +112,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                        <img src="/img/avatar_hu12318753086824270828.gif" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -1201,88 +1198,88 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </ul>
 <p>vps的话，国内推荐阿里云和腾讯云，都有学生优惠，能白嫖几个月，其他诸如雨云等没试过，不做推荐。国外有微软的azure，学生免费一年，亚马逊（容易被封且需要绑信用卡，有被反撸的可能），还有谷歌云，但也是需要信用卡，有被反撸的风险，digitalorcean通过GitHub学生包可以白嫖200美元额度，还有老牌付费vps厂家如vultr，新晋便宜vps商nackhard等，就不一一列举了。</p>
 <p>域名注册国内可以用阿里腾讯，国外namesilo,name.com,cloudflare等都还不错，便宜的域名一年十块左右就能搞定了（tips：纯数字域名，尤其是6位及以上的，一般会比字母域名便宜很多）</p>
-<!-- raw HTML omitted -->
+<!-- more -->
 <h2 id="新机到手更新环境"><a href="#%e6%96%b0%e6%9c%ba%e5%88%b0%e6%89%8b%e6%9b%b4%e6%96%b0%e7%8e%af%e5%a2%83" class="header-anchor"></a>新机到手，更新环境
 </h2><p><code>apt update -y  &amp;&amp; apt upgrade -y &amp;&amp; apt install -y curl wget sudo socat vim</code></p>
 <h2 id="安装docker和docker-compose"><a href="#%e5%ae%89%e8%a3%85docker%e5%92%8cdocker-compose" class="header-anchor"></a>安装docker和docker-compose
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>curl <span style="color:#ff79c6">-</span>fsSL https:<span style="color:#ff79c6">//</span>get<span style="color:#ff79c6">.</span>docker<span style="color:#ff79c6">.</span>com <span style="color:#ff79c6">|</span> sh      <span style="color:#6272a4"># 下载最新的官方脚本</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>curl <span style="color:#ff79c6">-</span>L <span style="color:#f1fa8c">&#34;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)&#34;</span> <span style="color:#ff79c6">-</span>o <span style="color:#ff79c6">/</span>usr<span style="color:#ff79c6">/</span>local<span style="color:#ff79c6">/</span>bin<span style="color:#ff79c6">/</span>docker<span style="color:#ff79c6">-</span>compose
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>chmod <span style="color:#ff79c6">+</span>x <span style="color:#ff79c6">/</span>usr<span style="color:#ff79c6">/</span>local<span style="color:#ff79c6">/</span>bin<span style="color:#ff79c6">/</span>docker<span style="color:#ff79c6">-</span>compose      <span style="color:#6272a4">#给予对应目录权限</span>
-</span></span></code></pre></div><h1 id="cloudreve和离线下载构建"><a href="#cloudreve%e5%92%8c%e7%a6%bb%e7%ba%bf%e4%b8%8b%e8%bd%bd%e6%9e%84%e5%bb%ba" class="header-anchor"></a>Cloudreve和离线下载构建
+</h2><pre tabindex="0"><code>curl -fsSL https://get.docker.com | sh      # 下载最新的官方脚本
+
+curl -L &#34;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose      #给予对应目录权限
+</code></pre><h1 id="cloudreve和离线下载构建"><a href="#cloudreve%e5%92%8c%e7%a6%bb%e7%ba%bf%e4%b8%8b%e8%bd%bd%e6%9e%84%e5%bb%ba" class="header-anchor"></a>Cloudreve和离线下载构建
 </h1><h2 id="创建目录创建文件"><a href="#%e5%88%9b%e5%bb%ba%e7%9b%ae%e5%bd%95%e5%88%9b%e5%bb%ba%e6%96%87%e4%bb%b6" class="header-anchor"></a>创建目录，创建文件
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>cd <span style="color:#ff79c6">/</span>home<span style="color:#ff79c6">/</span> <span style="color:#ff79c6">&amp;&amp;</span> mkdir cloud <span style="color:#ff79c6">&amp;&amp;</span> cd cloud <span style="color:#ff79c6">&amp;&amp;</span> mkdir <span style="color:#ff79c6">-</span>vp cloudreve<span style="color:#ff79c6">/</span>{uploads,avatar} <span style="color:#ff79c6">&amp;&amp;</span> touch cloudreve<span style="color:#ff79c6">/</span>conf<span style="color:#ff79c6">.</span>ini <span style="color:#ff79c6">&amp;&amp;</span> touch cloudreve<span style="color:#ff79c6">/</span>cloudreve<span style="color:#ff79c6">.</span>db <span style="color:#ff79c6">&amp;&amp;</span> mkdir <span style="color:#ff79c6">-</span>p aria2<span style="color:#ff79c6">/</span>config <span style="color:#ff79c6">&amp;&amp;</span> mkdir <span style="color:#ff79c6">-</span>p data<span style="color:#ff79c6">/</span>aria2 <span style="color:#ff79c6">&amp;&amp;</span> chmod <span style="color:#ff79c6">-</span>R <span style="color:#bd93f9">777</span> data<span style="color:#ff79c6">/</span>aria2
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#6272a4"># cloud即根目录，aira2为离线下载工具，可按需求酌情考虑是否创建</span>
-</span></span></code></pre></div><h2 id="创建compose配置文件"><a href="#%e5%88%9b%e5%bb%bacompose%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="header-anchor"></a>创建compose配置文件
+</h2><pre tabindex="0"><code>cd /home/ &amp;&amp; mkdir cloud &amp;&amp; cd cloud &amp;&amp; mkdir -vp cloudreve/{uploads,avatar} &amp;&amp; touch cloudreve/conf.ini &amp;&amp; touch cloudreve/cloudreve.db &amp;&amp; mkdir -p aria2/config &amp;&amp; mkdir -p data/aria2 &amp;&amp; chmod -R 777 data/aria2
+# cloud即根目录，aira2为离线下载工具，可按需求酌情考虑是否创建
+</code></pre><h2 id="创建compose配置文件"><a href="#%e5%88%9b%e5%bb%bacompose%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" class="header-anchor"></a>创建compose配置文件
 </h2><p><code>cd /home/cloud/ &amp;&amp; vim docker-compose.yml</code></p>
 <h2 id="在docker-compose中配置cloudreve代码"><a href="#%e5%9c%a8docker-compose%e4%b8%ad%e9%85%8d%e7%bd%aecloudreve%e4%bb%a3%e7%a0%81" class="header-anchor"></a>在docker-compose中配置Cloudreve代码
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>version: <span style="color:#f1fa8c">&#34;3.8&#34;</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>services:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>  cloudreve:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    container_name: cloudreve
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    image: cloudreve<span style="color:#ff79c6">/</span>cloudreve:latest
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    restart: unless<span style="color:#ff79c6">-</span>stopped
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    ports:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>      <span style="color:#ff79c6">-</span> <span style="color:#f1fa8c">&#34;5212:5212&#34;</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    volumes:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>      <span style="color:#ff79c6">-</span> temp_data:<span style="color:#ff79c6">/</span>data
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>      <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">./</span>cloudreve<span style="color:#ff79c6">/</span>uploads:<span style="color:#ff79c6">/</span>cloudreve<span style="color:#ff79c6">/</span>uploads
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>      <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">./</span>cloudreve<span style="color:#ff79c6">/</span>conf<span style="color:#ff79c6">.</span>ini:<span style="color:#ff79c6">/</span>cloudreve<span style="color:#ff79c6">/</span>conf<span style="color:#ff79c6">.</span>ini
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>      <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">./</span>cloudreve<span style="color:#ff79c6">/</span>cloudreve<span style="color:#ff79c6">.</span>db:<span style="color:#ff79c6">/</span>cloudreve<span style="color:#ff79c6">/</span>cloudreve<span style="color:#ff79c6">.</span>db
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>      <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">./</span>cloudreve<span style="color:#ff79c6">/</span>avatar:<span style="color:#ff79c6">/</span>cloudreve<span style="color:#ff79c6">/</span>avatar
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    depends_on:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>      <span style="color:#ff79c6">-</span> aria2
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>   aria2:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>    container_name: aria2
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    image: p3terx<span style="color:#ff79c6">/</span>aria2<span style="color:#ff79c6">-</span>pro
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>    restart: unless<span style="color:#ff79c6">-</span>stopped
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    environment:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>      <span style="color:#ff79c6">-</span> RPC_SECRET<span style="color:#ff79c6">=</span> DOWNLOAD
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>      <span style="color:#ff79c6">-</span> RPC_PORT<span style="color:#ff79c6">=</span><span style="color:#bd93f9">6800</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>    volumes:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>      <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">./</span>aria2<span style="color:#ff79c6">/</span>config:<span style="color:#ff79c6">/</span>config
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>      <span style="color:#ff79c6">-</span> temp_data:<span style="color:#ff79c6">/</span>data 
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>volumes:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>  temp_data:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>    driver: local
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span><span>    driver_opts:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span>      type: none
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span><span>      device: <span style="color:#ff79c6">$</span>PWD<span style="color:#ff79c6">/</span>data
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span><span>      o: bind
-</span></span></code></pre></div><h2 id="运行"><a href="#%e8%bf%90%e8%a1%8c" class="header-anchor"></a>运行
+</h2><pre tabindex="0"><code>version: &#34;3.8&#34;
+
+services:
+
+  cloudreve:
+
+    container_name: cloudreve
+
+    image: cloudreve/cloudreve:latest
+
+    restart: unless-stopped
+
+    ports:
+
+      - &#34;5212:5212&#34;
+
+    volumes:
+
+      - temp_data:/data
+
+      - ./cloudreve/uploads:/cloudreve/uploads
+
+      - ./cloudreve/conf.ini:/cloudreve/conf.ini
+
+      - ./cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+
+      - ./cloudreve/avatar:/cloudreve/avatar
+
+    depends_on:
+
+      - aria2
+
+   aria2:
+
+    container_name: aria2
+
+    image: p3terx/aria2-pro
+
+    restart: unless-stopped
+
+    environment:
+
+      - RPC_SECRET= DOWNLOAD
+
+      - RPC_PORT=6800
+
+    volumes:
+
+      - ./aria2/config:/config
+
+      - temp_data:/data 
+
+volumes:
+
+  temp_data:
+
+    driver: local
+
+    driver_opts:
+
+      type: none
+
+      device: $PWD/data
+
+      o: bind
+</code></pre><h2 id="运行"><a href="#%e8%bf%90%e8%a1%8c" class="header-anchor"></a>运行
 </h2><p><code>cd /home/cloud &amp;&amp; docker-compose up -d</code></p>
 <p>容器正常启动后就可以用服务器IP+端口号5212进入网盘设置界面了</p>
 <p><img src="https://cloud.yuchu.me/f/w0ty/cloudreve_login.jpg"
@@ -1316,10 +1313,10 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 ></p>
 <p>添加存储策略，有详细的文档，这里就不赘述了，个人推荐onedrive，主要是免费。当然如果你的vps空间足够或者不打算存太多东西的话，默认的本机存储也可以。</p>
 <h3 id="离线下载节点配置"><a href="#%e7%a6%bb%e7%ba%bf%e4%b8%8b%e8%bd%bd%e8%8a%82%e7%82%b9%e9%85%8d%e7%bd%ae" class="header-anchor"></a>离线下载节点配置
-</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>RPC 服务器地址 =&gt; http://aria2:6800
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>RPC 授权令牌 =&gt; DOWNLOAD
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>节点下载目录 =&gt; /data
-</span></span></code></pre></div><h1 id="nginx反向代理到域名"><a href="#nginx%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e5%88%b0%e5%9f%9f%e5%90%8d" class="header-anchor"></a>NGINX反向代理到域名
+</h3><pre tabindex="0"><code>RPC 服务器地址 =&gt; http://aria2:6800
+RPC 授权令牌 =&gt; DOWNLOAD
+节点下载目录 =&gt; /data
+</code></pre><h1 id="nginx反向代理到域名"><a href="#nginx%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e5%88%b0%e5%9f%9f%e5%90%8d" class="header-anchor"></a>NGINX反向代理到域名
 </h1><p>配置dns解析：<img src="https://cloud.yuchu.me/f/qjhX/dns.jpg"
 	
 	
@@ -1329,81 +1326,81 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 	
 ></p>
 <h2 id="创建nginx目录结构"><a href="#%e5%88%9b%e5%bb%banginx%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84" class="header-anchor"></a>创建nginx目录结构
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>mkdir -p /home/nginx
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>touch /home/nginx/nginx.conf
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>mkdir -p /home/nginx/certs
-</span></span></code></pre></div><h2 id="申请证书"><a href="#%e7%94%b3%e8%af%b7%e8%af%81%e4%b9%a6" class="header-anchor"></a>申请证书
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>curl https://get.acme.sh | sh
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>~/.acme.sh/acme.sh --register-account -m xxxx@gmail.com   #随便一个邮箱就行
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>~/.acme.sh/acme.sh --issue -d yourip.com --standalone     # yourip.com改为你的域名
-</span></span></code></pre></div><h2 id="下载证书到本地"><a href="#%e4%b8%8b%e8%bd%bd%e8%af%81%e4%b9%a6%e5%88%b0%e6%9c%ac%e5%9c%b0" class="header-anchor"></a>下载证书到本地
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>~/.acme.sh/acme.sh --installcert -d yourip.com --key-file /home/nginx/certs/key.pem --fullchain-file /home/nginx/certs/cert.pem
-</span></span></code></pre></div><h2 id="进入目录配置nginx"><a href="#%e8%bf%9b%e5%85%a5%e7%9b%ae%e5%bd%95%e9%85%8d%e7%bd%aenginx" class="header-anchor"></a>进入目录配置nginx
+</h2><pre tabindex="0"><code>mkdir -p /home/nginx
+
+touch /home/nginx/nginx.conf
+
+mkdir -p /home/nginx/certs
+</code></pre><h2 id="申请证书"><a href="#%e7%94%b3%e8%af%b7%e8%af%81%e4%b9%a6" class="header-anchor"></a>申请证书
+</h2><pre tabindex="0"><code>curl https://get.acme.sh | sh
+
+~/.acme.sh/acme.sh --register-account -m xxxx@gmail.com   #随便一个邮箱就行
+
+
+~/.acme.sh/acme.sh --issue -d yourip.com --standalone     # yourip.com改为你的域名
+</code></pre><h2 id="下载证书到本地"><a href="#%e4%b8%8b%e8%bd%bd%e8%af%81%e4%b9%a6%e5%88%b0%e6%9c%ac%e5%9c%b0" class="header-anchor"></a>下载证书到本地
+</h2><pre tabindex="0"><code>~/.acme.sh/acme.sh --installcert -d yourip.com --key-file /home/nginx/certs/key.pem --fullchain-file /home/nginx/certs/cert.pem
+</code></pre><h2 id="进入目录配置nginx"><a href="#%e8%bf%9b%e5%85%a5%e7%9b%ae%e5%bd%95%e9%85%8d%e7%bd%aenginx" class="header-anchor"></a>进入目录配置nginx
 </h2><p><code>cd /home/nginx/ &amp;&amp; nano nginx.conf</code></p>
 <h2 id="反向代理配置代理指定ip加端口"><a href="#%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e4%bb%a3%e7%90%86%e6%8c%87%e5%ae%9aip%e5%8a%a0%e7%ab%af%e5%8f%a3" class="header-anchor"></a>反向代理配置，代理指定IP加端口
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>events {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    worker_connections  1024;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>}
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>http {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>  client_max_body_size 1000m;  
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>  #上传限制参数1G以内文件可上传
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>  server {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    listen 80;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    server_name yourip.com;         # 同理，替换为你的域名
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    return 301 https://$host$request_uri;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>  }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>  server {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    listen 443 ssl http2;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>    server_name yourip.com;         # 替换域名
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>    ssl_certificate /etc/nginx/certs/cert.pem;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>    ssl_certificate_key /etc/nginx/certs/key.pem;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    location / {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>      proxy_pass http://127.0.0.1:5212;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>      proxy_set_header Host $host;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>      proxy_set_header X-Real-IP $remote_addr;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>    }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>  }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>}
-</span></span></code></pre></div><h2 id="下载部署容器"><a href="#%e4%b8%8b%e8%bd%bd%e9%83%a8%e7%bd%b2%e5%ae%b9%e5%99%a8" class="header-anchor"></a>下载部署容器
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>docker run -d --name nginx -p 80:80 -p 443:443 -v /home/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/nginx/certs:/etc/nginx/certs -v /home/nginx/html:/usr/share/nginx/html nginx:latest
-</span></span></code></pre></div><h2 id="查看运行状态"><a href="#%e6%9f%a5%e7%9c%8b%e8%bf%90%e8%a1%8c%e7%8a%b6%e6%80%81" class="header-anchor"></a>查看运行状态
+</h2><pre tabindex="0"><code>events {
+
+    worker_connections  1024;
+
+}
+
+
+
+http {
+
+
+
+  client_max_body_size 1000m;  
+
+  #上传限制参数1G以内文件可上传
+
+
+
+  server {
+
+    listen 80;
+
+    server_name yourip.com;         # 同理，替换为你的域名
+
+    return 301 https://$host$request_uri;
+
+  }
+
+
+
+  server {
+
+    listen 443 ssl http2;
+
+    server_name yourip.com;         # 替换域名
+
+    ssl_certificate /etc/nginx/certs/cert.pem;
+
+    ssl_certificate_key /etc/nginx/certs/key.pem;
+
+    location / {
+
+      proxy_pass http://127.0.0.1:5212;
+
+      proxy_set_header Host $host;
+
+      proxy_set_header X-Real-IP $remote_addr;
+
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    }
+
+  }
+
+}
+</code></pre><h2 id="下载部署容器"><a href="#%e4%b8%8b%e8%bd%bd%e9%83%a8%e7%bd%b2%e5%ae%b9%e5%99%a8" class="header-anchor"></a>下载部署容器
+</h2><pre tabindex="0"><code>docker run -d --name nginx -p 80:80 -p 443:443 -v /home/nginx/nginx.conf:/etc/nginx/nginx.conf -v /home/nginx/certs:/etc/nginx/certs -v /home/nginx/html:/usr/share/nginx/html nginx:latest
+</code></pre><h2 id="查看运行状态"><a href="#%e6%9f%a5%e7%9c%8b%e8%bf%90%e8%a1%8c%e7%8a%b6%e6%80%81" class="header-anchor"></a>查看运行状态
 </h2><p><code>docker ps -a</code>
 <img src="https://cloud.yuchu.me/f/1lcq/mirror.jpg"
 	
@@ -1485,6 +1482,19 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
             
                 
 <article class="">
+    <a href="/posts/termux%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Termux从入门到入土</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/">
         
         
@@ -1530,19 +1540,6 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 
         <div class="article-details">
             <h2 class="article-title">解决POST请求被Nginx转换成GET的问题</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">基于gcp的VertexAI搭建一个简单的claude中转api服务</h2>
         </div>
     </a>
 </article>

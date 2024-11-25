@@ -14,10 +14,7 @@
 <meta name="twitter:title" content="oh-my-posh:基于WindowsTerminal的powershell美化教程">
 <meta name="twitter:description" content="今天来更一篇关于Windows终端美化的教程，先放个成品：\n实现的效果主要有终端半透明、亚克力材质、背景图片以及终端主题。\n安装PowerShell 7 相比于 Windows 默认提供的 Powershell，Powershell 7 拥有以下几个优势：\n支持跨平台使用，增强了其灵活性和适用范围。 提供了更优越的性能表现。 处于持续更新状态，保证了功能的不断完善和安全性的提升。 简而言之，Powershell 7 是 Powershell 的升级版。 官网地址：\nPowerShell 文档 - PowerShell Github 地址：\nhttps://github.com/PowerShell/PowerShell 下载地址：\n">
     <link rel="shortcut icon" href="/icons/favicon.ico" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js" integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM=" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js" integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin="anonymous" defer>
-            </script>
+
 
 
 <div class="top-scroll-bar"></div>
@@ -115,7 +112,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                        <img src="/img/avatar_hu12318753086824270828.gif" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -1191,8 +1188,8 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
 </h1><p>直接去微软商店下载即可：https://apps.microsoft.com/detail/9n0dx20hk701?hl=zh=CN&amp;gl=CN</p>
 <h1 id="安装winget"><a href="#%e5%ae%89%e8%a3%85winget" class="header-anchor"></a>安装winget
 </h1><p>一般在Windows10 高于 1709 (Build 16299) 的版本和 Windows11上以及预装了winget，可以通过在命令行输入</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>winget --version
-</span></span></code></pre></div><p>确认，如果没有的话可以在微软商店安装：https://apps.microsoft.com/detail/9nblggh4nns1?hl=zh-CN&amp;gl=CN</p>
+<pre tabindex="0"><code>winget --version
+</code></pre><p>确认，如果没有的话可以在微软商店安装：https://apps.microsoft.com/detail/9nblggh4nns1?hl=zh-CN&amp;gl=CN</p>
 <h1 id="修改透明度亚克力材质和背景图片"><a href="#%e4%bf%ae%e6%94%b9%e9%80%8f%e6%98%8e%e5%ba%a6%e4%ba%9a%e5%85%8b%e5%8a%9b%e6%9d%90%e8%b4%a8%e5%92%8c%e8%83%8c%e6%99%af%e5%9b%be%e7%89%87" class="header-anchor"></a>修改透明度、亚克力材质和背景图片
 </h1><p>旧版的Windows Terminal需要修改json的配置文件，但新版可以直接在设置界面可视化开启
 点击设置-外观
@@ -1233,14 +1230,14 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
 ></p>
 <h1 id="安装oh-my-posh"><a href="#%e5%ae%89%e8%a3%85oh-my-posh" class="header-anchor"></a>安装oh-my-posh
 </h1><p>直接winget就可以安装</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>winget search oh-my-posh
-</span></span></code></pre></div><p>如果出现两个结果，一个msstore的一个winget的，随便选一个就行。</p>
+<pre tabindex="0"><code>winget search oh-my-posh
+</code></pre><p>如果出现两个结果，一个msstore的一个winget的，随便选一个就行。</p>
 <h2 id="设置oh-my-posh主题"><a href="#%e8%ae%be%e7%bd%aeoh-my-posh%e4%b8%bb%e9%a2%98" class="header-anchor"></a>设置oh-my-posh主题
 </h2><p>在PowerShell中输入</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>code $profile    # 没有vscode的话也可以输入notepad $profile 使用记事本打开
-</span></span></code></pre></div><p>在打开的文件中输入这行命令：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\peru.omp.json | Invoke-Expression
-</span></span></code></pre></div><p>其中的peru.omp.json即主题配置，可以自行修改，前往<code>C:\Users\&lt;用户名&gt;\AppData\Local\Programs\oh-my-posh\themes</code>目录下即可查看不同配置，可以依次试用，选一个你喜欢的。</p>
+<pre tabindex="0"><code>code $profile    # 没有vscode的话也可以输入notepad $profile 使用记事本打开
+</code></pre><p>在打开的文件中输入这行命令：</p>
+<pre tabindex="0"><code>oh-my-posh init pwsh --config $env:POSH_THEMES_PATH\peru.omp.json | Invoke-Expression
+</code></pre><p>其中的peru.omp.json即主题配置，可以自行修改，前往<code>C:\Users\&lt;用户名&gt;\AppData\Local\Programs\oh-my-posh\themes</code>目录下即可查看不同配置，可以依次试用，选一个你喜欢的。</p>
 <h1 id="end"><a href="#end" class="header-anchor"></a>END
 </h1>
 </section>
@@ -1314,6 +1311,19 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
             
                 
 <article class="">
+    <a href="/posts/termux%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Termux从入门到入土</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/">
         
         
@@ -1359,19 +1369,6 @@ https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powers
 
         <div class="article-details">
             <h2 class="article-title">解决POST请求被Nginx转换成GET的问题</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/%E5%9F%BA%E4%BA%8Egcp%E7%9A%84vertexai%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84claude%E4%B8%AD%E8%BD%ACapi%E6%9C%8D%E5%8A%A1/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">基于gcp的VertexAI搭建一个简单的claude中转api服务</h2>
         </div>
     </a>
 </article>

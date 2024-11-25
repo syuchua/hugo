@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="今天在Linuxdo闲逛时发现一篇帖子，说是使用某个网站+油猴脚本可以实现GPT4o和claude3.5sonnet等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&#x1f606;**\n首先是网站地址： https://www.vecmul.com/\n进入后不要登录，先安装这个油猴脚本： https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D\n之后点击编辑\n把下面的代码替换进去：\n1// ==UserScript== 2// @name 将聊天请求计数保持为零 3// @namespace http://tampermonkey.net/ 4// @version 0.5 5// @description 始终将localStorage中chat-request项的计数保持为0 6// @match https://www.vecmul.com/* 7// @grant none 8// ==/UserScript== 9 10(function() { 11 &#39;use strict&#39;; 12 13 function keepCountAtZero() { 14 let chatRequest = localStorage.getItem(&#39;chat-request&#39;); 15 if (chatRequest) { 16 try { 17 let data = JSON.parse(chatRequest); 18 if (data.count !== 0) { 19 data.count = 0; 20 localStorage.setItem(&#39;chat-request&#39;, JSON.stringify(data)); 21 } 22 } catch (e) { 23 console.error(&#39;解析chat-request时出错:&#39;, e); 24 } 25 } 26 } 27 28 // 初始执行 29 keepCountAtZero(); 30 31 // 重写localStorage的setItem方法 32 const originalSetItem = Storage.prototype.setItem; 33 Storage.prototype.setItem = function(key, value) { 34 originalSetItem.call(this, key, value); 35 if (key === &#39;chat-request&#39;) { 36 keepCountAtZero(); 37 } 38 }; 39 40 console.log(&#39;聊天请求计数将始终为零。&#39;); 41})(); 在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&#x1f606;**\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="今天在Linuxdo闲逛时发现一篇帖子，说是使用某个网站+油猴脚本可以实现GPT4o和claude3.5sonnet等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&#x1f606;**\n首先是网站地址： https://www.vecmul.com/\n进入后不要登录，先安装这个油猴脚本： https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D\n之后点击编辑\n把下面的代码替换进去：\n// ==UserScript== // @name 将聊天请求计数保持为零 // @namespace http://tampermonkey.net/ // @version 0.5 // @description 始终将localStorage中chat-request项的计数保持为0 // @match https://www.vecmul.com/* // @grant none // ==/UserScript== (function() { &#39;use strict&#39;; function keepCountAtZero() { let chatRequest = localStorage.getItem(&#39;chat-request&#39;); if (chatRequest) { try { let data = JSON.parse(chatRequest); if (data.count !== 0) { data.count = 0; localStorage.setItem(&#39;chat-request&#39;, JSON.stringify(data)); } } catch (e) { console.error(&#39;解析chat-request时出错:&#39;, e); } } } // 初始执行 keepCountAtZero(); // 重写localStorage的setItem方法 const originalSetItem = Storage.prototype.setItem; Storage.prototype.setItem = function(key, value) { originalSetItem.call(this, key, value); if (key === &#39;chat-request&#39;) { keepCountAtZero(); } }; console.log(&#39;聊天请求计数将始终为零。&#39;); })(); 在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&#x1f606;**\n">
 <title>通过油猴插件无限白嫖VecMulChat的gpt4o，claude3.5s等最新大模型</title>
 
 <link rel='canonical' href='http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/'>
 
 <link rel="stylesheet" href="/scss/style.min.b4f96306692b2078e3f5bf877fb7df2ffdb7c49ed97e6c90c02534b5529757fd.css"><meta property='og:title' content="通过油猴插件无限白嫖VecMulChat的gpt4o，claude3.5s等最新大模型">
-<meta property='og:description' content="今天在Linuxdo闲逛时发现一篇帖子，说是使用某个网站+油猴脚本可以实现GPT4o和claude3.5sonnet等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&#x1f606;**\n首先是网站地址： https://www.vecmul.com/\n进入后不要登录，先安装这个油猴脚本： https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D\n之后点击编辑\n把下面的代码替换进去：\n1// ==UserScript== 2// @name 将聊天请求计数保持为零 3// @namespace http://tampermonkey.net/ 4// @version 0.5 5// @description 始终将localStorage中chat-request项的计数保持为0 6// @match https://www.vecmul.com/* 7// @grant none 8// ==/UserScript== 9 10(function() { 11 &#39;use strict&#39;; 12 13 function keepCountAtZero() { 14 let chatRequest = localStorage.getItem(&#39;chat-request&#39;); 15 if (chatRequest) { 16 try { 17 let data = JSON.parse(chatRequest); 18 if (data.count !== 0) { 19 data.count = 0; 20 localStorage.setItem(&#39;chat-request&#39;, JSON.stringify(data)); 21 } 22 } catch (e) { 23 console.error(&#39;解析chat-request时出错:&#39;, e); 24 } 25 } 26 } 27 28 // 初始执行 29 keepCountAtZero(); 30 31 // 重写localStorage的setItem方法 32 const originalSetItem = Storage.prototype.setItem; 33 Storage.prototype.setItem = function(key, value) { 34 originalSetItem.call(this, key, value); 35 if (key === &#39;chat-request&#39;) { 36 keepCountAtZero(); 37 } 38 }; 39 40 console.log(&#39;聊天请求计数将始终为零。&#39;); 41})(); 在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&#x1f606;**\n">
+<meta property='og:description' content="今天在Linuxdo闲逛时发现一篇帖子，说是使用某个网站+油猴脚本可以实现GPT4o和claude3.5sonnet等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&#x1f606;**\n首先是网站地址： https://www.vecmul.com/\n进入后不要登录，先安装这个油猴脚本： https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D\n之后点击编辑\n把下面的代码替换进去：\n// ==UserScript== // @name 将聊天请求计数保持为零 // @namespace http://tampermonkey.net/ // @version 0.5 // @description 始终将localStorage中chat-request项的计数保持为0 // @match https://www.vecmul.com/* // @grant none // ==/UserScript== (function() { &#39;use strict&#39;; function keepCountAtZero() { let chatRequest = localStorage.getItem(&#39;chat-request&#39;); if (chatRequest) { try { let data = JSON.parse(chatRequest); if (data.count !== 0) { data.count = 0; localStorage.setItem(&#39;chat-request&#39;, JSON.stringify(data)); } } catch (e) { console.error(&#39;解析chat-request时出错:&#39;, e); } } } // 初始执行 keepCountAtZero(); // 重写localStorage的setItem方法 const originalSetItem = Storage.prototype.setItem; Storage.prototype.setItem = function(key, value) { originalSetItem.call(this, key, value); if (key === &#39;chat-request&#39;) { keepCountAtZero(); } }; console.log(&#39;聊天请求计数将始终为零。&#39;); })(); 在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&#x1f606;**\n">
 <meta property='og:url' content='http://localhost:1313/posts/%E9%80%9A%E8%BF%87%E6%B2%B9%E7%8C%B4%E6%8F%92%E4%BB%B6%E6%97%A0%E9%99%90%E7%99%BD%E5%AB%96vecmulchat%E7%9A%84gpt4oclaude3-5s%E7%AD%89%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/'>
 <meta property='og:site_name' content='YuChu&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='gpt4o' /><meta property='article:tag' content='claude3.5sonnet' /><meta property='article:tag' content='VecMul Chat' /><meta property='article:published_time' content='2024-07-29T23:28:18&#43;08:00'/><meta property='article:modified_time' content='2024-07-29T23:28:18&#43;08:00'/>
 <meta name="twitter:title" content="通过油猴插件无限白嫖VecMulChat的gpt4o，claude3.5s等最新大模型">
-<meta name="twitter:description" content="今天在Linuxdo闲逛时发现一篇帖子，说是使用某个网站+油猴脚本可以实现GPT4o和claude3.5sonnet等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&#x1f606;**\n首先是网站地址： https://www.vecmul.com/\n进入后不要登录，先安装这个油猴脚本： https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D\n之后点击编辑\n把下面的代码替换进去：\n1// ==UserScript== 2// @name 将聊天请求计数保持为零 3// @namespace http://tampermonkey.net/ 4// @version 0.5 5// @description 始终将localStorage中chat-request项的计数保持为0 6// @match https://www.vecmul.com/* 7// @grant none 8// ==/UserScript== 9 10(function() { 11 &#39;use strict&#39;; 12 13 function keepCountAtZero() { 14 let chatRequest = localStorage.getItem(&#39;chat-request&#39;); 15 if (chatRequest) { 16 try { 17 let data = JSON.parse(chatRequest); 18 if (data.count !== 0) { 19 data.count = 0; 20 localStorage.setItem(&#39;chat-request&#39;, JSON.stringify(data)); 21 } 22 } catch (e) { 23 console.error(&#39;解析chat-request时出错:&#39;, e); 24 } 25 } 26 } 27 28 // 初始执行 29 keepCountAtZero(); 30 31 // 重写localStorage的setItem方法 32 const originalSetItem = Storage.prototype.setItem; 33 Storage.prototype.setItem = function(key, value) { 34 originalSetItem.call(this, key, value); 35 if (key === &#39;chat-request&#39;) { 36 keepCountAtZero(); 37 } 38 }; 39 40 console.log(&#39;聊天请求计数将始终为零。&#39;); 41})(); 在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&#x1f606;**\n">
+<meta name="twitter:description" content="今天在Linuxdo闲逛时发现一篇帖子，说是使用某个网站+油猴脚本可以实现GPT4o和claude3.5sonnet等一众最新先进大模型的无限制白嫖（暂时），如果不依赖脚本，仅正常登录使用，每天也能进行50次的对话，本着好东西应该分享的原则，水一篇博客，帮大家也用上**&#x1f606;**\n首先是网站地址： https://www.vecmul.com/\n进入后不要登录，先安装这个油猴脚本： https://greasyfork.org/zh-CN/scripts/502074-vecmul%E6%97%A0%E9%99%90%E5%AF%B9%E8%AF%9D\n之后点击编辑\n把下面的代码替换进去：\n// ==UserScript== // @name 将聊天请求计数保持为零 // @namespace http://tampermonkey.net/ // @version 0.5 // @description 始终将localStorage中chat-request项的计数保持为0 // @match https://www.vecmul.com/* // @grant none // ==/UserScript== (function() { &#39;use strict&#39;; function keepCountAtZero() { let chatRequest = localStorage.getItem(&#39;chat-request&#39;); if (chatRequest) { try { let data = JSON.parse(chatRequest); if (data.count !== 0) { data.count = 0; localStorage.setItem(&#39;chat-request&#39;, JSON.stringify(data)); } } catch (e) { console.error(&#39;解析chat-request时出错:&#39;, e); } } } // 初始执行 keepCountAtZero(); // 重写localStorage的setItem方法 const originalSetItem = Storage.prototype.setItem; Storage.prototype.setItem = function(key, value) { originalSetItem.call(this, key, value); if (key === &#39;chat-request&#39;) { keepCountAtZero(); } }; console.log(&#39;聊天请求计数将始终为零。&#39;); })(); 在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&#x1f606;**\n">
     <link rel="shortcut icon" href="/icons/favicon.ico" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js" integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM=" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js" integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin="anonymous" defer>
-            </script>
+
 
 
 <div class="top-scroll-bar"></div>
@@ -115,7 +112,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                        <img src="/img/avatar_hu12318753086824270828.gif" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -1112,7 +1109,7 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 1 分钟
                 </time>
             </div>
         
@@ -1147,47 +1144,47 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 	
 ></p>
 <p>把下面的代码替换进去：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#6272a4">// ==UserScript==
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#6272a4">// @name         将聊天请求计数保持为零
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#6272a4">// @namespace    http://tampermonkey.net/
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#6272a4">// @version      0.5
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#6272a4">// @description  始终将localStorage中chat-request项的计数保持为0
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#6272a4">// @match        https://www.vecmul.com/*
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#6272a4">// @grant        none
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#6272a4">// ==/UserScript==
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#6272a4"></span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>(<span style="color:#8be9fd;font-style:italic">function</span>() {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    <span style="color:#f1fa8c">&#39;use strict&#39;</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    <span style="color:#8be9fd;font-style:italic">function</span> keepCountAtZero() {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>        <span style="color:#8be9fd;font-style:italic">let</span> chatRequest <span style="color:#ff79c6">=</span> localStorage.getItem(<span style="color:#f1fa8c">&#39;chat-request&#39;</span>);
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>        <span style="color:#ff79c6">if</span> (chatRequest) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>            <span style="color:#ff79c6">try</span> {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>                <span style="color:#8be9fd;font-style:italic">let</span> data <span style="color:#ff79c6">=</span> JSON.parse(chatRequest);
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>                <span style="color:#ff79c6">if</span> (data.count <span style="color:#ff79c6">!==</span> <span style="color:#bd93f9">0</span>) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>                    data.count <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>                    localStorage.setItem(<span style="color:#f1fa8c">&#39;chat-request&#39;</span>, JSON.stringify(data));
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>                }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>            } <span style="color:#ff79c6">catch</span> (e) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>                console.error(<span style="color:#f1fa8c">&#39;解析chat-request时出错:&#39;</span>, e);
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>            }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>        }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    <span style="color:#6272a4">// 初始执行
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span><span style="color:#6272a4"></span>    keepCountAtZero();
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>    <span style="color:#6272a4">// 重写localStorage的setItem方法
-</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> originalSetItem <span style="color:#ff79c6">=</span> Storage.prototype.setItem;
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>    Storage.prototype.setItem <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">function</span>(key, value) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>        originalSetItem.call(<span style="color:#ff79c6">this</span>, key, value);
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>        <span style="color:#ff79c6">if</span> (key <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;chat-request&#39;</span>) {
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>            keepCountAtZero();
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>        }
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>    };
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>    console.log(<span style="color:#f1fa8c">&#39;聊天请求计数将始终为零。&#39;</span>);
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>})();
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// ==UserScript==
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @name         将聊天请求计数保持为零
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @namespace    http://tampermonkey.net/
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @version      0.5
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @description  始终将localStorage中chat-request项的计数保持为0
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @match        https://www.vecmul.com/*
+</span></span></span><span class="line"><span class="cl"><span class="c1">// @grant        none
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ==/UserScript==
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">keepCountAtZero</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">chatRequest</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;chat-request&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">chatRequest</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">chatRequest</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">count</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">data</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;chat-request&#39;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;解析chat-request时出错:&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 初始执行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">keepCountAtZero</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 重写localStorage的setItem方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kr">const</span> <span class="nx">originalSetItem</span> <span class="o">=</span> <span class="nx">Storage</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setItem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Storage</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setItem</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">originalSetItem</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">key</span> <span class="o">===</span> <span class="s1">&#39;chat-request&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">keepCountAtZero</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;聊天请求计数将始终为零。&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">})();</span>
 </span></span></code></pre></div><p>在返回原来那个网站，就可以实现无限制白嫖gpt4o啦，快去试试吧**&#x1f606;**</p>
 
 </section>
@@ -1259,6 +1256,19 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
             
                 
 <article class="">
+    <a href="/posts/termux%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Termux从入门到入土</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%B6%89%E5%8F%8A%E9%99%90%E9%80%9F%E8%A3%85%E9%A5%B0%E5%99%A8%E5%92%8C%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E7%9A%84%E4%B9%8C%E9%BE%99%E4%BA%8B%E4%BB%B6/">
         
         
@@ -1304,19 +1314,6 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 
         <div class="article-details">
             <h2 class="article-title">基于gcp的VertexAI搭建一个简单的claude中转api服务</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/%E4%BC%9A%E5%94%B1%E6%AD%8C%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cai%E6%A1%8C%E5%AE%A0%E7%A1%AE%E5%AE%9A%E4%B8%8D%E6%9D%A5%E7%9C%8B%E7%9C%8B%E5%90%97/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">会唱歌的芙宁娜AI桌宠，确定不来看看吗？</h2>
         </div>
     </a>
 </article>

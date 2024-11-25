@@ -34,34 +34,34 @@
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/download/win&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;git官网下载&lt;/a&gt;
 选择电脑对应版本安装即可（一般为64位）&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h2 id=&#34;nodenpm安装&#34;&gt;&lt;a href=&#34;#nodenpm%e5%ae%89%e8%a3%85&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;node、npm安装
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/en/download/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;node.js官网&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;当然你也可以直接用winget安装省的去官网下载&#34;&gt;&lt;a href=&#34;#%e5%bd%93%e7%84%b6%e4%bd%a0%e4%b9%9f%e5%8f%af%e4%bb%a5%e7%9b%b4%e6%8e%a5%e7%94%a8winget%e5%ae%89%e8%a3%85%e7%9c%81%e7%9a%84%e5%8e%bb%e5%ae%98%e7%bd%91%e4%b8%8b%e8%bd%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;当然，你也可以直接用winget安装，省的去官网下载
 &lt;/h2&gt;&lt;p&gt;关于winget的使用，可以看完另一篇博客：&lt;a class=&#34;link&#34; href=&#34;https://blog.yuchu.me/posts/8eff/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;winget的基础配置与使用&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;winget install Git.Git
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;winget install OpenJS.NodeJS.LTS
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;hexo创建个人博客&#34;&gt;&lt;a href=&#34;#hexo%e5%88%9b%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;hexo创建个人博客
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;winget install Git.Git
+winget install OpenJS.NodeJS.LTS
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;hexo创建个人博客&#34;&gt;&lt;a href=&#34;#hexo%e5%88%9b%e5%bb%ba%e4%b8%aa%e4%ba%ba%e5%8d%9a%e5%ae%a2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;hexo创建个人博客
 &lt;/h1&gt;&lt;h2 id=&#34;安装hexo&#34;&gt;&lt;a href=&#34;#%e5%ae%89%e8%a3%85hexo&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;安装hexo
 &lt;/h2&gt;&lt;h3 id=&#34;1在任意目录下新建hexo文件夹&#34;&gt;&lt;a href=&#34;#1%e5%9c%a8%e4%bb%bb%e6%84%8f%e7%9b%ae%e5%bd%95%e4%b8%8b%e6%96%b0%e5%bb%bahexo%e6%96%87%e4%bb%b6%e5%a4%b9&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;1.在任意目录下新建hexo文件夹
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;打开该文件夹，空白处单击鼠标右键:Git Bash Here&lt;/li&gt;
 &lt;li&gt;在打开的git bash 窗口中依次输入以下命令：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;npm install hexo-cli -g
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;hexo init blog
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;cd blog
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;npm install
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;hexo server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;全部执行完成后，hexo目录下会出现一个新的blog文件夹，里面就是存放博客的地方&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;npm install hexo-cli -g
+hexo init blog
+cd blog
+npm install
+hexo server
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;全部执行完成后，hexo目录下会出现一个新的blog文件夹，里面就是存放博客的地方&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;然后输入这两条命令&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;hexo g
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;hexo s
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;完成后若显示诸如&lt;code&gt;http://localhost:4000&lt;/code&gt;的内容，则说明配置成功。
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hexo g
+hexo s
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完成后若显示诸如&lt;code&gt;http://localhost:4000&lt;/code&gt;的内容，则说明配置成功。
 打开浏览器，地址栏输入上面的地址，即可进入初始博客的预览界面，它长这样：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/EGTp/hexo_test.png&#34;
 	
@@ -77,10 +77,10 @@
 &lt;li&gt;首先创建一个GitHub账号，然后在个人主页新建仓库，仓库名为username.github.io,username即你的用户名。&lt;/li&gt;
 &lt;li&gt;回到gitbash窗口，按&lt;code&gt;Ctrl+C&lt;/code&gt; 关闭4000端口的预览，输入以下命令：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;git config --global user.name &amp;#34;yourname&amp;#34;    # yourname改为GitHub用户名
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;git config --global user.email &amp;#34;youremail&amp;#34;  #youremail改为注册GitHub所用的邮箱
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;ssh-keygen -t rsa -C &amp;#34;youremail&amp;#34;            #创建ssh连接
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git config --global user.name &amp;#34;yourname&amp;#34;    # yourname改为GitHub用户名
+git config --global user.email &amp;#34;youremail&amp;#34;  #youremail改为注册GitHub所用的邮箱
+ssh-keygen -t rsa -C &amp;#34;youremail&amp;#34;            #创建ssh连接
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;之后会提示你已经完成ssh创建，接着找到该路径下的这两个文件：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;https://cloud.yuchu.me/f/B1I8/git_config.png&#34;
@@ -104,16 +104,16 @@
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;在blog文件夹下找到_config.yml,这是博客的配置文件,在这里可以修改博客的一些基本信息，打开它，找到下面这段内容,在最底下：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;# Deployment
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;## Docs: https://hexo.io/docs/one-command-deployment
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;deploy:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  type: &amp;#39;&amp;#39;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改deploy部分：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;deploy:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;  type: git
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;  repo: https://github.com/username/username.github.io.git   #username改为用户名
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;  branch: master
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: &amp;#39;&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;修改deploy部分：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;deploy:
+  type: git
+  repo: https://github.com/username/username.github.io.git   #username改为用户名
+  branch: master
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;另外找到第十六行，修改url为 &lt;code&gt;https://username.github.io&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -124,10 +124,10 @@
 &lt;p&gt;最后输入以下三行命令：&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;hexo clean           #清除缓存
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;hexo g               #生产静态文章（博客）
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;hexo d               #部署
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hexo clean           #清除缓存
+hexo g               #生产静态文章（博客）
+hexo d               #部署
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;当然，如果仅是在本地查看效果，第三行命令也可以换成hexo s
 部署过程中可能会出现warning警告，但不要紧，只要最后呈现这样的内容，就表示成功了：
 &lt;img src=&#34;https://cloud.yuchu.me/f/AQHE/hexo-d.png&#34;
@@ -142,22 +142,22 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;常用命令&#34;&gt;&lt;a href=&#34;#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;常用命令
 &lt;/h2&gt;&lt;p&gt;在根目录打开gitbash：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;hexo new &amp;#34;博客名称&amp;#34;  #新建博客
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;hexo clean          #清除缓存和静态文件
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;hexo g              #生产静态文件
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;hexo s              #生成离线版本
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;hexo d              #部署
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;添加插件&#34;&gt;&lt;a href=&#34;#%e6%b7%bb%e5%8a%a0%e6%8f%92%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;添加插件
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hexo new &amp;#34;博客名称&amp;#34;  #新建博客
+hexo clean          #清除缓存和静态文件
+hexo g              #生产静态文件
+hexo s              #生成离线版本
+hexo d              #部署
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;添加插件&#34;&gt;&lt;a href=&#34;#%e6%b7%bb%e5%8a%a0%e6%8f%92%e4%bb%b6&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;添加插件
 &lt;/h2&gt;&lt;h3 id=&#34;主题&#34;&gt;&lt;a href=&#34;#%e4%b8%bb%e9%a2%98&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;主题
 &lt;/h3&gt;&lt;p&gt;我使用的是next，一款简洁美观的主题，功能强大，可拓展性强，在gitbash中下载：
 &lt;code&gt;git clone https://github.com/next-theme/hexo-theme-next themes/next&lt;/code&gt;
 下载完成后，在blog下找到themes文件夹-next,打开主题的_config.yml文件，找到如下部分，大概在100行左右：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;# Schemes
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2&lt;/span&gt;&lt;span&gt;#scheme: Muse
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3&lt;/span&gt;&lt;span&gt;#scheme: Mist
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4&lt;/span&gt;&lt;span&gt;#scheme: Pisces
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5&lt;/span&gt;&lt;span&gt;#scheme: Gemini
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这代表了四种不同风格的next主题，任选一个取消注释即可。
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Schemes
+#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这代表了四种不同风格的next主题，任选一个取消注释即可。
 之后回到根目录的_config.yml文件，找到theme选项，输入next
 &lt;img src=&#34;https://cloud.yuchu.me/f/znF4/hexo_theme.png&#34;
 	

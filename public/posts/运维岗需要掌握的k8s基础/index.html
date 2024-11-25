@@ -14,10 +14,7 @@
 <meta name="twitter:title" content="运维岗需要掌握的K8s基础">
 <meta name="twitter:description" content=" Kubernetes (K8s) 运维笔记 目录 Kubernetes 基础概念 Pod 生命周期管理 Kubernetes 常用命令 K8s 资源管理 网络插件 调度与负载均衡 Kubernetes 高可用性 1. Kubernetes 基础概念 K8s 核心组件 组件 描述 Pod 最小的部署单元，封装一个或多个容器 Node 集群中的单个计算节点，运行 Pod 和代理服务 Cluster 一组 Node，协调资源的调度和管理 Kube-apiserver 集群的入口点，处理 REST 请求 etcd 用于存储集群的状态数据 Kube-scheduler 负责 Pod 的调度到 Node Kube-controller-manager 负责管理控制器，实现自动化控制 Kubelet 运行在每个 Node 上，管理 Pod 和容器 Kube-proxy 处理网络规则，负载均衡 Pod 请求 2. Pod 生命周期管理 Pod 生命周期阶段 Pending: Pod 被创建，但未绑定到 Node。 Running: Pod 已绑定到 Node 并启动了容器。 Succeeded: 所有容器成功完成并退出。 Failed: 某些容器异常终止并退出。 Unknown: 无法与 Node 通信。 Pod 生命周期管理组件 组件 描述 Init Containers 初始化容器，确保主容器启动前某些任务完成 Liveness Probe 健康检查，确保容器存活 Readiness Probe 就绪检查，确保容器可接受流量 Startup Probe 启动检查，确保容器启动后运行稳定 3. Kubernetes 常用命令 集群管理命令 查看集群状态\n">
     <link rel="shortcut icon" href="/icons/favicon.ico" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js" integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM=" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js" integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin="anonymous" defer>
-            </script>
+
 
 
 <div class="top-scroll-bar"></div>
@@ -115,7 +112,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                        <img src="/img/avatar_hu12318753086824270828.gif" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -1304,41 +1301,41 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </h3><ul>
 <li>
 <p>查看集群状态</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl cluster-info
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl cluster-info
 </span></span></code></pre></div></li>
 <li>
 <p>查看所有 Node</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl get nodes
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get nodes
 </span></span></code></pre></div></li>
 <li>
 <p>获取 Pod 详情</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl describe pod &lt;pod_name&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl describe pod &lt;pod_name&gt;
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="pod-操作命令"><a href="#pod-%e6%93%8d%e4%bd%9c%e5%91%bd%e4%bb%a4" class="header-anchor"></a><strong>Pod 操作命令</strong>
 </h3><ul>
 <li>
 <p>查看所有 Pod</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl get pods
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods
 </span></span></code></pre></div></li>
 <li>
 <p>创建 Pod</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl run &lt;pod_name&gt; --image<span style="color:#ff79c6">=</span>&lt;image_name&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl run &lt;pod_name&gt; --image<span class="o">=</span>&lt;image_name&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>删除 Pod</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl delete pod &lt;pod_name&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl delete pod &lt;pod_name&gt;
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="其他常用命令"><a href="#%e5%85%b6%e4%bb%96%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" class="header-anchor"></a><strong>其他常用命令</strong>
 </h3><ul>
 <li>
 <p>获取 Service 列表</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl get svc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get svc
 </span></span></code></pre></div></li>
 <li>
 <p>获取 Deployment 列表</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl get deployment
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get deployment
 </span></span></code></pre></div></li>
 </ul>
 <hr>
@@ -1355,11 +1352,11 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </h3><ul>
 <li>
 <p>创建 Deployment</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl create deployment &lt;name&gt; --image<span style="color:#ff79c6">=</span>&lt;image&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl create deployment &lt;name&gt; --image<span class="o">=</span>&lt;image&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>删除资源</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl delete &lt;resource_type&gt; &lt;resource_name&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl delete &lt;resource_type&gt; &lt;resource_name&gt;
 </span></span></code></pre></div></li>
 </ul>
 <hr>
@@ -1375,11 +1372,11 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </h3><ul>
 <li>
 <p>安装 Flannel</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 </span></span></code></pre></div></li>
 <li>
 <p>查看网络状态</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>kubectl get pods -n kube-system
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl get pods -n kube-system
 </span></span></code></pre></div></li>
 </ul>
 <hr>

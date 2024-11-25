@@ -6,7 +6,15 @@
         <description>Recent content in Tags on YuChu&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 18 Oct 2024 17:17:39 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 25 Nov 2024 20:12:52 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Termux</title>
+        <link>http://localhost:1313/tags/termux/</link>
+        <pubDate>Mon, 25 Nov 2024 20:12:52 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/termux/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Python</title>
         <link>http://localhost:1313/tags/python/</link>
         <pubDate>Fri, 18 Oct 2024 17:17:39 +0800</pubDate>
@@ -316,14 +324,6 @@
         <pubDate>Thu, 02 May 2024 22:34:29 +0800</pubDate>
         
         <guid>http://localhost:1313/tags/pandas/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Termux</title>
-        <link>http://localhost:1313/tags/termux/</link>
-        <pubDate>Thu, 02 May 2024 22:34:29 +0800</pubDate>
-        
-        <guid>http://localhost:1313/tags/termux/</guid>
         <description></description>
         </item>
         <item>

@@ -64,8 +64,8 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可激活&lt;code&gt;shizuku&lt;/code&gt;这一步的原理其实与adb激活shizuku类似，不过不需要电脑，好处是适配性更好，也比较方便，仅此更推荐用这种方式激活shizuku。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;即可激活&lt;code&gt;shizuku&lt;/code&gt;这一步的原理其实与adb激活shizuku类似，不过不需要电脑，好处是适配性更好，也比较方便，仅此更推荐用这种方式激活shizuku。&lt;/p&gt;
 &lt;h1 id=&#34;shizuku常见用法&#34;&gt;&lt;a href=&#34;#shizuku%e5%b8%b8%e8%a7%81%e7%94%a8%e6%b3%95&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;shizuku常见用法
 &lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;

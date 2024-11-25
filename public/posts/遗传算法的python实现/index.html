@@ -14,10 +14,7 @@
 <meta name="twitter:title" content="遗传算法的python实现">
 <meta name="twitter:description" content="事情是这样的，压根没学过什么人工智能相关课程的笔者收到了这样一份小组作业： 于是不得不从网上找结局方案（其实就是想吃现成的），发现遗传算法似乎不是很难，而且代码量也不大，而笔者的python又学的好凑合，便决定来用python实现遗传算法，来完成这一小组作业\n遗传算法简介 遗传算法简称GA（Genetic Algorithms）模拟自然界生物遗传学（孟德尔）和生物进化论（达尔文）通过人工方式所构造的一类并行随机搜索最优化方法，是对生物进化过程“优胜劣汰，适者生存”这一过程进行的一种数学仿真。\n">
     <link rel="shortcut icon" href="/icons/favicon.ico" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js" integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM=" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js" integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin="anonymous" defer>
-            </script>
+
 
 
 <div class="top-scroll-bar"></div>
@@ -115,7 +112,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                        <img src="/img/avatar_hu12318753086824270828.gif" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -1394,106 +1391,106 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 	
 ></p>
 <h2 id="算法源码"><a href="#%e7%ae%97%e6%b3%95%e6%ba%90%e7%a0%81" class="header-anchor"></a>算法源码
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>import numpy as np  <span style="color:#6272a4"># 导入numpy库，用于数学运算</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>import matplotlib<span style="color:#ff79c6">.</span>pyplot as plt  <span style="color:#6272a4"># 导入matplotlib的pyplot模块，用于绘图</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>from matplotlib import cm  <span style="color:#6272a4"># 导入matplotlib的颜色映射模块</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>from mpl_toolkits<span style="color:#ff79c6">.</span>mplot3d import Axes3D  <span style="color:#6272a4"># 导入3D绘图工具</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#6272a4"># 定义遗传算法的参数</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>DNA_SIZE <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">24</span>  <span style="color:#6272a4"># DNA的长度，即染色体的位数</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>POP_SIZE <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">80</span>  <span style="color:#6272a4"># 种群的大小，即染色体的数量</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>CROSSOVER_RATE <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.6</span>  <span style="color:#6272a4"># 交叉率，表示种群中有多少比例的个体会进行交叉操作</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>MUTATION_RATE <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.01</span>  <span style="color:#6272a4"># 变异率，表示基因突变的概率</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>N_GENERATIONS <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">100</span>  <span style="color:#6272a4"># 进化的代数</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>X_BOUND <span style="color:#ff79c6">=</span> [<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2.048</span>, <span style="color:#bd93f9">2.048</span>]  <span style="color:#6272a4"># x的取值范围</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>Y_BOUND <span style="color:#ff79c6">=</span> [<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2.048</span>, <span style="color:#bd93f9">2.048</span>]  <span style="color:#6272a4"># y的取值范围</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span><span style="color:#6272a4"># 定义目标函数，即优化问题中的函数</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">F</span>(x, y):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">100.0</span> <span style="color:#ff79c6">*</span> (y <span style="color:#ff79c6">-</span> x <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2.0</span>) <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2.0</span> <span style="color:#ff79c6">+</span> (<span style="color:#bd93f9">1</span> <span style="color:#ff79c6">-</span> x) <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2.0</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span><span style="color:#6272a4"># 定义3D绘图函数</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">plot_3d</span>(ax):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    X <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#ff79c6">*</span>X_BOUND, <span style="color:#bd93f9">100</span>)  <span style="color:#6272a4"># 生成x的等差数列</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>    Y <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>linspace(<span style="color:#ff79c6">*</span>Y_BOUND, <span style="color:#bd93f9">100</span>)  <span style="color:#6272a4"># 生成y的等差数列</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>    X, Y <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>meshgrid(X, Y)  <span style="color:#6272a4"># 生成网格</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>    Z <span style="color:#ff79c6">=</span> F(X, Y)  <span style="color:#6272a4"># 计算每个点的函数值</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>    ax<span style="color:#ff79c6">.</span>plot_surface(X, Y, Z, rstride<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, cstride<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, cmap<span style="color:#ff79c6">=</span>cm<span style="color:#ff79c6">.</span>coolwarm)  <span style="color:#6272a4"># 绘制3D曲面</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>    ax<span style="color:#ff79c6">.</span>set_xlabel(<span style="color:#f1fa8c">&#39;x&#39;</span>)  <span style="color:#6272a4"># 设置x轴标签</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>    ax<span style="color:#ff79c6">.</span>set_ylabel(<span style="color:#f1fa8c">&#39;y&#39;</span>)  <span style="color:#6272a4"># 设置y轴标签</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>    ax<span style="color:#ff79c6">.</span>set_zlabel(<span style="color:#f1fa8c">&#39;z&#39;</span>)  <span style="color:#6272a4"># 设置z轴标签</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>    plt<span style="color:#ff79c6">.</span>pause(<span style="color:#bd93f9">3</span>)  <span style="color:#6272a4"># 暂停3秒</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>    plt<span style="color:#ff79c6">.</span>show()  <span style="color:#6272a4"># 显示图形</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span><span style="color:#6272a4"># 适应度函数，用于评估个体的适应度</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">get_fitness</span>(pop):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>    x, y <span style="color:#ff79c6">=</span> translateDNA(pop)  <span style="color:#6272a4"># 将DNA转换为x, y坐标</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>    pred <span style="color:#ff79c6">=</span> F(x, y)  <span style="color:#6272a4"># 计算适应度</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>    <span style="color:#ff79c6">return</span> pred
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span><span style="color:#6272a4"># DNA转换函数，将二进制编码的DNA转换为实数解</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">translateDNA</span>(pop):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>    x_pop <span style="color:#ff79c6">=</span> pop[:, <span style="color:#bd93f9">0</span>:DNA_SIZE]  <span style="color:#6272a4"># 提取x坐标的DNA部分</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>    y_pop <span style="color:#ff79c6">=</span> pop[:, DNA_SIZE:]  <span style="color:#6272a4"># 提取y坐标的DNA部分</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>    x <span style="color:#ff79c6">=</span> x_pop<span style="color:#ff79c6">.</span>dot(<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">**</span> np<span style="color:#ff79c6">.</span>arange(DNA_SIZE)[::<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]) <span style="color:#ff79c6">/</span> float(<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">**</span> DNA_SIZE <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">*</span> (X_BOUND[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">-</span> X_BOUND[<span style="color:#bd93f9">0</span>]) <span style="color:#ff79c6">+</span> X_BOUND[<span style="color:#bd93f9">0</span>]
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>    y <span style="color:#ff79c6">=</span> y_pop<span style="color:#ff79c6">.</span>dot(<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">**</span> np<span style="color:#ff79c6">.</span>arange(DNA_SIZE)[::<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]) <span style="color:#ff79c6">/</span> float(<span style="color:#bd93f9">2</span> <span style="color:#ff79c6">**</span> DNA_SIZE <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>) <span style="color:#ff79c6">*</span> (Y_BOUND[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">-</span> Y_BOUND[<span style="color:#bd93f9">0</span>]) <span style="color:#ff79c6">+</span> Y_BOUND[<span style="color:#bd93f9">0</span>]
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>    <span style="color:#ff79c6">return</span> x, y
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span><span style="color:#6272a4"># 交叉和变异函数</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">crossover_and_mutation</span>(pop, CROSSOVER_RATE<span style="color:#ff79c6">=</span>CROSSOVER_RATE):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>    new_pop <span style="color:#ff79c6">=</span> []  <span style="color:#6272a4"># 初始化新的种群</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>    <span style="color:#ff79c6">for</span> father <span style="color:#ff79c6">in</span> pop:  <span style="color:#6272a4"># 遍历种群中的每一个个体</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>        child <span style="color:#ff79c6">=</span> father<span style="color:#ff79c6">.</span>copy()  <span style="color:#6272a4"># 复制个体作为孩子的初始基因</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>        <span style="color:#ff79c6">if</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>rand() <span style="color:#ff79c6">&lt;</span> CROSSOVER_RATE:  <span style="color:#6272a4"># 以交叉率的概率进行交叉</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span>            mother <span style="color:#ff79c6">=</span> pop[np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>randint(POP_SIZE)]  <span style="color:#6272a4"># 随机选择另一个个体作为母亲</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span>            cross_points <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>randint(low<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>, high<span style="color:#ff79c6">=</span>DNA_SIZE <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">2</span>)  <span style="color:#6272a4"># 随机选择交叉点</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span>            child[cross_points:] <span style="color:#ff79c6">=</span> mother[cross_points:]  <span style="color:#6272a4"># 孩子继承母亲的基因</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span>        mutation(child)  <span style="color:#6272a4"># 对孩子进行变异</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span>        new_pop<span style="color:#ff79c6">.</span>append(child)  <span style="color:#6272a4"># 将新个体添加到新种群中</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span>    <span style="color:#ff79c6">return</span> np<span style="color:#ff79c6">.</span>array(new_pop)  <span style="color:#6272a4"># 返回新的种群</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span><span><span style="color:#6272a4"># 变异函数</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">mutation</span>(child, MUTATION_RATE<span style="color:#ff79c6">=</span>MUTATION_RATE):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span>    <span style="color:#ff79c6">if</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>rand() <span style="color:#ff79c6">&lt;</span> MUTATION_RATE:  <span style="color:#6272a4"># 以变异率的概率进行变异</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span><span>        mutate_point <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">0</span>, DNA_SIZE <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">2</span>)  <span style="color:#6272a4"># 随机选择变异点</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span><span>        child[mutate_point] <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>logical_xor(child[mutate_point], <span style="color:#bd93f9">1</span>)  <span style="color:#6272a4"># 反转变异点的基因</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span><span><span style="color:#6272a4"># 选择函数，根据适应度选择个体</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">select</span>(pop, fitness):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67</span><span>    idx <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>choice(np<span style="color:#ff79c6">.</span>arange(POP_SIZE), size<span style="color:#ff79c6">=</span>POP_SIZE, replace<span style="color:#ff79c6">=</span>True, p<span style="color:#ff79c6">=</span>(fitness <span style="color:#ff79c6">/</span> fitness<span style="color:#ff79c6">.</span>sum()))  <span style="color:#6272a4"># 根据适应度比例选择个体</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68</span><span>    <span style="color:#ff79c6">return</span> pop[idx]
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70</span><span><span style="color:#6272a4"># 打印信息函数，输出当前种群的状态</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71</span><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">print_info</span>(pop):
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72</span><span>    fitness <span style="color:#ff79c6">=</span> get_fitness(pop)  <span style="color:#6272a4"># 计算适应度</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73</span><span>    max_fitness_index <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>argmax(fitness)  <span style="color:#6272a4"># 找到最大适应度的索引</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74</span><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;max_fitness:&#34;</span>, fitness[max_fitness_index])  <span style="color:#6272a4"># 打印最大适应度</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75</span><span>    x, y <span style="color:#ff79c6">=</span> translateDNA(pop)  <span style="color:#6272a4"># 转换DNA为坐标</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76</span><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;最优的基因型：&#34;</span>, pop[max_fitness_index])  <span style="color:#6272a4"># 打印最优个体的基因型</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77</span><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;(x, y):&#34;</span>, (x[max_fitness_index], y[max_fitness_index]))  <span style="color:#6272a4"># 打印最优个体的坐标</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78</span><span>    <span style="color:#8be9fd;font-style:italic">print</span>(F(x[max_fitness_index], y[max_fitness_index]))  <span style="color:#6272a4"># 打印最优个体的函数值</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80</span><span><span style="color:#6272a4"># 程序的主执行部分</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81</span><span><span style="color:#ff79c6">if</span> __name__ <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;__main__&#34;</span>:
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82</span><span>    fig <span style="color:#ff79c6">=</span> plt<span style="color:#ff79c6">.</span>figure()  <span style="color:#6272a4"># 创建一个新的图形</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83</span><span>    ax <span style="color:#ff79c6">=</span> fig<span style="color:#ff79c6">.</span>add_axes(Axes3D(fig))  <span style="color:#6272a4"># 添加一个3D坐标轴</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84</span><span>    plt<span style="color:#ff79c6">.</span>ion()  <span style="color:#6272a4"># 设置绘图模式为交互模式</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85</span><span>    plot_3d(ax)  <span style="color:#6272a4"># 绘制3D曲面</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87</span><span>    pop <span style="color:#ff79c6">=</span> np<span style="color:#ff79c6">.</span>random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">2</span>, size<span style="color:#ff79c6">=</span>(POP_SIZE, DNA_SIZE <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">2</span>))  <span style="color:#6272a4"># 初始化种群</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88</span><span>    <span style="color:#ff79c6">for</span> _ <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">range</span>(N_GENERATIONS):  <span style="color:#6272a4"># 进行N_GENERATIONS代进化</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89</span><span>        x, y <span style="color:#ff79c6">=</span> translateDNA(pop)  <span style="color:#6272a4"># 转换DNA为坐标</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">90</span><span>        sca <span style="color:#ff79c6">=</span> ax<span style="color:#ff79c6">.</span>scatter(x, y, get_fitness(pop), c<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;black&#39;</span>, marker<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;o&#39;</span>)  <span style="color:#6272a4"># 在3D图上绘制当前种群</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">91</span><span>        plt<span style="color:#ff79c6">.</span>show()  <span style="color:#6272a4"># 显示图形</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">92</span><span>        plt<span style="color:#ff79c6">.</span>pause(<span style="color:#bd93f9">0.1</span>)  <span style="color:#6272a4"># 暂停0.1秒</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">93</span><span>        pop <span style="color:#ff79c6">=</span> crossover_and_mutation(pop)  <span style="color:#6272a4"># 交叉和变异操作</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">94</span><span>        fitness <span style="color:#ff79c6">=</span> get_fitness(pop)  <span style="color:#6272a4"># 计算适应度</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">95</span><span>        pop <span style="color:#ff79c6">=</span> select(pop, fitness)  <span style="color:#6272a4"># 选择操作，生成新的种群</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">96</span><span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">97</span><span>    print_info(pop)  <span style="color:#6272a4"># 打印最终的种群信息</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">98</span><span>    plt<span style="color:#ff79c6">.</span>ioff()  <span style="color:#6272a4"># 关闭交互模式</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">99</span><span>    plot_3d(ax)  <span style="color:#6272a4"># 重新绘制3D曲面</span>
-</span></span></code></pre></div><p><img src="https://cloud.yuchu.me/f/0WHm/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%951.jpg"
+</h2><pre tabindex="0"><code>import numpy as np  # 导入numpy库，用于数学运算
+import matplotlib.pyplot as plt  # 导入matplotlib的pyplot模块，用于绘图
+from matplotlib import cm  # 导入matplotlib的颜色映射模块
+from mpl_toolkits.mplot3d import Axes3D  # 导入3D绘图工具
+
+# 定义遗传算法的参数
+DNA_SIZE = 24  # DNA的长度，即染色体的位数
+POP_SIZE = 80  # 种群的大小，即染色体的数量
+CROSSOVER_RATE = 0.6  # 交叉率，表示种群中有多少比例的个体会进行交叉操作
+MUTATION_RATE = 0.01  # 变异率，表示基因突变的概率
+N_GENERATIONS = 100  # 进化的代数
+X_BOUND = [-2.048, 2.048]  # x的取值范围
+Y_BOUND = [-2.048, 2.048]  # y的取值范围
+
+# 定义目标函数，即优化问题中的函数
+def F(x, y):
+    return 100.0 * (y - x ** 2.0) ** 2.0 + (1 - x) ** 2.0
+
+# 定义3D绘图函数
+def plot_3d(ax):
+    X = np.linspace(*X_BOUND, 100)  # 生成x的等差数列
+    Y = np.linspace(*Y_BOUND, 100)  # 生成y的等差数列
+    X, Y = np.meshgrid(X, Y)  # 生成网格
+    Z = F(X, Y)  # 计算每个点的函数值
+    ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.coolwarm)  # 绘制3D曲面
+    ax.set_xlabel(&#39;x&#39;)  # 设置x轴标签
+    ax.set_ylabel(&#39;y&#39;)  # 设置y轴标签
+    ax.set_zlabel(&#39;z&#39;)  # 设置z轴标签
+    plt.pause(3)  # 暂停3秒
+    plt.show()  # 显示图形
+
+# 适应度函数，用于评估个体的适应度
+def get_fitness(pop):
+    x, y = translateDNA(pop)  # 将DNA转换为x, y坐标
+    pred = F(x, y)  # 计算适应度
+    return pred
+
+# DNA转换函数，将二进制编码的DNA转换为实数解
+def translateDNA(pop):
+    x_pop = pop[:, 0:DNA_SIZE]  # 提取x坐标的DNA部分
+    y_pop = pop[:, DNA_SIZE:]  # 提取y坐标的DNA部分
+    x = x_pop.dot(2 ** np.arange(DNA_SIZE)[::-1]) / float(2 ** DNA_SIZE - 1) * (X_BOUND[1] - X_BOUND[0]) + X_BOUND[0]
+    y = y_pop.dot(2 ** np.arange(DNA_SIZE)[::-1]) / float(2 ** DNA_SIZE - 1) * (Y_BOUND[1] - Y_BOUND[0]) + Y_BOUND[0]
+    return x, y
+
+# 交叉和变异函数
+def crossover_and_mutation(pop, CROSSOVER_RATE=CROSSOVER_RATE):
+    new_pop = []  # 初始化新的种群
+    for father in pop:  # 遍历种群中的每一个个体
+        child = father.copy()  # 复制个体作为孩子的初始基因
+        if np.random.rand() &lt; CROSSOVER_RATE:  # 以交叉率的概率进行交叉
+            mother = pop[np.random.randint(POP_SIZE)]  # 随机选择另一个个体作为母亲
+            cross_points = np.random.randint(low=0, high=DNA_SIZE * 2)  # 随机选择交叉点
+            child[cross_points:] = mother[cross_points:]  # 孩子继承母亲的基因
+        mutation(child)  # 对孩子进行变异
+        new_pop.append(child)  # 将新个体添加到新种群中
+    return np.array(new_pop)  # 返回新的种群
+
+# 变异函数
+def mutation(child, MUTATION_RATE=MUTATION_RATE):
+    if np.random.rand() &lt; MUTATION_RATE:  # 以变异率的概率进行变异
+        mutate_point = np.random.randint(0, DNA_SIZE * 2)  # 随机选择变异点
+        child[mutate_point] = np.logical_xor(child[mutate_point], 1)  # 反转变异点的基因
+
+# 选择函数，根据适应度选择个体
+def select(pop, fitness):
+    idx = np.random.choice(np.arange(POP_SIZE), size=POP_SIZE, replace=True, p=(fitness / fitness.sum()))  # 根据适应度比例选择个体
+    return pop[idx]
+
+# 打印信息函数，输出当前种群的状态
+def print_info(pop):
+    fitness = get_fitness(pop)  # 计算适应度
+    max_fitness_index = np.argmax(fitness)  # 找到最大适应度的索引
+    print(&#34;max_fitness:&#34;, fitness[max_fitness_index])  # 打印最大适应度
+    x, y = translateDNA(pop)  # 转换DNA为坐标
+    print(&#34;最优的基因型：&#34;, pop[max_fitness_index])  # 打印最优个体的基因型
+    print(&#34;(x, y):&#34;, (x[max_fitness_index], y[max_fitness_index]))  # 打印最优个体的坐标
+    print(F(x[max_fitness_index], y[max_fitness_index]))  # 打印最优个体的函数值
+
+# 程序的主执行部分
+if __name__ == &#34;__main__&#34;:
+    fig = plt.figure()  # 创建一个新的图形
+    ax = fig.add_axes(Axes3D(fig))  # 添加一个3D坐标轴
+    plt.ion()  # 设置绘图模式为交互模式
+    plot_3d(ax)  # 绘制3D曲面
+
+    pop = np.random.randint(2, size=(POP_SIZE, DNA_SIZE * 2))  # 初始化种群
+    for _ in range(N_GENERATIONS):  # 进行N_GENERATIONS代进化
+        x, y = translateDNA(pop)  # 转换DNA为坐标
+        sca = ax.scatter(x, y, get_fitness(pop), c=&#39;black&#39;, marker=&#39;o&#39;)  # 在3D图上绘制当前种群
+        plt.show()  # 显示图形
+        plt.pause(0.1)  # 暂停0.1秒
+        pop = crossover_and_mutation(pop)  # 交叉和变异操作
+        fitness = get_fitness(pop)  # 计算适应度
+        pop = select(pop, fitness)  # 选择操作，生成新的种群
+
+    print_info(pop)  # 打印最终的种群信息
+    plt.ioff()  # 关闭交互模式
+    plot_3d(ax)  # 重新绘制3D曲面
+</code></pre><p><img src="https://cloud.yuchu.me/f/0WHm/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%951.jpg"
 	
 	
 	
@@ -1676,6 +1673,19 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
             
                 
 <article class="">
+    <a href="/posts/termux%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Termux从入门到入土</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
     <a href="/posts/%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E8%8A%99%E5%AE%81%E5%A8%9Cqq%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%94%AF%E6%8C%81ai%E8%81%8A%E5%A4%A9%E8%AF%AD%E9%9F%B3%E7%BB%98%E7%94%BB%E5%92%8C%E5%8F%91%E9%80%81%E6%B6%A9%E5%9B%BE%E5%8F%8A%E7%BF%BB%E5%94%B1/">
         
         
@@ -1695,19 +1705,6 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 
         <div class="article-details">
             <h2 class="article-title">通过油猴插件无限白嫖VecMulChat的gpt4o，claude3.5s等最新大模型</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/posts/%E8%A7%A3%E5%86%B3post%E8%AF%B7%E6%B1%82%E8%A2%ABnginx%E8%BD%AC%E6%8D%A2%E6%88%90get%E7%9A%84%E9%97%AE%E9%A2%98/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">解决POST请求被Nginx转换成GET的问题</h2>
         </div>
     </a>
 </article>

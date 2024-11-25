@@ -107,10 +107,10 @@
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/s/MAH0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;包含NTQQ，llonebot插件，MongoDB安装包和项目源码的整合包&lt;/a&gt;下载整合包并解压&lt;/p&gt;
 &lt;p&gt;先双击&lt;code&gt;install_windows.exe&lt;/code&gt;安装NTQQ，然后把llonebot.zip复制到NTQQ的插件目录下解压，重启QQ即可在设置里看到有关配置，然后就是填写反向ws监听地址&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt;ws://127.0.0.1:8011/ws
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后是双击MongoDB的安装文件，没什么好讲的，安装完成后进入bin目录，打开cmd，输入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1&lt;/span&gt;&lt;span&gt; mongod --dbpath D:\MongoDB\data --logpath D:\MongoDB\log\mongodb.log --logappend   #替换成你自己的对应目录
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;关闭终端，填写机器人项目的config，config.json里是基础配置&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ws://127.0.0.1:8011/ws
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后是双击MongoDB的安装文件，没什么好讲的，安装完成后进入bin目录，打开cmd，输入&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; mongod --dbpath D:\MongoDB\data --logpath D:\MongoDB\log\mongodb.log --logappend   #替换成你自己的对应目录
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;关闭终端，填写机器人项目的config，config.json里是基础配置&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;openai_api_key&lt;/code&gt;: 你的openai_api_key&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;model&lt;/code&gt;: 使用的模型，默认为gpt-3.5-turbo&lt;/li&gt;
@@ -136,11 +136,11 @@ model.json里主要是非gpt的其他模型的配置，如果填了，会覆盖c
 &lt;h3 id=&#34;视频教程&#34;&gt;&lt;a href=&#34;#%e8%a7%86%e9%a2%91%e6%95%99%e7%a8%8b&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;视频教程
 &lt;/h3&gt;&lt;p&gt;【芙宁娜QQ机器人搭建教程】 &lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1BBYcekEUs/?share_source=copy_web&amp;amp;vd_source=6f08734cb3a294b6a1e634a3e5b481ca&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://www.bilibili.com/video/BV1BBYcekEUs/?share_source=copy_web&amp;vd_source=6f08734cb3a294b6a1e634a3e5b481ca&lt;/a&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;iframe src=&#34;//player.bilibili.com/player.html?bvid=BV1BBYcekEUs&amp;p=1&amp;poster=1&amp;danmaku=0&amp;autoplay=0&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34;&gt; &lt;/iframe&gt;
 &lt;h3 id=&#34;获取bing的cookie用于非gpt系列的ai绘图&#34;&gt;&lt;a href=&#34;#%e8%8e%b7%e5%8f%96bing%e7%9a%84cookie%e7%94%a8%e4%ba%8e%e9%9d%9egpt%e7%b3%bb%e5%88%97%e7%9a%84ai%e7%bb%98%e5%9b%be&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;获取bing的cookie用于非gpt系列的AI绘图
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cloud.yuchu.me/f/qxjsX/2024-08-05%2021-41-49.mp4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;如果视频无法渲染可以点击链接下载&lt;/a&gt;
-&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;video src=&#34;https://cloud.yuchu.me/f/qxjsX/2024-08-05%2021-41-49.mp4&#34;&gt;&lt;/video&gt;&lt;/p&gt;
 &lt;h3 id=&#34;项目开源仓库&#34;&gt;&lt;a href=&#34;#%e9%a1%b9%e7%9b%ae%e5%bc%80%e6%ba%90%e4%bb%93%e5%ba%93&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;项目开源仓库
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/syuchua/MY_QBOT&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;syuchua/MY_QBOT: 一个简单的QQ机器人后端框架 (github.com)&lt;/a&gt;&lt;/p&gt;

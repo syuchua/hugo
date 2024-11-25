@@ -78,27 +78,11 @@ params:
     # Available values: auto, light, dark
     default: auto # 默认的颜色主题
 
-  externalResources:
-    - name: "Vibrant"
-      src: "https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"
-      integrity: "sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM="
-      type: "script"
-      defer: true
-      namespace: "Vibrant"
-      
-    - name: "KaTeX"
-      src: "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-      integrity: "sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
-      type: "script"
-      defer: true
-      namespace: "KaTeX"
-      
-    - name: "PhotoSwipe"
-      src: "https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"
-      integrity: "sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="
-      type: "script"
-      defer: true
-      namespace: "PhotoSwipe"
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: true
 
 ### Custom menu
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu.html
@@ -183,21 +167,14 @@ related:
           weight: 200
 
 markup:
-  defaultMarkdownHandler: goldmark
-  tableOfContents: # TOC 文章也右边的导航
-    ordered: true # 是否有序
-    startLevel: 2 # 从 2级标题开始
-    endLevel: 5 # 到 5级标题结束
-  highlight: # 代码高亮配置
-    codeFences: true # 是否启用代码块
-    guessSyntax: true # 是否猜测语法
-    lineNoStart: 1 # 代码块的起始行号
-    lineNos: true # 是否显示行号
-    lineNumbersInTable: false # 是否在表格中显示行号
-    noClasses: true # 是否不使用类
-    style: "dracula" # 代码块的样式
-    tabWidth: 4 # tab 的宽度
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: true
+  highlight:
+    noClasses: false
 
-ignoreLogs:
-  - warning-goldmark-raw-html
 

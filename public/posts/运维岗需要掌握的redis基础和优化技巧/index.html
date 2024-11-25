@@ -14,10 +14,7 @@
 <meta name="twitter:title" content="运维岗需要掌握的Redis基础和优化技巧">
 <meta name="twitter:description" content=" Redis 运维笔记 目录 Redis 基本概念 Redis 持久化机制 Redis 高可用 Redis 常用命令 Redis 性能优化 1. Redis 基本概念 Redis 是什么？ Redis 是一个开源的内存数据结构存储系统，支持多种数据结构如：字符串、哈希、列表、集合、有序集合等。 Redis 提供持久化机制，可以将内存中的数据保存到磁盘中，重启时加载使用。 Redis 应用场景 缓存: 提高访问速度，减少数据库压力。 分布式锁: 利用 Redis 的原子操作实现高效分布式锁。 消息队列: 利用列表结构实现高效队列。 2. Redis 持久化机制 Redis 支持两种主要的持久化方式：\n">
     <link rel="shortcut icon" href="/icons/favicon.ico" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js" integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM=" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8" crossorigin="anonymous" defer>
-            </script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js" integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin="anonymous" defer>
-            </script>
+
 
 
 <div class="top-scroll-bar"></div>
@@ -115,7 +112,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu13739649187745961479.png" width="300"
+                        <img src="/img/avatar_hu12318753086824270828.gif" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -1235,9 +1232,9 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </li>
 <li>
 <p><strong>配置示例</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#50fa7b">save 900 1</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#50fa7b">save 300 10</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#50fa7b">save 60 10000</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">save 900 1</span>
+</span></span><span class="line"><span class="cl"><span class="na">save 300 10</span>
+</span></span><span class="line"><span class="cl"><span class="na">save 60 10000</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="2-aof-append-only-file"><a href="#2-aof-append-only-file" class="header-anchor"></a><strong>2. AOF (Append-Only File)</strong>
@@ -1253,8 +1250,8 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </li>
 <li>
 <p><strong>配置示例</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#50fa7b">appendonly yes</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#50fa7b">appendfsync everysec</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">appendonly yes</span>
+</span></span><span class="line"><span class="cl"><span class="na">appendfsync everysec</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="选择合适的持久化方式"><a href="#%e9%80%89%e6%8b%a9%e5%90%88%e9%80%82%e7%9a%84%e6%8c%81%e4%b9%85%e5%8c%96%e6%96%b9%e5%bc%8f" class="header-anchor"></a><strong>选择合适的持久化方式</strong>
@@ -1269,7 +1266,7 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 <li>Redis 支持异步复制，一个 Master 可以有多个 Slave。</li>
 <li>Slave 只读，接收 Master 数据的更新。</li>
 <li><strong>命令</strong>:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>SLAVEOF &lt;master-ip&gt; &lt;master-port&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SLAVEOF &lt;master-ip&gt; &lt;master-port&gt;
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="2-哨兵模式-sentinel"><a href="#2-%e5%93%a8%e5%85%b5%e6%a8%a1%e5%bc%8f-sentinel" class="header-anchor"></a><strong>2. 哨兵模式 (Sentinel)</strong>
@@ -1277,7 +1274,7 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 <li>实现高可用性，哨兵可以监控主从实例的运行状态，并在主节点故障时自动进行故障转移。</li>
 <li><strong>优点</strong>: 自动故障切换，监控实例状态。</li>
 <li><strong>配置文件</strong>:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#50fa7b">sentinel monitor mymaster 127.0.0.1 6379 2</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">sentinel monitor mymaster 127.0.0.1 6379 2</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="3-redis-集群-redis-cluster"><a href="#3-redis-%e9%9b%86%e7%be%a4-redis-cluster" class="header-anchor"></a><strong>3. Redis 集群 (Redis Cluster)</strong>
@@ -1292,66 +1289,66 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </h3><ul>
 <li>
 <p>查看所有键:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>KEYS *
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">KEYS *
 </span></span></code></pre></div></li>
 <li>
 <p>删除键:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>DEL &lt;key&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">DEL &lt;key&gt;
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="字符串操作"><a href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%93%8d%e4%bd%9c" class="header-anchor"></a><strong>字符串操作</strong>
 </h3><ul>
 <li>
 <p>设置键值:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>SET &lt;key&gt; &lt;value&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SET &lt;key&gt; &lt;value&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>获取键值:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>GET &lt;key&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">GET &lt;key&gt;
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="列表操作"><a href="#%e5%88%97%e8%a1%a8%e6%93%8d%e4%bd%9c" class="header-anchor"></a><strong>列表操作</strong>
 </h3><ul>
 <li>
 <p>添加元素到列表:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>LPUSH &lt;key&gt; &lt;value&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">LPUSH &lt;key&gt; &lt;value&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>获取列表元素:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>LRANGE &lt;key&gt; <span style="color:#bd93f9">0</span> -1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">LRANGE &lt;key&gt; <span class="m">0</span> -1
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="哈希操作"><a href="#%e5%93%88%e5%b8%8c%e6%93%8d%e4%bd%9c" class="header-anchor"></a><strong>哈希操作</strong>
 </h3><ul>
 <li>
 <p>设置哈希字段:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>HSET &lt;key&gt; &lt;field&gt; &lt;value&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">HSET &lt;key&gt; &lt;field&gt; &lt;value&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>获取哈希字段:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>HGET &lt;key&gt; &lt;field&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">HGET &lt;key&gt; &lt;field&gt;
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="集合操作"><a href="#%e9%9b%86%e5%90%88%e6%93%8d%e4%bd%9c" class="header-anchor"></a><strong>集合操作</strong>
 </h3><ul>
 <li>
 <p>添加元素到集合:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>SADD &lt;key&gt; &lt;value&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SADD &lt;key&gt; &lt;value&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>获取集合所有元素:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>SMEMBERS &lt;key&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SMEMBERS &lt;key&gt;
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="有序集合操作"><a href="#%e6%9c%89%e5%ba%8f%e9%9b%86%e5%90%88%e6%93%8d%e4%bd%9c" class="header-anchor"></a><strong>有序集合操作</strong>
 </h3><ul>
 <li>
 <p>添加元素到有序集合:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ZADD &lt;key&gt; &lt;score&gt; &lt;value&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ZADD &lt;key&gt; &lt;score&gt; &lt;value&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>获取有序集合元素:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ZRANGE &lt;key&gt; <span style="color:#bd93f9">0</span> -1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ZRANGE &lt;key&gt; <span class="m">0</span> -1
 </span></span></code></pre></div></li>
 </ul>
 <hr>
@@ -1360,8 +1357,8 @@ b2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" />
 </h3><ul>
 <li>合理设置缓存过期时间，避免占用过多内存。</li>
 <li>配置示例:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#50fa7b">maxmemory 2gb</span>
-</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#50fa7b">maxmemory-policy allkeys-lru</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">maxmemory 2gb</span>
+</span></span><span class="line"><span class="cl"><span class="na">maxmemory-policy allkeys-lru</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="2-数据分区"><a href="#2-%e6%95%b0%e6%8d%ae%e5%88%86%e5%8c%ba" class="header-anchor"></a><strong>2. 数据分区</strong>
